@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 620" width="460" height="620">
+  <!-- NEIGHBOR (SISKA / PENGHUNI KAMAR 402) -->
+  <!-- Jacket & Body -->
+  <path d="M115 620 L135 265 Q165 215 230 215 Q295 215 325 265 L345 620 Z" fill="#3b4d5e" stroke="#1c1917" stroke-width="4.5"/>
+  <!-- Inner Shirt -->
+  <polygon points="195,220 265,220 250,360 210,360" fill="#e2e8f0" stroke="#1c1917" stroke-width="3"/>
+  <!-- Red Cross Armband -->
+  <rect x="126" y="320" width="42" height="32" fill="#f8fafc" stroke="#1c1917" stroke-width="3"/>
+  <path d="M147 326 L147 346 M137 336 L157 336" stroke="#dc2626" stroke-width="5"/>
+  <!-- Neck & Head -->
+  <rect x="212" y="175" width="36" height="50" fill="#e5b899" stroke="#1c1917" stroke-width="3.5"/>
+  <ellipse cx="230" cy="128" rx="52" ry="60" fill="#f0c8ab" stroke="#1c1917" stroke-width="4"/>
+  <!-- Hair -->
+  <path d="M174 135 Q172 58 230 58 Q288 58 286 135 Q275 95 230 92 Q185 95 174 135 Z" fill="#1e1b18" stroke="#0c0a09" stroke-width="3.5"/>
+  <!-- Worried Eyes & Eyebrows -->
+  <line x1="196" y1="112" x2="216" y2="106" stroke="#1c1917" stroke-width="3.5"/>
+  <line x1="244" y1="106" x2="264" y2="112" stroke="#1c1917" stroke-width="3.5"/>
+  <circle cx="208" cy="124" r="5" fill="#1c1917"/>
+  <circle cx="252" cy="124" r="5" fill="#1c1917"/>
+  <!-- Surgical Mask / Face -->
+  <path d="M196 155 Q230 148 264 155" fill="none" stroke="#1c1917" stroke-width="3"/>
+</svg>

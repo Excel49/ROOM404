@@ -1,0 +1,316 @@
+================================================================================
+DOKUMEN NASKAH CERITA, KEJADIAN HARIAN, & ALUR OPSI PERCABANGAN — "ROOM 404"
+================================================================================
+Tema Game    : 2D Apartment Survival / Decision-Making (Terinspirasi 60 Seconds!)
+Lokasi Utama : Kamar Apartemen 404 (Lantai 4, Apartemen Griya Sentosa)
+Durasi       : 10 Hari Menuju Evakuasi Helikopter (Atau Lebih Cepat via Radio)
+================================================================================
+
+--------------------------------------------------------------------------------
+BAGIAN 1: RINGKASAN FORMAT PITCH PEMBUKAAN GAME & NASKAH 4 SCENE INTRO
+--------------------------------------------------------------------------------
+[FORMAT PITCH / STORYBOARD RINGKAS — PEMBUKAAN GAME "ROOM 404"]
+
+01. The 04:04 Lockdown (Pembukaan Room 404)
+
+Hook: “Kamu pergi tidur di malam yang normal di Lantai 4, lalu terbangun di atas lantai kamar karena suara gemuruh hebat di luar tepat pukul 04:04.”
+Twist: Saat kamu hendak membuka pintu Kamar 404 untuk mengecek keadaan, layar HP-mu menyala dengan peringatan darurat militer: tidak boleh ada seorang pun yang keluar atau membuka pintu sampai informasi selanjutnya—karena bahaya sesungguhnya sudah berada di balik koridor kamarmu.
+Animates well: transisi kontras dari cahaya senja kota yang hangat ke layar hitam pekat berguncang pada pukul 04:04, karakter terjatuh terbangun di lantai kayu Lantai 4, dan *close-up* layar HP yang bergetar keras menampilkan pesan merah "JANGAN BUKA PINTU" tepat saat bayangan langkah kaki lewat di celah bawah pintu.
+True or legend: fiksi spekulatif / *urban survival lore*. Menggabungkan penomoran nyata gedung apartemen (Lantai 4, Unit 04) dengan kode *error* legendaris “404 Not Found”—sebuah kamar yang terputus dari dunia luar dan harus bertahan mandiri.
+
+--------------------------------------------------------------------------------
+Catatan Logika Lokasi "KAMAR 404":
+- Kenapa berada di LANTAI 4?
+  1. Standar penomoran gedung apartemen/hotel: Digit pertama "4" = Lantai 4,
+     dan digit "04" = Kamar urutan ke-4 di koridor tersebut (Unit 404).
+  2. Secara posisi strategis survival: Lantai 4 cukup tinggi sehingga suara
+     gemuruh dari jalanan raya dan lobi bawah terdengar jelas dari jendela,
+     namun tidak terlalu jauh dari atap gedung (Lantai 6 / Rooftop Helipad)
+     sebagai titik evakuasi helikopter pada Hari Ke-10.
+  3. Filosofi "404 Not Found": Kamar di sudut lorong Lantai 4 yang seolah
+     terlupakan dari peta evakuasi awal, memaksa penghuninya bertahan mandiri.
+
+ALUR 4 SCENE INTRO (VISUAL NOVEL / STORYBOARD VIDEO):
+
+[SCENE 1: KEHIDUPAN NORMAL — SORE HARI SEBELUM WABAH]
+* Visual / Video : Cahaya matahari senja yang hangat masuk lewat jendela
+                   Kamar 404 (Lantai 4). Di luar jendela tampak lalu lintas
+                   kota yang normal, suara klakson samar, dan aroma kopi/makanan
+                   hangat di meja.
+* Audio          : Musik akustik/lo-fi tenang, kicau burung sore, suara TV pelan.
+* Teks Narasi    :
+  "Kemarin semuanya masih tampak biasa saja di Apartemen Griya Sentosa.
+   Dari jendela Kamar 404 di Lantai 4, lampu-lampu jalanan kota menyala hangat
+   seperti ribuan malam sebelumnya. Tak ada yang menyangka, malam itu adalah
+   malam tenang terakhir bagi kota ini..."
+
+[SCENE 2: LAYAR HITAM PEKAT (BLACKOUT) — KEESOKAN HARINYA PUKUL 04:04]
+* Visual / Video : Layar berubah HITAM PEKAT (Fade to Black). Hanya ada jam
+                   digital merah menyala samar menunjukkan pukul [04:03 -> 04:04].
+                   Layar mulai bergetar hebat (Camera Shake).
+* Audio          : Hening sejenak, lalu disusul SUARA GEMURUH BERAT dari luar
+                   gedung, dentuman keras di kejauhan, deru helikopter lewat
+                   rendah, dan suara kaca pecah dari lantai dasar.
+* Teks Narasi    :
+  "...Hingga keesokan harinya, tepat pukul 04:04 dini hari.
+   BRUAAAK!! Suara gemuruh hebat dan getaran dari jalanan luar merambati
+   dinding beton gedung apartemen, memecah keheningan malam."
+
+[SCENE 3: TERBANGUN DI LANTAI KAMAR 404 (LANTAI 4)]
+* Visual / Video : Mata terbuka perlahan (efek kedipan kabur menjadi jelas).
+                   Karakter terjatuh/terbangun di atas lantai kayu Kamar 404
+                   karena kuatnya getaran. Dari jendela Lantai 4, langit subuh
+                   tampak memerah oleh asap di pusat kota. Terdengar langkah
+                   kaki orang berlarian panik di koridor luar Lantai 4.
+* Audio          : Napas terengah-engah, sirene darurat meraung samar dari luar
+                   jendela, ketukan dan teriakan panik dari lorong lantai bawah.
+* Teks Narasi    :
+  "Kamu terbangun terduduk di atas lantai Kamar 404. Jantungmu berdegup
+   kencang. Dari ketinggian Lantai 4, kamu bisa mendengar suara gemuruh kacau
+   di jalanan bawah dan teriakan penghuni lain di tangga darurat.
+   Saat kamu hendak berdiri menghampiri pintu kamar—"
+
+[SCENE 4: LAYAR HANDPHONE MENYALA — PERINGATAN DARURAT NASIONAL]
+* Visual / Video : Close-up layar Smartphone di lantai/meja yang bergetar keras
+                   (BZZZZT! BZZZZT!) dengan latar merah berkedip:
+                   [⚠️ EMERGENCY ALERT — KOMANDO DARURAT NASIONAL]
+* Audio          : Bunyi alarm EAS (Emergency Alert System) nyaring & getar HP.
+* Isi Pesan di Layar Handphone:
+  "PERINGATAN BAHAYA BIOLOGIS TINGKAT HITAM!
+   Telah terjadi penyebaran wabah agresif di seluruh distrik kota.
+   INSTRUKSI WAJIB BAGI SELURUH PENGHUNI APARTEMEN:
+   1. JANGAN KELUAR DARI KAMAR ANDA!
+   2. JANGAN MEMBUKA PINTU UNTUK SIAPA PUN!
+   3. Kunci rapat pintu, pasang barikade, dan bertahanlah di dalam ruangan
+      sampai informasi frekuensi evakuasi selanjutnya!"
+* Transisi ke Gameplay:
+  Pemain menekan tombol ["KUNCI PINTU 404 & BERSIAP BERTAHAN!"] -> Masuk ke
+  pemilihan mode (Mode Panik 15 Detik menyambar barang di kamar atau Langsung
+  Mulai Hari Ke-1).
+
+--------------------------------------------------------------------------------
+BAGIAN 2: PROFIL 3 KARAKTER PENYINTAS & ALUR KEAHLIAN UNIK
+--------------------------------------------------------------------------------
+1. RAKA (Mahasiswa Teknik Elektro — "Si Perakit")
+   - Latar Belakang : Penghuni asli Kamar 404 yang sedang mengerjakan proyek
+                      pemancar radio amatir saat wabah pecah.
+   - Modal Awal     : +1 Komponen Radio.
+   - Keahlian Pasif : Peluang menemukan Komponen Radio saat ekspedisi koridor
+                      meningkat menjadi 85% (jalur tercepat menuju Secret Ending).
+
+2. SISKA (Perawat IGD — "Si Medis")
+   - Latar Belakang : Penghuni Kamar 405 di sebelah yang sempat berlindung ke
+                      Kamar 404 sambil membawa tas medis daruratnya.
+   - Modal Awal     : +1 Kotak P3K Ekstra.
+   - Keahlian Pasif : Penggunaan P3K memulihkan +60% Kesehatan (normal +45%) &
+                      konsumsi Air/Sup memulihkan +5% Kewarasan tambahan.
+
+3. BIMA (Mantan Sekuriti Gedung — "Si Penjaga")
+   - Latar Belakang : Petugas keamanan shift malam yang naik ke lantai 4 untuk
+                      memasang barikade darurat ketika lobi apartemen jebol.
+   - Modal Awal     : Mulai langsung dengan Pemukul Kasti & Barikade Pintu 100%.
+   - Keahlian Pasif : Mengurangi kerusakan dobrakan pintu malam hari & risiko
+                      terluka saat ekspedisi koridor lebih kecil.
+
+--------------------------------------------------------------------------------
+BAGIAN 3: ALUR KEJADIAN HARIAN (HARI 1 S/D HARI 10) BESERTA KONSEKUENSI OPSI
+--------------------------------------------------------------------------------
+
+[HARI KE-1] — "Ketukan Panik Tetangga Kamar 402"
+* Situasi:
+  Seseorang menggedor pintu Kamar 404 sambil terengah-engah: "Tolong! Aku Dani
+  dari Kamar 402, ada mayat hidup di tangga darurat! Beri aku 1 botol air bersih,
+  aku punya komponen frekuensi radio militer yang jatuh dari tas tentara!"
+* Alur Opsi:
+  - OPSI A: Beri 1 Air Bersih lewat celah bawah pintu (Syarat: Punya >= 1 Air)
+    -> Hasil Cerita : Dani menyerahkan 1 Komponen Radio dari celah pintu lalu
+                      berlari mencari tempat sembunyi.
+    -> Efek Stat    : -1 Air Bersih, +1 Komponen Radio, +10% Kewarasan.
+  - OPSI B: Tolak & kunci rapat slot intip pintu
+    -> Hasil Cerita : Kamu diam mematung hingga suara langkahnya menjauh.
+                      Persediaan airmu aman, tapi rasa bersalah menghantuimu.
+    -> Efek Stat    : -10% Kewarasan.
+  - OPSI C (Khusus Bima / Pemukul Kasti): Buka sedikit pintu & kawal Dani
+    -> Hasil Cerita : Kamu mengintimidasi zombie yang mengejarnya dari balik
+                      teralis. Dani berterima kasih dan memberi 1 Kaleng Sup.
+    -> Efek Stat    : +1 Kaleng Sup, +5% Kewarasan.
+
+[HARI KE-2] — "Rembesan Pipa Air Apartemen Bocor"
+* Situasi:
+  Langit-langit sudut Kamar 404 meneteskan air dari pipa lantai 5 yang pecah.
+  Airnya tampak sedikit keruh, namun stok air bersih di kamarmu terbatas.
+* Alur Opsi:
+  - OPSI A: Tadah dengan ember dan rebus memakai lilin darurat
+    -> Hasil Cerita : Kamu begadang menyaring dan merebus air tetesan pipa
+                      hingga layak minum meski tubuhmu agak kelelahan.
+    -> Efek Stat    : +2 Air Bersih, -5% Kesehatan.
+  - OPSI B: Bongkar papan penutup plafon pipa untuk menambal pintu
+    -> Hasil Cerita : Kamu mengabaikan airnya dan mengambil papan kayu plafon
+                      untuk memperkuat barikade Pintu 404.
+    -> Efek Stat    : +20% Barikade Pintu.
+
+[HARI KE-3] — "Siaran Gelap di Frekuensi Darurat"
+* Situasi:
+  Radio tua di meja kerja mendadak berdesis keras pada pukul 14:00. Terdengar
+  suara operator militer yang terputus-putus menyebutkan sandi evakuasi atap.
+* Alur Opsi:
+  - OPSI A: Fokus mencatat koordinat & sandi militer seharian
+    -> Hasil Cerita : Kamu berhasil menyalin jam kedatangan helikopter dengan
+                      tepat. Harapan hidupmu meningkat pesat!
+    -> Efek Stat    : +20% Kewarasan, -10% Rasa Kenyang.
+  - OPSI B: Bongkar casing belakang radio untuk mengecek sirkuit pemancar
+    -> Hasil Cerita : Kamu menemukan 1 modul kapasitor pemancar cadangan yang
+                      masih berfungsi di dalam bodi radio!
+    -> Efek Stat    : +1 Komponen Radio.
+
+[HARI KE-4] — "Cakaran Ganas di Balik Pintu 404"
+* Situasi:
+  Dua zombie tersesat di lorong lantai 4 dan menciumi celah pintu kamarmu.
+  Papan barikade berderit keras menahan beban tubuh mereka.
+* Alur Opsi:
+  - OPSI A: Pukul balik tangan zombie dari celah ventilasi pintu
+            (Syarat: Memiliki Pemukul Kasti)
+    -> Hasil Cerita : Hantaman kerasmu membuat kedua zombie itu mundur! Sebuah
+                      kantong ransum jatuh dari seragam salah satu zombie.
+    -> Efek Stat    : +1 Kaleng Sup, +10% Kewarasan.
+  - OPSI B: Tahan daun pintu dengan bahumu sekuat tenaga tanpa bersuara
+    -> Hasil Cerita : Pintu tidak jebol, tetapi bahumu terkilir dan tergores
+                      paku papan barikade.
+    -> Efek Stat    : -15% Kesehatan, -10% Barikade Pintu.
+
+[HARI KE-5] — "Tas Ransel Medis Tersangkut di Teralis Jendela"
+* Situasi:
+  Saat mengintip dari jendela Kamar 404, kamu melihat sebuah tas ransel milik
+  petugas paramedis tersangkut di pipa luar tepat di bawah jendelamu.
+* Alur Opsi:
+  - OPSI A: Julurkan gantungan besi untuk mengaitkan ransel tersebut
+    -> Hasil Cerita : Berhasil! Meski menegangkan, kamu menarik masuk ransel
+                      berisi 1 Kotak P3K dan 1 Kaleng Sup.
+    -> Efek Stat    : +1 Kotak P3K, +1 Kaleng Sup.
+  - OPSI B: Biarkan saja dan tutup tirai jendela rapat-rapat
+    -> Hasil Cerita : Kamu memilih tidak mengambil risiko terlihat oleh zombie
+                      di jalanan bawah.
+    -> Efek Stat    : +5% Kewarasan.
+
+[HARI KE-6] — "Serbuan Tikus Got di Rak Logistik"
+* Situasi:
+  Seekor tikus besar menyelinap masuk lewat lubang ventilasi bawah dan berusaha
+  menggerogoti kardus penyimpanan di rak logistik Kamar 404.
+* Alur Opsi:
+  - OPSI A: Kejar tikus itu dan paku rapat lubang ventilasi besi
+    -> Hasil Cerita : Kamu menguras keringat mengejar tikus tersebut dan menutup
+                      rapat jalur ventilasi agar aman.
+    -> Efek Stat    : +15% Barikade Pintu, -10% Rasa Kenyang.
+  - OPSI B: Lempar 1 Kaleng Sup penyok agar tikus pergi (Syarat: Punya >= 1 Sup)
+    -> Hasil Cerita : Tikus itu membawa makanan tersebut keluar ventilasi tanpa
+                      membuat gaduh atau menggigitmu.
+    -> Efek Stat    : -1 Kaleng Sup, +10% Kewarasan.
+
+[HARI KE-7] — "Listrik Darurat Apartemen Padam Total"
+* Situasi:
+  Lampu gantung Kamar 404 berkedip tiga kali lalu meredup. Suhu ruangan turun
+  drastis dan suara lolongan zombie dari lantai bawah menggema di kegelapan.
+* Alur Opsi:
+  - OPSI A: Nyalakan lilin meja kerja & tulis jurnal untuk menenangkan diri
+    -> Hasil Cerita : Cahaya hangat lilin dan catatan harapan di buku jurnal
+                      menjaga kewarasanmu di tengah malam kelam.
+    -> Efek Stat    : +20% Kewarasan.
+  - OPSI B: Bongkar aki lampu darurat di plafon untuk daya tambahan radio
+    -> Hasil Cerita : Dalam gelap gulita, kamu mencopot kumparan aki untuk
+                      melengkapi daya pancar radio darurat!
+    -> Efek Stat    : +1 Komponen Radio, -10% Kewarasan.
+
+[HARI KE-8] — "Dilema Moral Kurir Logistik di Koridor"
+* Situasi:
+  Seorang kurir logistik terduduk lemas bersandar di depan pintu Kamar 404.
+  Ia tidak tergigit zombie, tetapi dehidrasi berat dan menawarkan seluruh isi
+  tasnya jika kamu memberinya minum.
+* Alur Opsi:
+  - OPSI A: Berikan 1 Botol Air Bersih lewat celah pintu (Syarat: Punya >= 1 Air)
+    -> Hasil Cerita : Kurir itu menangis haru. Sebelum melanjutkan perjalanan,
+                      ia meninggalkan 2 Kaleng Sup dan 1 Kotak P3K di depan pintu!
+    -> Efek Stat    : -1 Air Bersih, +2 Kaleng Sup, +1 Kotak P3K.
+  - OPSI B: Simpan air untuk dirimu sendiri dan matikan lampu
+    -> Hasil Cerita : Kamu mengabaikan rintihannya demi menjaga stok airmu,
+                      namun beban mentalmu semakin berat.
+    -> Efek Stat    : -15% Kewarasan.
+
+[HARI KE-9] — "Deru Baling-Baling Helikopter Pengintai (H-1 Evakuasi)"
+* Situasi:
+  Suara helikopter militer terdengar melintasi langit distrik apartemen! Besok
+  adalah Hari Ke-10. Namun suara bising helikopter membuat zombie di gedung
+  menjadi berkali-kali lipat lebih beringas malam ini.
+* Alur Opsi:
+  - OPSI A: Paku seluruh perabot kayu tersisa ke Pintu 404!
+    -> Hasil Cerita : Kamu membongkar laci meja dan memakunya ke pintu untuk
+                      menghadapi gempuran malam terakhir!
+    -> Efek Stat    : +35% Barikade Pintu, -10% Rasa Kenyang.
+  - OPSI B: Pasang kain merah & pantulan cermin darurat di jendela kamar
+    -> Hasil Cerita : Pilot helikopter memberikan kode lampu hijau ke arah
+                      jendelamu! Semangat hidupmu membara menyambut esok pagi.
+    -> Efek Stat    : +25% Kewarasan.
+
+[HARI KE-10] — "Panggilan Terakhir Menuju Helipad Atap!"
+* Situasi:
+  Sirene evakuasi militer menggema dari atap gedung! Helikopter mendarat di
+  rooftop lantai 6 selama 5 menit. Inilah saat penentuan apakah kamu berhasil
+  keluar hidup-hidup dari Kamar 404!
+* Alur Opsi:
+  - OPSI A: Dobrak barikade pintu & lari menembus tangga darurat menuju atap!
+    -> Hasil Cerita : Memicu pengecekan kondisi akhir (Ending Evaluation).
+
+--------------------------------------------------------------------------------
+BAGIAN 4: ALUR 4 PILIHAN TUGAS SIANG & EKSPEDISI KORIDOR (TAB 4 JURNAL)
+--------------------------------------------------------------------------------
+Selain menyelesaikan Kasus Harian, setiap hari pemain memilih 1 fokus aktivitas:
+
+1. Bertahan di Kamar 404 & Palu Barikade (Risiko: 0% Aman)
+   -> Efek Malam: +25% Barikade Pintu (+32% jika Bima) & +5% Kewarasan.
+
+2. Geledah Kamar Tetangga 401 (Risiko Bahaya: 20%, turun jadi 5% jika bersenjata)
+   -> Hasil Loot: Pasti dapat +1 Kaleng Sup & +1 Botol Air.
+
+3. Geledah Kamar Medis 405 (Risiko Bahaya: 35%, turun jadi 20% jika bersenjata)
+   -> Hasil Loot: Pasti dapat +1 Kotak P3K, serta 65% peluang (+85% jika Raka)
+                  mendapatkan +1 Komponen Radio.
+
+4. Turun ke Minimarket Lobi Apartemen (Risiko Bahaya: 50%, turun jadi 35% bersenjata)
+   -> Hasil Loot: JACKPOT! Dapat +2 Kaleng Sup, +1 Air Bersih, & +1 Komponen Radio.
+   -> Risiko Gagal: Jika tertangkap zombie tanpa Pemukul Kasti, 45% peluang
+                    terkena status TERINFEKSI VIRUS (harus disembuhkan dengan P3K).
+
+--------------------------------------------------------------------------------
+BAGIAN 5: ALUR PERCABANGAN 5 ENDING PERMAINAN
+--------------------------------------------------------------------------------
+1. TRUE GOOD ENDING — "Selamat dari Room 404!"
+   - Syarat : Bertahan hidup sampai Hari Ke-10, Kesehatan > 0%, Kewarasan > 0%,
+              dan status BEBAS INFEKSI (`infected == false`).
+   - Cerita : Kamu berlari mencapai helipad atap gedung. Lolos pemeriksaan medis
+              tentara, kamu ditarik naik ke helikopter saat gedung mulai runtuh!
+
+2. SECRET TECH ENDING — "Sinyal Frekuensi 404 (Evakuasi Kilat)"
+   - Syarat : Mengumpulkan 3/3 Komponen Radio pada Hari Ke-4 atau setelahnya,
+              kondisi tidak terinfeksi.
+   - Cerita : Kamu berhasil merakit pemancar radio militer di meja kerja Kamar 404!
+              Regu helikopter taktis menjemputmu lebih awal tanpa harus menunggu
+              Hari Ke-10!
+
+3. INFECTED ENDING — "Ditolak di Helipad Karantina"
+   - Syarat : Mencapai Hari Ke-10, tetapi masih berstatus TERINFEKSI (`infected == true`)
+              karena belum menggunakan Kotak P3K.
+   - Cerita : Kamu tiba di atap gedung, namun pemindai termal tentara mendeteksi
+              virus di tubuhmu. Helikopter lepas landas meninggalkanmu di atap.
+
+4. BAD ENDING #1 — "Tewas di Kamar 404"
+   - Syarat : Kesehatan (`health`) mencapai 0% akibat kelaparan, serangan koridor,
+              atau barikade pintu 404 jebol (`barricade == 0%`) di malam hari.
+   - Cerita : Dobrakan gerombolan zombie di pintu Kamar 404 dan luka fisik yang
+              parah menghentikan perjuanganmu sebelum bantuan tiba.
+
+5. BAD ENDING #2 — "Kehilangan Kewarasan di Ruang Isolasi"
+   - Syarat : Kewarasan (`sanity`) mencapai 0% akibat stres, dehidrasi, dan
+              keputusan moral yang buruk.
+   - Cerita : Halusinasi dan kepanikan ekstrem membuatmu membuka sendiri kunci
+              pintu Kamar 404 di tengah malam buta dan berjalan ke lorong gelap.
+================================================================================
+

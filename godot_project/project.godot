@@ -1,0 +1,32 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="ROOM 404 — 60 Seconds! Apartment Survival"
+config/description="Game Survival 10 Hari di Kamar Apartemen 404 bergaya 60 Seconds! Reatomized"
+run/main_scene="res://scenes/MainRoom404.tscn"
+config/features=PackedStringArray("4.7")
+config/icon="res://assets/icon.svg"
+
+[autoload]
+
+GameState="*res://scripts/GameState.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"

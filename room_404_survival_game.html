@@ -1,0 +1,2825 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROOM 404 — 60 Seconds! Style Survival</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts: Comic/Stencil & Typewriter Journal Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&family=Space+Grotesk:wght@600;700&display=swap">
+
+  <style>
+    :root {
+      --paper-bg: #f3e5ab;
+      --paper-dark: #dfd096;
+      --ink-dark: #231f20;
+      --stamp-red: #b91c1c;
+      --stamp-green: #15803d;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #12100e;
+      font-family: 'Special Elite', cursive, monospace;
+      color: var(--ink-dark);
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .font-stencil {
+      font-family: 'Black Ops One', Impact, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .font-ui {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* 60 Seconds! Poster / Comic Vignette & Grungy Overlay */
+    .shelter-vignette {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 45%, rgba(255, 180, 70, 0.06) 20%, rgba(10, 8, 6, 0.78) 95%);
+      box-shadow: inset 0 0 110px rgba(0,0,0,0.95);
+      z-index: 15;
+    }
+
+    /* Hanging Lamp Swing & Flicker */
+    @keyframes lamp-swing {
+      0%, 100% { transform: rotate(-1.5deg); }
+      50% { transform: rotate(1.5deg); }
+    }
+    @keyframes light-flicker {
+      0%, 100% { opacity: 0.88; }
+      48% { opacity: 0.88; }
+      50% { opacity: 0.55; }
+      52% { opacity: 0.92; }
+      75% { opacity: 0.80; }
+      77% { opacity: 0.40; }
+      79% { opacity: 0.88; }
+    }
+    .lamp-group {
+      transform-origin: 640px 0px;
+      animation: lamp-swing 6s ease-in-out infinite;
+    }
+    .lamp-cone {
+      animation: light-flicker 7s infinite;
+    }
+
+    /* Interactive Room Object Hover Outline (60 Seconds! Style White/Yellow Highlight) */
+    .room-hotspot {
+      cursor: pointer;
+      transition: filter 0.18s ease, transform 0.18s ease;
+    }
+    .room-hotspot:hover {
+      filter: drop-shadow(0px 0px 8px rgba(250, 204, 21, 0.95)) brightness(1.08);
+    }
+
+    /* Scavenge Collectible Item Animation */
+    @keyframes item-bob {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-6px) scale(1.05); }
+    }
+    .scavenge-item {
+      cursor: pointer;
+      animation: item-bob 1.2s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.9));
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .scavenge-item:hover {
+      filter: drop-shadow(0 0 16px #ffffff) brightness(1.2);
+    }
+
+    /* Physical Spiral Notebook Styling */
+    .notebook-sheet {
+      background-color: var(--paper-bg);
+      background-image: 
+        radial-gradient(rgba(139, 90, 43, 0.12) 1px, transparent 0),
+        linear-gradient(to bottom, transparent 95%, rgba(0, 0, 0, 0.06) 100%);
+      background-size: 20px 20px, 100% 28px;
+      box-shadow: 
+        0 25px 60px rgba(0,0,0,0.85),
+        inset 0 0 45px rgba(120, 80, 20, 0.25),
+        8px 8px 0px #bda968,
+        14px 14px 0px #8c7a44;
+      border: 3px solid #2b241d;
+    }
+
+    /* Rubber Stamp Styling */
+    .rubber-stamp {
+      border: 3px solid currentColor;
+      padding: 4px 12px;
+      text-transform: uppercase;
+      font-family: 'Black Ops One', Impact, sans-serif;
+      letter-spacing: 1.5px;
+      display: inline-block;
+      transform: rotate(-2deg);
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.15);
+      transition: all 0.12s ease;
+    }
+    .rubber-stamp:active {
+      transform: scale(0.94) rotate(0deg);
+    }
+
+    /* Polaroid Frame */
+    .polaroid-card {
+      background: #faf6eb;
+      padding: 10px 10px 26px 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      border: 2px solid #2b241d;
+      transform: rotate(-1.5deg);
+    }
+
+    /* Floating Notebook Button Bounce */
+    @keyframes journal-pulse {
+      0%, 100% { transform: translateY(0) rotate(-3deg) scale(1); }
+      50% { transform: translateY(-8px) rotate(2deg) scale(1.06); }
+    }
+    .journal-alert {
+      animation: journal-pulse 1.6s ease-in-out infinite;
+    }
+
+    /* Rain Animation outside Window */
+    @keyframes rain-fall {
+      0% { stroke-dashoffset: 40; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .rain-line {
+      stroke-dasharray: 12 28;
+      animation: rain-fall 0.45s linear infinite;
+    }
+
+    /* Distant Storm Lightning in Window */
+    @keyframes window-lightning {
+      0%, 91%, 95%, 98%, 100% { opacity: 0; }
+      92%, 96% { opacity: 0.55; }
+    }
+    .storm-lightning {
+      animation: window-lightning 9s infinite;
+    }
+
+    /* Ceiling Pipe Water Drip */
+    @keyframes pipe-drip {
+      0% { transform: translateY(0) scaleY(0.8); opacity: 0.9; }
+      80% { transform: translateY(155px) scaleY(1.3); opacity: 0.85; }
+      100% { transform: translateY(165px) scaleY(0.3); opacity: 0; }
+    }
+    .water-drop {
+      animation: pipe-drip 2.6s ease-in infinite;
+    }
+
+    /* Candle Flame Flicker */
+    @keyframes flame-flicker {
+      0%, 100% { transform: scale(1) rotate(-2deg); opacity: 0.95; }
+      50% { transform: scale(1.12, 0.92) rotate(3deg); opacity: 0.8; }
+    }
+    .candle-flame {
+      transform-origin: center bottom;
+      animation: flame-flicker 0.35s ease-in-out infinite;
+    }
+
+    /* Living Survivor Character Animations (Breathe, Blink, Shiver) */
+    @keyframes char-breathe {
+      0%, 100% { transform: translateY(0px) scaleY(1); }
+      50% { transform: translateY(-2.5px) scaleY(1.015); }
+    }
+    @keyframes char-shiver {
+      0%, 100% { transform: translate(0px, 0px); }
+      25% { transform: translate(-1.8px, 0.5px); }
+      75% { transform: translate(1.8px, -0.5px); }
+    }
+    @keyframes char-blink {
+      0%, 92%, 100% { transform: scaleY(0); }
+      95% { transform: scaleY(1); }
+    }
+    .survivor-breathe {
+      transform-origin: 65px 195px;
+      animation: char-breathe 3.4s ease-in-out infinite;
+    }
+    .survivor-shiver {
+      animation: char-shiver 0.16s linear infinite;
+    }
+    .eyelid-blink {
+      transform-origin: 65px 42px;
+      animation: char-blink 4.5s infinite;
+    }
+
+    /* Screen Shake & Transition Animations */
+    @keyframes camera-shake {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      15% { transform: translate(-10px, -6px) rotate(-1deg); }
+      30% { transform: translate(9px, 5px) rotate(1deg); }
+      45% { transform: translate(-7px, 4px) rotate(-0.5deg); }
+      60% { transform: translate(6px, -4px) rotate(0.5deg); }
+      75% { transform: translate(-4px, 2px) rotate(0deg); }
+    }
+    .screen-shake {
+      animation: camera-shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    @keyframes notebook-pop {
+      0% { opacity: 0; transform: translateY(45px) scale(0.92) rotate(-1.5deg); }
+      100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+    }
+    .notebook-enter {
+      animation: notebook-pop 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes tab-fade-slide {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .tab-page-anim {
+      animation: tab-fade-slide 0.22s ease-out forwards;
+    }
+
+    @keyframes curtain-fade-in {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .curtain-enter {
+      animation: curtain-fade-in 0.55s ease-out forwards;
+    }
+
+    /* Custom Scrollbar for Notebook */
+    .notebook-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+    .notebook-scroll::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.08);
+    }
+    .notebook-scroll::-webkit-scrollbar-thumb {
+      background: #5c4938;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="w-screen h-screen relative select-none">
+
+  <!-- VIGNETTE OVERLAY & CINEMATIC FLASH OVERLAYS -->
+  <div class="shelter-vignette"></div>
+  <div id="fx-damage-flash" class="fixed inset-0 z-45 pointer-events-none opacity-0 transition-opacity duration-300 bg-red-600/35 mix-blend-overlay"></div>
+  <div id="fx-dawn-flash" class="fixed inset-0 z-45 pointer-events-none opacity-0 transition-opacity duration-700 bg-amber-200/40"></div>
+
+  <!-- ===================================================================== -->
+  <!-- TOP HUD BAR (60 SECONDS! STYLE STENCIL HEADER + DEV BUTTON)           -->
+  <!-- ===================================================================== -->
+  <header id="top-hud-header" class="hidden fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-4 py-3 pointer-events-none">
+    <!-- Left: Day & Room Badge -->
+    <div class="flex items-center gap-3 pointer-events-auto">
+      <div class="bg-[#facc15] text-[#1c1917] border-4 border-[#1c1917] px-4 py-1.5 rounded shadow-[4px_4px_0px_#000] flex items-center gap-3">
+        <i class="fa-solid fa-radiation text-2xl animate-spin" style="animation-duration: 14s;"></i>
+        <div>
+          <div class="font-stencil text-xl leading-none tracking-wider">ROOM 404</div>
+          <div id="hud-day-label" class="font-ui text-xs font-bold uppercase tracking-widest text-red-900">HARI KE-1 / 10</div>
+        </div>
+      </div>
+
+      <!-- Quick Status Pills -->
+      <div id="hud-status-pills" class="hidden md:flex items-center gap-2 bg-[#1c1917]/90 border-2 border-[#facc15]/60 text-[#f3e5ab] px-3 py-1.5 rounded shadow-lg font-ui text-xs">
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-stone-800 border border-amber-500/50 text-amber-300" title="Penyintas Aktif">
+          <i id="hud-char-icon" class="fa-solid fa-screwdriver-wrench"></i> <b id="hud-char-name">RAKA</b>
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-red-950/80 border border-red-700/50" title="Kesehatan">
+          <i class="fa-solid fa-heart-pulse text-red-400"></i> <b id="hud-hp">100%</b>
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-950/80 border border-amber-700/50" title="Rasa Kenyang / Logistik">
+          <i class="fa-solid fa-utensils text-amber-400"></i> <b id="hud-hunger">100%</b>
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-indigo-950/80 border border-indigo-700/50" title="Kewarasan Mental">
+          <i class="fa-solid fa-brain text-indigo-400"></i> <b id="hud-sanity">100%</b>
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-700/50" title="Barikade Pintu 404">
+          <i class="fa-solid fa-shield-halved text-emerald-400"></i> <b id="hud-barricade">80%</b>
+        </span>
+      </div>
+    </div>
+
+    <!-- Right: Audio Toggle & Developer Architecture Button -->
+    <div class="flex items-center gap-2 pointer-events-auto">
+      <button onclick="toggleAudioMute()" id="btn-mute" class="bg-[#231f20] hover:bg-[#363032] text-[#f3e5ab] border-2 border-[#f3e5ab] px-3 py-2 rounded shadow-[3px_3px_0px_#000] font-ui text-xs font-bold flex items-center gap-2 transition">
+        <i id="icon-mute" class="fa-solid fa-volume-high text-[#facc15]"></i>
+        <span class="hidden sm:inline">SFX ON</span>
+      </button>
+      <button onclick="openDevModal()" class="bg-[#b91c1c] hover:bg-[#dc2626] text-white border-2 border-[#1c1917] px-3.5 py-2 rounded shadow-[3px_3px_0px_#000] font-ui text-xs font-bold flex items-center gap-2 transition">
+        <i class="fa-solid fa-code"></i>
+        <span>Dev / JSON Data</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- HOVER TOOLTIP LABEL FOR ROOM OBJECTS                                  -->
+  <!-- ===================================================================== -->
+  <div id="room-tooltip" class="fixed z-20 pointer-events-none hidden bg-[#1c1917] text-[#facc15] border-2 border-[#facc15] px-3 py-1.5 rounded shadow-[4px_4px_0px_#000] font-stencil text-sm tracking-wider uppercase">
+    Objek Kamar
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN STAGE: INTERACTIVE 2D VECTOR APARTMENT ROOM 404 (60 SECONDS!)    -->
+  <!-- ===================================================================== -->
+  <main id="game-stage" class="w-full h-full relative flex items-center justify-center bg-[#14110f] overflow-hidden">
+    <svg id="room-svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" class="w-full h-full">
+      <defs>
+        <!-- Room Lighting & Gradients -->
+        <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3c332a"/>
+          <stop offset="55%" stop-color="#2e261f"/>
+          <stop offset="100%" stop-color="#1f1914"/>
+        </linearGradient>
+        <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#292018"/>
+          <stop offset="100%" stop-color="#120d09"/>
+        </linearGradient>
+        <linearGradient id="lampConeGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop id="lamp-stop-top" offset="0%" stop-color="#fef08a" stop-opacity="0.34"/>
+          <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.09"/>
+          <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="nightSkyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#090d16"/>
+          <stop offset="65%" stop-color="#1e1b2e"/>
+          <stop offset="100%" stop-color="#3b1d2e"/>
+        </linearGradient>
+        <radialGradient id="candleGlowGrad" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- 1. BACKGROUND WALLS & FLOOR (ENHANCED APOCALYPTIC BUNKER DETAIL) -->
+      <rect x="0" y="0" width="1280" height="530" fill="url(#wallGrad)"/>
+      <!-- Left & Right Perspective Wall Corners -->
+      <polygon points="0,0 160,65 160,530 0,680" fill="#2b241d" stroke="#18130f" stroke-width="4"/>
+      <polygon points="1280,0 1120,65 1120,530 1280,680" fill="#2b241d" stroke="#18130f" stroke-width="4"/>
+      <line x1="160" y1="65" x2="1120" y2="65" stroke="#18130f" stroke-width="4"/>
+
+      <!-- Wallpaper Grungy Stripes, Peeling Brick Patches & Cracks -->
+      <g opacity="0.24" stroke="#18130f" stroke-width="2" fill="none">
+        <path d="M260,65 L260,530 M380,65 L380,530 M500,65 L500,530 M620,65 L620,530 M740,65 L740,530 M860,65 L860,530 M980,65 L980,530"/>
+        <!-- Wall Cracks -->
+        <path d="M410,120 L435,155 L420,180 L445,210 M435,155 L460,162" stroke-width="3"/>
+        <path d="M920,110 L900,145 L915,165 L895,195" stroke-width="2.5"/>
+      </g>
+
+      <!-- Exposed Old Bricks Patch on Wall -->
+      <g transform="translate(465, 255)" opacity="0.55">
+        <polygon points="0,12 58,0 72,38 52,65 8,55" fill="#1b1410" stroke="#120d0a" stroke-width="2"/>
+        <rect x="12" y="14" width="20" height="10" fill="#5c281b" stroke="#120d0a" stroke-width="1.5"/>
+        <rect x="35" y="14" width="20" height="10" fill="#4a2016" stroke="#120d0a" stroke-width="1.5"/>
+        <rect x="20" y="27" width="22" height="10" fill="#5c281b" stroke="#120d0a" stroke-width="1.5"/>
+        <rect x="12" y="40" width="20" height="10" fill="#4a2016" stroke="#120d0a" stroke-width="1.5"/>
+        <rect x="35" y="40" width="18" height="10" fill="#5c281b" stroke="#120d0a" stroke-width="1.5"/>
+      </g>
+
+      <!-- Rusty Ceiling Pipe & Animated Water Leak into Bucket (Right-Back Corner) -->
+      <g opacity="0.88">
+        <!-- Horizontal & Vertical Rusty Pipes -->
+        <rect x="160" y="75" width="960" height="12" fill="#3f2e21" stroke="#18120c" stroke-width="2.5"/>
+        <rect x="320" y="72" width="10" height="18" fill="#291d15" stroke="#18120c" stroke-width="2"/>
+        <rect x="640" y="72" width="10" height="18" fill="#291d15" stroke="#18120c" stroke-width="2"/>
+        <rect x="960" y="72" width="10" height="18" fill="#291d15" stroke="#18120c" stroke-width="2"/>
+        <!-- Leaking Pipe Joint at x=1045 -->
+        <path d="M1040,87 L1040,350 L1052,350 L1052,87 Z" fill="#33251b" stroke="#18120c" stroke-width="2.5"/>
+        <!-- Animated Falling Water Drop -->
+        <circle cx="1035" cy="355" r="3.5" fill="#60a5fa" class="water-drop"/>
+        <!-- Tin Bucket on Floor Catching Water -->
+        <polygon points="1018,508 1052,508 1047,538 1023,538" fill="#475569" stroke="#0f172a" stroke-width="2.5"/>
+        <ellipse cx="1035" cy="508" rx="17" ry="4" fill="#38bdf8" stroke="#0f172a" stroke-width="2"/>
+      </g>
+
+      <!-- Broken Wall Clock Frozen at 04:04 -->
+      <g transform="translate(955, 165)" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Jam Dinding Mati — Berhenti Tepat Pukul 04:04 Saat Wabah Dimulai')"
+         onmouseleave="hideRoomTooltip()">
+        <circle cx="0" cy="0" r="28" fill="#d6c7b2" stroke="#1c1612" stroke-width="4"/>
+        <circle cx="0" cy="0" r="2.5" fill="#1c1612"/>
+        <line x1="0" y1="0" x2="12" y2="9" stroke="#1c1612" stroke-width="3" stroke-linecap="round"/>
+        <line x1="0" y1="0" x2="4" y2="-18" stroke="#b91c1c" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Cracked Glass on Clock -->
+        <path d="M-18,-15 L2,4 L18,-8 M2,4 L-8,20" fill="none" stroke="#1c1612" stroke-width="1.5" opacity="0.7"/>
+      </g>
+
+      <!-- Floor Wooden Planks -->
+      <polygon points="160,530 1120,530 1280,680 1280,720 0,720 0,680" fill="url(#floorGrad)" stroke="#140f0b" stroke-width="5"/>
+      <g stroke="#18120c" stroke-width="2.5" opacity="0.7">
+        <line x1="100" y1="570" x2="1180" y2="570"/>
+        <line x1="50" y1="620" x2="1230" y2="620"/>
+        <line x1="0" y1="675" x2="1280" y2="675"/>
+        <line x1="340" y1="530" x2="220" y2="720"/>
+        <line x1="640" y1="530" x2="640" y2="720"/>
+        <line x1="940" y1="530" x2="1060" y2="720"/>
+      </g>
+
+      <!-- Grungy Floor Rug -->
+      <ellipse cx="660" cy="625" rx="290" ry="52" fill="#4c1d1d" stroke="#241010" stroke-width="4" opacity="0.85"/>
+      <ellipse cx="660" cy="625" rx="250" ry="38" fill="none" stroke="#7f1d1d" stroke-width="2" stroke-dasharray="10 6" opacity="0.6"/>
+
+      <!-- ================================================================= -->
+      <!-- 2. APARTMENT WINDOW (BACK RIGHT-CENTER) WITH LIGHTNING & RUINS    -->
+      <!-- ================================================================= -->
+      <g id="hotspot-window" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Jendela Apartemen (Pantau Cuaca & Ancaman Luar)')"
+         onmouseleave="hideRoomTooltip()"
+         onclick="openJournalTab(1)">
+        <!-- Window Frame -->
+        <rect x="690" y="125" width="190" height="220" rx="4" fill="url(#nightSkyGrad)" stroke="#1c1612" stroke-width="8"/>
+        <!-- Distant Storm Lightning Flash -->
+        <rect x="694" y="129" width="182" height="212" fill="#e0f2fe" class="storm-lightning pointer-events-none"/>
+        <!-- Red Biohazard Moon / Siren Glow -->
+        <circle id="window-moon" cx="735" cy="175" r="22" fill="#ef4444" opacity="0.72"/>
+        <circle cx="735" cy="175" r="32" fill="#ef4444" opacity="0.18"/>
+        <!-- City Ruin Silhouettes Outside -->
+        <polygon points="695,340 695,250 730,250 730,280 765,280 765,205 815,205 815,265 845,265 845,228 875,228 875,340" fill="#0f172a"/>
+        <!-- Ruined Building Broken Windows -->
+        <rect x="775" y="220" width="8" height="10" fill="#f59e0b" opacity="0.5"/>
+        <rect x="792" y="238" width="8" height="10" fill="#ef4444" opacity="0.4"/>
+        <!-- Animated Rain Lines -->
+        <g stroke="#93c5fd" stroke-width="1.5" opacity="0.55">
+          <line x1="720" y1="135" x2="700" y2="330" class="rain-line"/>
+          <line x1="765" y1="135" x2="745" y2="330" class="rain-line" style="animation-delay:0.15s"/>
+          <line x1="815" y1="135" x2="795" y2="330" class="rain-line" style="animation-delay:0.3s"/>
+          <line x1="855" y1="135" x2="835" y2="330" class="rain-line" style="animation-delay:0.08s"/>
+        </g>
+        <!-- Eerie Zombie Silhouette in distance when Barricade is low -->
+        <g id="window-zombie-shadow" class="hidden" fill="#000000" opacity="0.88">
+          <circle cx="790" cy="295" r="16"/>
+          <path d="M768,340 C768,312 812,312 812,340 Z"/>
+          <circle cx="784" cy="293" r="2.5" fill="#ef4444"/>
+          <circle cx="796" cy="293" r="2.5" fill="#ef4444"/>
+        </g>
+        <!-- Window Crossbars & Wooden Board -->
+        <line x1="785" y1="125" x2="785" y2="345" stroke="#1c1612" stroke-width="6"/>
+        <line x1="690" y1="235" x2="880" y2="235" stroke="#1c1612" stroke-width="6"/>
+        <!-- Semi-translucent Grime & Tape on Glass -->
+        <line x1="705" y1="150" x2="765" y2="215" stroke="#d6c7b2" stroke-width="5" opacity="0.35"/>
+        <line x1="765" y1="150" x2="705" y2="215" stroke="#d6c7b2" stroke-width="5" opacity="0.35"/>
+        <rect x="680" y="340" width="210" height="14" fill="#2c221a" stroke="#140f0b" stroke-width="3"/>
+      </g>
+
+      <!-- Wall Poster: EVACUATION DAY 10 -->
+      <g transform="translate(545, 135) rotate(-3)" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Selebaran Darurat: Evakuasi Helikopter Hari Ke-10')"
+         onmouseleave="hideRoomTooltip()"
+         onclick="openJournalTab(1)">
+        <rect x="0" y="0" width="105" height="135" fill="#e5d3b3" stroke="#1c1612" stroke-width="3"/>
+        <rect x="8" y="8" width="89" height="24" fill="#b91c1c"/>
+        <text x="52" y="25" text-anchor="middle" fill="#ffffff" font-family="Impact, sans-serif" font-size="15">EVAC DAY 10</text>
+        <!-- Helicopter Icon Sketch -->
+        <path d="M25,65 L75,65 M50,52 L50,65 M32,78 C32,65 68,65 68,78 C68,88 32,88 32,78 Z" stroke="#1c1612" stroke-width="3" fill="#475569"/>
+        <text x="52" y="108" text-anchor="middle" fill="#1c1612" font-family="monospace" font-weight="bold" font-size="10">ROOFTOP 404</text>
+        <text x="52" y="122" text-anchor="middle" fill="#b91c1c" font-family="monospace" font-weight="bold" font-size="9">BERTAHANLAH!</text>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- 3. REINFORCED DOOR 404 (LEFT WALL) - DYNAMIC BARRICADE PLANKS     -->
+      <!-- ================================================================= -->
+      <g id="hotspot-door" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Pintu Kamar 404 — Klik untuk Ekspedisi / Cek Barikade')"
+         onmouseleave="hideRoomTooltip()"
+         onclick="openJournalTab(4)">
+        <!-- Door Frame -->
+        <polygon points="35,140 145,175 145,545 35,635" fill="#3b2618" stroke="#140d08" stroke-width="5"/>
+        <polygon points="45,155 136,184 136,535 45,615" fill="#4c3220" stroke="#1f140d" stroke-width="3"/>
+        <!-- Room 404 Brass Plate -->
+        <polygon points="68,225 118,238 118,266 68,255" fill="#eab308" stroke="#1c1917" stroke-width="2.5"/>
+        <text x="93" y="252" text-anchor="middle" fill="#1c1917" font-family="Impact, sans-serif" font-size="16" transform="skewY(14)">404</text>
+        <!-- Door Handle -->
+        <circle cx="122" cy="385" r="7" fill="#cbd5e1" stroke="#0f172a" stroke-width="2.5"/>
+
+        <!-- Dynamic Barricade Visual Planks (Updated via JS) -->
+        <g id="door-barricade-planks">
+          <!-- Plank 1 (>20% Barricade) -->
+          <polygon id="plank-1" points="28,285 152,300 150,328 26,315" fill="#a16207" stroke="#1c1917" stroke-width="3"/>
+          <circle cx="40" cy="300" r="3" fill="#1c1917"/><circle cx="140" cy="314" r="3" fill="#1c1917"/>
+          <!-- Plank 2 (>45% Barricade) -->
+          <polygon id="plank-2" points="26,425 152,410 152,438 28,455" fill="#854d0e" stroke="#1c1917" stroke-width="3"/>
+          <circle cx="40" cy="440" r="3" fill="#1c1917"/><circle cx="140" cy="424" r="3" fill="#1c1917"/>
+          <!-- Plank 3 + Heavy Chain (>70% Barricade) -->
+          <polygon id="plank-3" points="30,350 150,368 148,395 28,378" fill="#64748b" stroke="#0f172a" stroke-width="3"/>
+          <circle cx="42" cy="364" r="3.5" fill="#0f172a"/><circle cx="138" cy="380" r="3.5" fill="#0f172a"/>
+        </g>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- 4. STORAGE RACK / SHELF (BACK LEFT) - DYNAMIC INVENTORY ITEMS     -->
+      <!-- ================================================================= -->
+      <g id="hotspot-shelf" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Rak Logistik — Klik untuk Konsumsi Makanan, Air & Medkit')"
+         onmouseleave="hideRoomTooltip()"
+         onclick="openJournalTab(2)">
+        <!-- Metal/Wood Shelf Frame -->
+        <rect x="205" y="170" width="250" height="360" fill="#231c16" stroke="#120e0b" stroke-width="6"/>
+        <!-- 4 Shelf Levels -->
+        <rect x="200" y="255" width="260" height="12" fill="#4a3728" stroke="#120e0b" stroke-width="3"/>
+        <rect x="200" y="345" width="260" height="12" fill="#4a3728" stroke="#120e0b" stroke-width="3"/>
+        <rect x="200" y="435" width="260" height="12" fill="#4a3728" stroke="#120e0b" stroke-width="3"/>
+        <rect x="200" y="520" width="260" height="12" fill="#4a3728" stroke="#120e0b" stroke-width="3"/>
+
+        <!-- Shelf 1 (Top): Canned Soup Items (Dynamic) -->
+        <g id="shelf-food-items"></g>
+
+        <!-- Shelf 2 (Middle): Water Bottles (Dynamic) -->
+        <g id="shelf-water-items"></g>
+
+        <!-- Shelf 3 (Lower): Medkits (Dynamic) -->
+        <g id="shelf-medkit-items"></g>
+
+        <!-- Shelf 4 (Bottom): Static Prop Boxes -->
+        <rect x="220" y="470" width="75" height="50" fill="#57412d" stroke="#1c1917" stroke-width="3"/>
+        <text x="257" y="500" text-anchor="middle" fill="#d6c7b2" font-family="monospace" font-size="11" font-weight="bold">ARSIP 404</text>
+        <rect x="310" y="482" width="60" height="38" fill="#3f2e21" stroke="#1c1917" stroke-width="2.5"/>
+        <text x="340" y="505" text-anchor="middle" fill="#a8a29e" font-family="monospace" font-size="9">TOOLS</text>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- 5. BED / CHECKPOINT (RIGHT SIDE)                                  -->
+      <!-- ================================================================= -->
+      <g id="hotspot-bed" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Tempat Tidur Checkpoint — Istirahat & Akhiri Hari')"
+         onmouseleave="hideRoomTooltip()"
+         onclick="openJournalTab(1)">
+        <!-- Bed Headboard & Frame -->
+        <rect x="895" y="365" width="24" height="175" fill="#3e2723" stroke="#140d0b" stroke-width="4"/>
+        <rect x="915" y="445" width="275" height="55" fill="#7f1d1d" stroke="#140d0b" stroke-width="4"/>
+        <!-- Pillow & Blanket -->
+        <rect x="925" y="418" width="68" height="32" rx="10" fill="#e2e8f0" stroke="#1e293b" stroke-width="3"/>
+        <path d="M985,442 L1188,442 L1188,500 L985,500 Z" fill="#991b1b" stroke="#140d0b" stroke-width="3"/>
+        <!-- Bed Legs -->
+        <rect x="915" y="500" width="18" height="45" fill="#271815" stroke="#140d0b" stroke-width="3"/>
+        <rect x="1170" y="500" width="18" height="45" fill="#271815" stroke="#140d0b" stroke-width="3"/>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- 6. WORK DESK, RETRO RADIO, CANDLE & BASEBALL BAT (CENTER-LEFT)    -->
+      <!-- ================================================================= -->
+      <g id="hotspot-desk" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Meja Kerja & Radio Darurat (Komponen Radio: ' + gameState.inventory.radioParts + '/3)')"
+         onmouseleave="hideRoomTooltip()"
+         onclick="inspectRadioDesk()">
+        <!-- Desk Table -->
+        <rect x="485" y="410" width="215" height="16" fill="#5c3a21" stroke="#1a110a" stroke-width="4"/>
+        <rect x="500" y="426" width="16" height="115" fill="#3d2616" stroke="#1a110a" stroke-width="3"/>
+        <rect x="668" y="426" width="16" height="115" fill="#3d2616" stroke="#1a110a" stroke-width="3"/>
+        <rect x="525" y="426" width="135" height="36" fill="#472d18" stroke="#1a110a" stroke-width="3"/>
+        <circle cx="592" cy="444" r="4" fill="#facc15"/>
+
+        <!-- Flickering Emergency Candle on Right Corner of Desk -->
+        <g transform="translate(655, 382)">
+          <circle cx="6" cy="-4" r="28" fill="url(#candleGlowGrad)" class="pointer-events-none"/>
+          <rect x="0" y="6" width="12" height="22" rx="2" fill="#f8fafc" stroke="#1e293b" stroke-width="2"/>
+          <path d="M6,-8 C1,-1 1,4 6,6 C11,4 11,-1 6,-8 Z" fill="#facc15" stroke="#ea580c" stroke-width="1.5" class="candle-flame"/>
+        </g>
+
+        <!-- Retro Emergency Radio on Desk -->
+        <g id="prop-radio" transform="translate(520, 355)">
+          <!-- Antenna -->
+          <line x1="15" y1="0" x2="45" y2="-35" stroke="#94a3b8" stroke-width="3"/>
+          <circle id="radio-signal-dot" cx="45" cy="-35" r="5" fill="#ef4444"/>
+          <!-- Radio Body -->
+          <rect x="0" y="0" width="90" height="55" rx="6" fill="#334155" stroke="#0f172a" stroke-width="4"/>
+          <rect x="10" y="10" width="46" height="35" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+          <!-- Speaker Grill Lines -->
+          <line x1="15" y1="18" x2="50" y2="18" stroke="#64748b" stroke-width="2"/>
+          <line x1="15" y1="26" x2="50" y2="26" stroke="#64748b" stroke-width="2"/>
+          <line x1="15" y1="34" x2="50" y2="34" stroke="#64748b" stroke-width="2"/>
+          <!-- Frequency Dial & Knobs -->
+          <circle cx="72" cy="20" r="8" fill="#facc15" stroke="#0f172a" stroke-width="2"/>
+          <circle cx="72" cy="38" r="6" fill="#94a3b8" stroke="#0f172a" stroke-width="2"/>
+          <!-- Radio Parts Counter Badge -->
+          <rect x="58" y="-12" width="38" height="16" rx="3" fill="#0f172a" stroke="#facc15" stroke-width="1.5"/>
+          <text id="svg-radio-parts" x="77" y="-1" text-anchor="middle" fill="#facc15" font-family="monospace" font-size="10" font-weight="bold">0/3</text>
+        </g>
+
+        <!-- Baseball Bat / Weapon leaning against Desk (Visible if owned) -->
+        <g id="prop-weapon" transform="translate(475, 395) rotate(-18)">
+          <path d="M0,0 L12,0 L16,135 C16,142 0,142 0,135 Z" fill="#d97706" stroke="#1c1917" stroke-width="3"/>
+          <!-- Nails / Grip Tape -->
+          <rect x="1" y="95" width="13" height="25" fill="#e2e8f0" stroke="#1c1917" stroke-width="2"/>
+          <line x1="-5" y1="18" x2="4" y2="22" stroke="#94a3b8" stroke-width="3"/>
+          <line x1="10" y1="12" x2="20" y2="16" stroke="#94a3b8" stroke-width="3"/>
+        </g>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- 7. SURVIVOR CHARACTER (60 SECONDS! ANIMATED & MULTI-CHARACTER)    -->
+      <!-- ================================================================= -->
+      <g id="hotspot-survivor" class="room-hotspot"
+         onmouseenter="showRoomTooltip(event, 'Penyintas Kamar 404 (' + getSelectedCharData().name + ') — Klik untuk Cek Kondisi')"
+         onmouseleave="hideRoomTooltip()"
+         onclick="triggerCharacterTalk()"
+         transform="translate(730, 315)">
+        <!-- Wooden Stool/Chair -->
+        <rect x="20" y="195" width="90" height="16" rx="4" fill="#451a03" stroke="#1c1917" stroke-width="4"/>
+        <line x1="35" y1="211" x2="25" y2="275" stroke="#291002" stroke-width="8" stroke-linecap="round"/>
+        <line x1="95" y1="211" x2="105" y2="275" stroke="#291002" stroke-width="8" stroke-linecap="round"/>
+
+        <!-- Legs & Boots -->
+        <path id="char-legs" d="M42,195 L38,260 M86,195 L92,260" stroke="#1e293b" stroke-width="18" stroke-linecap="round"/>
+        <rect x="20" y="255" width="30" height="16" rx="6" fill="#0f172a" stroke="#000" stroke-width="3"/>
+        <rect x="78" y="255" width="30" height="16" rx="6" fill="#0f172a" stroke="#000" stroke-width="3"/>
+
+        <!-- Animated Upper Body Group (Breathing + Optional Shiver) -->
+        <g id="char-body-anim" class="survivor-breathe">
+          <!-- Torso / Outfit (Dynamic Color per Selected Character) -->
+          <path id="char-torso" d="M22,105 C22,85 108,85 108,105 L116,198 L14,198 Z" fill="#b45309" stroke="#1c1917" stroke-width="4"/>
+          <!-- Collar / Jacket Detail -->
+          <path d="M45,92 L65,118 L85,92" fill="none" stroke="#1c1917" stroke-width="3" stroke-linecap="round"/>
+          <!-- Stencil Badge on Shirt ("404" / "MED" / "SEC") -->
+          <text id="char-shirt-label" x="65" y="158" text-anchor="middle" fill="#fef08a" font-family="Impact, sans-serif" font-size="22" opacity="0.9">404</text>
+          <!-- Arms folded/resting -->
+          <path id="char-arm-l" d="M22,108 L5,168 L35,178" fill="none" stroke="#92400e" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="char-arm-r" d="M108,108 L125,168 L95,178" fill="none" stroke="#92400e" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- Head / Face Base (Changes color if infected/sick) -->
+          <circle id="char-head" cx="65" cy="48" r="42" fill="#fde68a" stroke="#1c1917" stroke-width="4"/>
+
+          <!-- Character-Specific Hair & Headgear -->
+          <!-- 1. RAKA: Messy Hair + Tech Goggles on Forehead -->
+          <g id="char-hair-raka">
+            <path d="M24,38 C20,8 48,-5 70,2 C95,-4 112,18 106,40 C95,22 78,18 62,22 C45,20 32,26 24,38 Z" fill="#1c1917"/>
+            <rect x="33" y="16" width="26" height="14" rx="5" fill="#38bdf8" stroke="#1c1917" stroke-width="3"/>
+            <rect x="71" y="16" width="26" height="14" rx="5" fill="#38bdf8" stroke="#1c1917" stroke-width="3"/>
+            <line x1="59" y1="23" x2="71" y2="23" stroke="#1c1917" stroke-width="3"/>
+          </g>
+
+          <!-- 2. SISKA: Ponytail Hair + Nurse Medical Cap Badge -->
+          <g id="char-hair-siska" class="hidden">
+            <!-- Side Ponytail -->
+            <path d="M102,28 C124,25 130,52 116,66 C108,55 106,42 102,28 Z" fill="#271815" stroke="#1c1917" stroke-width="3"/>
+            <path d="M23,40 C18,6 50,-6 72,2 C96,-4 110,16 107,40 C92,22 75,18 58,20 C40,20 30,28 23,40 Z" fill="#271815"/>
+            <!-- Nurse Headband -->
+            <path d="M36,12 Q65,2 94,12 L90,26 Q65,18 40,26 Z" fill="#f8fafc" stroke="#1c1917" stroke-width="2.5"/>
+            <path d="M65,10 L65,20 M60,15 L70,15" stroke="#dc2626" stroke-width="3"/>
+          </g>
+
+          <!-- 3. BIMA: Security Beret / Tactical Cap & Scar -->
+          <g id="char-hair-bima" class="hidden">
+            <path d="M20,30 C22,4 58,0 108,16 L112,28 Q65,20 20,30 Z" fill="#1e3a8a" stroke="#0f172a" stroke-width="3.5"/>
+            <path d="M18,28 L65,24 L55,34 L16,33 Z" fill="#0f172a"/>
+            <circle cx="78" cy="18" r="5" fill="#facc15" stroke="#0f172a" stroke-width="1.5"/>
+            <!-- Cheek Scar -->
+            <line x1="84" y1="58" x2="94" y2="68" stroke="#991b1b" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Head Bandage (Visible when Health < 65 or Injured) -->
+          <g id="char-bandage" class="hidden">
+            <path d="M23,28 Q65,16 107,28 L105,44 Q65,32 25,44 Z" fill="#f8fafc" stroke="#1e293b" stroke-width="3"/>
+            <circle cx="78" cy="33" r="6" fill="#dc2626" opacity="0.85"/>
+          </g>
+
+          <!-- Eyes (Normal vs Crazy/Low Sanity vs Tired) -->
+          <g id="char-eyes-normal">
+            <circle cx="48" cy="48" r="7.5" fill="#ffffff" stroke="#1c1917" stroke-width="2.5"/>
+            <circle cx="82" cy="48" r="7.5" fill="#ffffff" stroke="#1c1917" stroke-width="2.5"/>
+            <circle id="pupil-left" cx="48" cy="48" r="3.2" fill="#1c1917"/>
+            <circle id="pupil-right" cx="82" cy="48" r="3.2" fill="#1c1917"/>
+            <!-- Animated Blinking Eyelids -->
+            <g class="eyelid-blink">
+              <circle cx="48" cy="48" r="7.5" fill="#fde68a" stroke="#1c1917" stroke-width="2"/>
+              <circle cx="82" cy="48" r="7.5" fill="#fde68a" stroke="#1c1917" stroke-width="2"/>
+            </g>
+          </g>
+
+          <!-- Dark Eye Bags (Visible when Hungry/Tired) -->
+          <path id="char-eyebags" class="hidden" d="M40,57 Q48,62 56,57 M74,57 Q82,62 90,57" fill="none" stroke="#57534e" stroke-width="2.5"/>
+
+          <!-- Sweat Drop (Visible when Sanity < 55 or Infected) -->
+          <path id="char-sweat" class="hidden" d="M98,42 C95,48 95,53 98,55 C101,53 101,48 98,42 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+
+          <!-- Mouth Expression (Updated dynamically) -->
+          <path id="char-mouth" d="M52,70 Q65,75 78,70" fill="none" stroke="#1c1917" stroke-width="3.5" stroke-linecap="round"/>
+        </g>
+
+        <!-- Status Speech Bubble Above Character -->
+        <g id="char-speech-bubble" transform="translate(88, -32)">
+          <rect x="0" y="0" width="148" height="38" rx="8" fill="#faf6eb" stroke="#1c1917" stroke-width="3"/>
+          <polygon points="12,38 26,38 8,50" fill="#faf6eb" stroke="#1c1917" stroke-width="3"/>
+          <text id="char-status-text" x="74" y="24" text-anchor="middle" fill="#1c1917" font-family="monospace" font-weight="bold" font-size="11">KONDISI STABIL</text>
+        </g>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- 8. 60-SECOND SCAVENGE MODE COLLECTIBLE ITEMS IN ROOM              -->
+      <!-- ================================================================= -->
+      <g id="scavenge-layer" class="hidden">
+        <!-- Scattered Items to Click During 15-Second Grab Phase -->
+        <g id="scav-1" class="scavenge-item" onclick="collectScavengeItem('scav-1', 'food', 1, 'Kaleng Sup +1')" transform="translate(310, 565)">
+          <rect x="0" y="0" width="32" height="42" rx="4" fill="#dc2626" stroke="#fff" stroke-width="2.5"/>
+          <rect x="3" y="10" width="26" height="16" fill="#fef08a"/>
+          <text x="16" y="22" text-anchor="middle" fill="#991b1b" font-size="9" font-weight="bold">SUP</text>
+        </g>
+        <g id="scav-2" class="scavenge-item" onclick="collectScavengeItem('scav-2', 'food', 1, 'Kaleng Sup +1')" transform="translate(830, 585)">
+          <rect x="0" y="0" width="32" height="42" rx="4" fill="#dc2626" stroke="#fff" stroke-width="2.5"/>
+          <rect x="3" y="10" width="26" height="16" fill="#fef08a"/>
+          <text x="16" y="22" text-anchor="middle" fill="#991b1b" font-size="9" font-weight="bold">SUP</text>
+        </g>
+        <g id="scav-3" class="scavenge-item" onclick="collectScavengeItem('scav-3', 'water', 1, 'Botol Air +1')" transform="translate(450, 595)">
+          <rect x="4" y="8" width="24" height="38" rx="6" fill="#38bdf8" stroke="#fff" stroke-width="2.5"/>
+          <rect x="9" y="0" width="14" height="8" fill="#0284c7" stroke="#fff" stroke-width="2"/>
+        </g>
+        <g id="scav-4" class="scavenge-item" onclick="collectScavengeItem('scav-4', 'water', 1, 'Botol Air +1')" transform="translate(1050, 555)">
+          <rect x="4" y="8" width="24" height="38" rx="6" fill="#38bdf8" stroke="#fff" stroke-width="2.5"/>
+          <rect x="9" y="0" width="14" height="8" fill="#0284c7" stroke="#fff" stroke-width="2"/>
+        </g>
+        <g id="scav-5" class="scavenge-item" onclick="collectScavengeItem('scav-5', 'medkit', 1, 'Kotak P3K +1')" transform="translate(950, 380)">
+          <rect x="0" y="0" width="46" height="34" rx="5" fill="#f8fafc" stroke="#dc2626" stroke-width="3"/>
+          <path d="M23,7 L23,27 M13,17 L33,17" stroke="#dc2626" stroke-width="5"/>
+        </g>
+        <g id="scav-6" class="scavenge-item" onclick="collectScavengeItem('scav-6', 'weapon', 1, 'Pemukul Kasti!')" transform="translate(170, 550) rotate(25)">
+          <rect x="0" y="0" width="75" height="14" rx="5" fill="#f59e0b" stroke="#fff" stroke-width="2.5"/>
+        </g>
+        <g id="scav-7" class="scavenge-item" onclick="collectScavengeItem('scav-7', 'radioParts', 1, 'Komponen Radio +1')" transform="translate(615, 535)">
+          <rect x="0" y="0" width="38" height="30" rx="4" fill="#10b981" stroke="#fff" stroke-width="2.5"/>
+          <circle cx="19" cy="15" r="7" fill="#fef08a"/>
+        </g>
+        <g id="scav-8" class="scavenge-item" onclick="collectScavengeItem('scav-8', 'food', 1, 'Kaleng Sup +1')" transform="translate(625, 375)">
+          <rect x="0" y="0" width="30" height="38" rx="4" fill="#dc2626" stroke="#fff" stroke-width="2.5"/>
+        </g>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- 9. HANGING CEILING LAMP & VOLUMETRIC LIGHT CONE                   -->
+      <!-- ================================================================= -->
+      <g class="lamp-group pointer-events-none">
+        <!-- Light Cone -->
+        <polygon class="lamp-cone" points="640,95 160,720 1120,720" fill="url(#lampConeGrad)"/>
+        <!-- Cord & Metal Shade -->
+        <line x1="640" y1="0" x2="640" y2="75" stroke="#0f172a" stroke-width="5"/>
+        <polygon points="600,95 680,95 660,70 620,70" fill="#334155" stroke="#0f172a" stroke-width="3"/>
+        <circle cx="640" cy="98" r="11" fill="#fef08a"/>
+      </g>
+    </svg>
+
+    <!-- =================================================================== -->
+    <!-- SCAVENGE COUNTDOWN OVERLAY BANNER (VISIBLE ONLY DURING SCAVENGE)    -->
+    <!-- =================================================================== -->
+    <div id="scavenge-hud" class="hidden fixed top-20 inset-x-0 z-30 flex flex-col items-center pointer-events-none">
+      <div class="bg-[#b91c1c] text-white border-4 border-[#1c1917] px-6 py-2 rounded-lg shadow-[6px_6px_0px_#000] text-center">
+        <div class="font-stencil text-3xl md:text-4xl tracking-wider flex items-center justify-center gap-3">
+          <i class="fa-solid fa-stopwatch animate-bounce text-[#facc15]"></i>
+          <span id="scavenge-timer-text">15.0 DETIK!</span>
+        </div>
+        <p class="font-ui text-xs md:text-sm text-[#fef08a] font-bold uppercase tracking-widest">
+          KLIK BARANG YANG BERKILAU DI KAMAR SEBELUM ZOMBIE MENCAPAI LORONG 404!
+        </p>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- BOTTOM-RIGHT FLOATING NOTEBOOK / CLIPBOARD TRIGGER (60 SECONDS!)    -->
+    <!-- =================================================================== -->
+    <div id="bottom-journal-dock" class="hidden fixed bottom-5 right-6 z-30 flex items-center gap-3">
+      <div id="journal-hint-badge" class="bg-[#1c1917] text-[#facc15] border-2 border-[#facc15] px-3 py-1.5 rounded shadow-lg font-ui text-xs font-bold uppercase tracking-wider">
+        Buka Jurnal Harian <i class="fa-solid fa-arrow-right ml-1"></i>
+      </div>
+      <button id="btn-open-notebook" onclick="toggleNotebook(true)" class="journal-alert bg-[#facc15] hover:bg-[#fde047] text-[#1c1917] border-4 border-[#1c1917] w-20 h-20 rounded-2xl shadow-[6px_6px_0px_#000] flex flex-col items-center justify-center transition">
+        <i class="fa-solid fa-book-skull text-3xl"></i>
+        <span class="font-stencil text-[11px] mt-1">JURNAL</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- PHYSICAL SURVIVOR'S NOTEBOOK / CLIPBOARD MODAL (60 SECONDS! MECHANIC) -->
+  <!-- ===================================================================== -->
+  <div id="notebook-modal" class="fixed inset-0 z-40 hidden bg-black/70 backdrop-blur-[2px] flex items-center justify-center p-3 md:p-6">
+    <div id="notebook-sheet-box" class="notebook-sheet notebook-enter w-full max-w-4xl h-[88vh] max-h-[670px] rounded-lg relative flex flex-col overflow-hidden">
+      
+      <!-- Top Spiral Binding Rings -->
+      <div class="bg-[#231f20] text-[#f3e5ab] px-5 py-3 flex items-center justify-between border-b-4 border-[#1c1917]">
+        <div class="flex items-center gap-3">
+          <span id="notebook-day-stamp" class="bg-[#b91c1c] text-white font-stencil px-3 py-1 rounded text-lg tracking-wider border-2 border-white/30">
+            HARI KE-1
+          </span>
+          <div>
+            <h2 class="font-stencil text-xl md:text-2xl text-[#facc15] tracking-wider leading-none">BUKU LOG PENYINTAS — KAMAR 404</h2>
+            <p class="font-ui text-xs text-stone-300">Penyintas: <b id="nb-header-char" class="text-amber-300">RAKA (Teknisi)</b> | Target Evakuasi: Hari Ke-10 | Radio: <span id="nb-radio-count">0/3</span></p>
+          </div>
+        </div>
+        <button onclick="toggleNotebook(false)" class="bg-[#3b332b] hover:bg-[#b91c1c] text-white px-3 py-1.5 rounded border-2 border-[#f3e5ab] font-ui text-xs font-bold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-eye"></i> Intip Kamar
+        </button>
+      </div>
+
+      <!-- Folder Page Tabs -->
+      <div class="bg-[#dfd096] border-b-2 border-[#2b241d] px-4 pt-2 flex flex-wrap gap-1.5 font-ui text-xs md:text-sm font-bold">
+        <button onclick="switchNotebookTab(1)" id="tab-btn-1" class="px-3.5 py-2 rounded-t-lg border-t-2 border-x-2 border-[#2b241d] bg-[#f3e5ab] text-[#1c1917] flex items-center gap-2">
+          <i class="fa-solid fa-clipboard-list text-red-800"></i> 1. Laporan
+        </button>
+        <button onclick="switchNotebookTab(2)" id="tab-btn-2" class="px-3.5 py-2 rounded-t-lg border-t-2 border-x-2 border-[#2b241d] bg-[#cbb878] text-[#4a3f35] flex items-center gap-2">
+          <i class="fa-solid fa-can-food text-amber-800"></i> 2. Ransum & P3K
+        </button>
+        <button onclick="switchNotebookTab(3)" id="tab-btn-3" class="px-3.5 py-2 rounded-t-lg border-t-2 border-x-2 border-[#2b241d] bg-[#cbb878] text-[#4a3f35] flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-red-700"></i> 3. Kasus Hari Ini
+          <span id="badge-event-pending" class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+        </button>
+        <button onclick="switchNotebookTab(4)" id="tab-btn-4" class="px-3.5 py-2 rounded-t-lg border-t-2 border-x-2 border-[#2b241d] bg-[#cbb878] text-[#4a3f35] flex items-center gap-2">
+          <i class="fa-solid fa-person-walking-Burst text-emerald-900"></i> 4. Aksi & Koridor
+        </button>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- NOTEBOOK BODY PAGES                                               -->
+      <!-- ================================================================= -->
+      <div class="flex-1 overflow-y-auto notebook-scroll p-5 md:p-7">
+
+        <!-- PAGE 1: LAPORAN HARIAN & STATUS PENYINTAS -->
+        <div id="nb-page-1" class="space-y-5 tab-page-anim">
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <!-- Polaroid Illustration of Survivor State -->
+            <div class="polaroid-card w-full md:w-60 shrink-0 text-center">
+              <div class="w-full h-36 bg-[#1e1b18] rounded flex flex-col items-center justify-center p-3 text-[#f3e5ab] border border-stone-700">
+                <i id="nb-polaroid-icon" class="fa-solid fa-screwdriver-wrench text-5xl text-[#facc15] mb-2"></i>
+                <span id="nb-polaroid-caption" class="font-stencil text-xs tracking-wider uppercase text-amber-300">RAKA — TEKNISI 404</span>
+                <span id="nb-polaroid-trait" class="font-ui text-[10px] text-stone-300 mt-1">Keahlian: Ahli Radio & Elektronika</span>
+              </div>
+              <p class="font-stencil text-xs text-stone-800 mt-2 uppercase" id="nb-infection-badge">STATUS: BEBAS INFEKSI</p>
+            </div>
+
+            <!-- Narrative Log Report -->
+            <div class="flex-1 space-y-3">
+              <div class="inline-block rubber-stamp text-red-800 text-xs">CATATAN LOG PAGI INI</div>
+              <p id="nb-morning-report" class="text-base md:text-lg leading-relaxed text-[#1c1917] font-bold">
+                Sirene darurat berbunyi di seluruh distrik. Kamu berhasil mengunci pintu Apartemen Kamar 404. Radio menyebutkan tim evakuasi helikopter akan menyisir atap gedung pada Hari Ke-10.
+              </p>
+              <div id="nb-last-night-result" class="bg-[#e6d595] border-l-4 border-[#b91c1c] p-3 text-sm text-[#2b241d]">
+                Periksa persediaan makanan di rak, tangani kejadian harian, dan tentukan apakah kamu ingin memperbaiki barikade atau menjarah koridor.
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Rubber Stamp Status Meters -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+            <div class="bg-[#e8d89c] border-2 border-[#2b241d] p-3 rounded">
+              <div class="flex justify-between items-center text-xs font-ui font-bold text-red-900">
+                <span><i class="fa-solid fa-heart-pulse"></i> KESEHATAN</span>
+                <span id="nb-stat-hp">100%</span>
+              </div>
+              <div class="w-full bg-stone-800/20 h-3 rounded-full mt-2 overflow-hidden border border-[#2b241d]">
+                <div id="bar-hp" class="bg-red-700 h-full transition-all" style="width:100%"></div>
+              </div>
+            </div>
+
+            <div class="bg-[#e8d89c] border-2 border-[#2b241d] p-3 rounded">
+              <div class="flex justify-between items-center text-xs font-ui font-bold text-amber-900">
+                <span><i class="fa-solid fa-utensils"></i> LOGISTIK/KENYANG</span>
+                <span id="nb-stat-hunger">100%</span>
+              </div>
+              <div class="w-full bg-stone-800/20 h-3 rounded-full mt-2 overflow-hidden border border-[#2b241d]">
+                <div id="bar-hunger" class="bg-amber-600 h-full transition-all" style="width:100%"></div>
+              </div>
+            </div>
+
+            <div class="bg-[#e8d89c] border-2 border-[#2b241d] p-3 rounded">
+              <div class="flex justify-between items-center text-xs font-ui font-bold text-indigo-900">
+                <span><i class="fa-solid fa-brain"></i> KEWARASAN</span>
+                <span id="nb-stat-sanity">100%</span>
+              </div>
+              <div class="w-full bg-stone-800/20 h-3 rounded-full mt-2 overflow-hidden border border-[#2b241d]">
+                <div id="bar-sanity" class="bg-indigo-700 h-full transition-all" style="width:100%"></div>
+              </div>
+            </div>
+
+            <div class="bg-[#e8d89c] border-2 border-[#2b241d] p-3 rounded">
+              <div class="flex justify-between items-center text-xs font-ui font-bold text-emerald-900">
+                <span><i class="fa-solid fa-door-closed"></i> BARIKADE 404</span>
+                <span id="nb-stat-barricade">80%</span>
+              </div>
+              <div class="w-full bg-stone-800/20 h-3 rounded-full mt-2 overflow-hidden border border-[#2b241d]">
+                <div id="bar-barricade" class="bg-emerald-700 h-full transition-all" style="width:80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 2: KONSUMSI & PERAWATAN (60 SECONDS! RATIONING CHECKBOXES) -->
+        <div id="nb-page-2" class="hidden space-y-5">
+          <div class="flex items-center justify-between border-b-2 border-[#2b241d]/30 pb-3">
+            <div>
+              <span class="rubber-stamp text-amber-900 text-xs">PEMBAGIAN RANSUM & MEDIS</span>
+              <h3 class="font-stencil text-2xl mt-2 text-[#1c1917]">KONSUMSI DI KAMAR 404 HARI INI</h3>
+            </div>
+            <div class="text-right font-ui text-xs text-stone-700">
+              Setiap pergantian malam mengurangi <b>-18% Kenyang</b>.<br>Centang item di bawah untuk dikonsumsi hari ini:
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Canned Soup Card -->
+            <div class="bg-[#e8d89c] border-2 border-[#2b241d] p-4 rounded-lg flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="font-stencil text-lg text-red-900">KALENG SUP</span>
+                  <span id="stock-food" class="bg-[#231f20] text-[#facc15] font-ui text-xs font-bold px-2.5 py-1 rounded">Stok: 3</span>
+                </div>
+                <p class="text-xs text-stone-800 mt-2">Memulihkan <b>+35% Rasa Kenyang</b> dan sedikit menenangkan pikiran (+5% Sanity).</p>
+              </div>
+              <button id="btn-ration-food" onclick="toggleRation('food')" class="mt-4 w-full py-2.5 rounded border-2 border-[#2b241d] font-stencil text-sm tracking-wider bg-[#f3e5ab] hover:bg-[#fde047] transition">
+                [ ] MAKAN SUP HARI INI
+              </button>
+            </div>
+
+            <!-- Water Bottle Card -->
+            <div class="bg-[#e8d89c] border-2 border-[#2b241d] p-4 rounded-lg flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="font-stencil text-lg text-sky-900">AIR BERSIH</span>
+                  <span id="stock-water" class="bg-[#231f20] text-[#facc15] font-ui text-xs font-bold px-2.5 py-1 rounded">Stok: 3</span>
+                </div>
+                <p class="text-xs text-stone-800 mt-2">Memulihkan <b>+25% Kenyang/Hidrasi</b> dan <b>+15% Kewarasan Mental</b>.</p>
+              </div>
+              <button id="btn-ration-water" onclick="toggleRation('water')" class="mt-4 w-full py-2.5 rounded border-2 border-[#2b241d] font-stencil text-sm tracking-wider bg-[#f3e5ab] hover:bg-[#fde047] transition">
+                [ ] MINUM AIR HARI INI
+              </button>
+            </div>
+
+            <!-- Medkit Card -->
+            <div class="bg-[#e8d89c] border-2 border-[#2b241d] p-4 rounded-lg flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="font-stencil text-lg text-emerald-900">KOTAK P3K</span>
+                  <span id="stock-medkit" class="bg-[#231f20] text-[#facc15] font-ui text-xs font-bold px-2.5 py-1 rounded">Stok: 1</span>
+                </div>
+                <p class="text-xs text-stone-800 mt-2">Memulihkan <b>+45% Kesehatan</b> dan <b>menyembuhkan status Infeksi</b> gigitan zombie!</p>
+              </div>
+              <button id="btn-ration-medkit" onclick="toggleRation('medkit')" class="mt-4 w-full py-2.5 rounded border-2 border-[#2b241d] font-stencil text-sm tracking-wider bg-[#f3e5ab] hover:bg-[#fde047] transition">
+                [ ] GUNAKAN P3K HARI INI
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 3: KASUS HARI INI (DAILY DILEMMA EVENT) -->
+        <div id="nb-page-3" class="hidden space-y-5">
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <div class="polaroid-card w-full md:w-64 shrink-0 text-center">
+              <div class="w-full h-40 bg-[#1c1917] rounded flex flex-col items-center justify-center p-4 border border-stone-700">
+                <i id="event-icon" class="fa-solid fa-door-open text-5xl text-[#facc15] mb-3"></i>
+                <span id="event-tag" class="font-ui text-[11px] uppercase tracking-widest text-red-400 font-bold">KEJADIAN HARI KE-1</span>
+              </div>
+              <p id="event-title-polaroid" class="font-stencil text-sm text-stone-900 mt-2">SUARA DI BALIK PINTU</p>
+            </div>
+
+            <div class="flex-1 space-y-4">
+              <h3 id="event-title" class="font-stencil text-2xl text-[#b91c1c]">Ketukan Panik di Kamar Sebelah</h3>
+              <p id="event-desc" class="text-base leading-relaxed text-[#1c1917] font-bold">
+                Deskripsi kasus harian muncul di sini...
+              </p>
+
+              <!-- Choices Container -->
+              <div id="event-choices-box" class="space-y-2.5 pt-2"></div>
+
+              <!-- Event Outcome Box (Shown after picking) -->
+              <div id="event-outcome-box" class="hidden bg-[#dfd096] border-2 border-[#15803d] p-4 rounded-lg">
+                <div class="rubber-stamp text-emerald-800 text-xs mb-1">KEPUTUSAN TERCATAT</div>
+                <p id="event-outcome-text" class="text-sm font-bold text-[#1c1917] mt-1"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 4: EKSPEDISI KORIDOR & TUGAS KAMAR 404 -->
+        <div id="nb-page-4" class="hidden space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 border-[#2b241d]/30 pb-2 gap-2">
+            <div>
+              <span class="rubber-stamp text-emerald-900 text-xs">TUGAS SIANG & EKSPEDISI KORIDOR</span>
+              <h3 class="font-stencil text-xl mt-1 text-[#1c1917]">PILIH 1 FOKUS AKTIVITAS SEBELUM MALAM TIBA</h3>
+            </div>
+            <div class="font-ui text-xs bg-[#231f20] text-[#facc15] px-3 py-1.5 rounded font-bold">
+              Senjata: <span id="expedition-weapon-label">Tangan Kosong</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="expedition-cards-container">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- NOTEBOOK FOOTER: BIG RED "AKHIRI HARI" STAMP BUTTON               -->
+      <!-- ================================================================= -->
+      <div class="bg-[#dfd096] border-t-4 border-[#2b241d] px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+        <div class="font-ui text-xs font-bold text-[#2b241d]" id="footer-summary-text">
+          Status Siap: Pilih keputusan di Tab 3 & Aktivitas di Tab 4 lalu akhiri hari.
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="attemptEndDay()" class="rubber-stamp bg-[#b91c1c] hover:bg-[#dc2626] text-white border-[#1c1917] px-6 py-2.5 text-lg shadow-[4px_4px_0px_#1c1917] cursor-pointer">
+            <i class="fa-solid fa-moon mr-1.5"></i> AKHIRI HARI KE-<span id="btn-end-day-num">1</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 0A. CLEAN LANDING / TITLE SCREEN (OPEN BACKGROUND + PLAY BUTTON)      -->
+  <!-- ===================================================================== -->
+  <div id="title-screen-modal" class="fixed inset-0 z-50 flex flex-col items-center justify-end pb-14 px-6 select-none pointer-events-none">
+    <div class="flex flex-col items-center text-center space-y-5 pointer-events-auto">
+      <h1 class="font-stencil text-5xl md:text-6xl tracking-wider text-[#facc15] drop-shadow-[0_4px_6px_rgba(0,0,0,0.95)]">
+        ROOM 404
+      </h1>
+
+      <button onclick="startOpeningVideo()" class="bg-[#facc15] hover:bg-[#fde047] text-[#1c1917] border-4 border-[#1c1917] px-10 py-3 rounded-xl shadow-[6px_6px_0px_#b91c1c] hover:translate-y-0.5 transition-all cursor-pointer flex items-center gap-3">
+        <i class="fa-solid fa-play text-xl text-[#b91c1c]"></i>
+        <span class="font-stencil text-2xl tracking-wider">PLAY</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 0B. FULLSCREEN OPENING VIDEO PLAYER (lockdown_404_opening_v2 (1).mp4) -->
+  <!-- ===================================================================== -->
+  <div id="opening-video-modal" class="fixed inset-0 z-50 hidden bg-black flex items-center justify-center select-none">
+    <video id="opening-video-player" class="w-full h-full object-contain bg-black" playsinline onended="finishOpeningVideo()">
+      <source src="godot_project/assets/video/scene_opening.mp4" type="video/mp4">
+      <source src="lockdown_404_opening_v2.mp4" type="video/mp4">
+      <source src="lockdown_404_opening_v2 (1).mp4" type="video/mp4">
+      Browser Anda tidak mendukung pemutar video HTML5.
+    </video>
+
+    <!-- Top-Right Skip Video Button -->
+    <div class="fixed top-5 right-6 z-50 flex items-center gap-3">
+      <button onclick="finishOpeningVideo()" class="bg-[#1c1917]/85 hover:bg-[#b91c1c] text-[#facc15] hover:text-white border-2 border-[#facc15] px-4 py-2 rounded-lg shadow-[4px_4px_0px_#000] font-ui text-xs md:text-sm font-bold uppercase tracking-wider transition flex items-center gap-2 cursor-pointer">
+        <span>Lewati Video</span>
+        <i class="fa-solid fa-forward-step"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PROLOGUE VISUAL NOVEL / STORYBOARD CUTSCENE (OPTIONAL FALLBACK)       -->
+  <!-- ===================================================================== -->
+  <div id="prologue-modal" class="fixed inset-0 z-50 hidden bg-black flex flex-col items-center justify-center p-4 select-none">
+    <div id="prologue-card" class="max-w-3xl w-full bg-[#14110f] border-4 border-[#2b241d] rounded-2xl overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col">
+      
+      <!-- Top Cutscene Bar -->
+      <div class="bg-[#0b0908] px-5 py-3 flex items-center justify-between border-b-2 border-[#2b241d]">
+        <div class="flex items-center gap-2.5">
+          <span id="prologue-badge" class="bg-amber-500 text-stone-950 font-stencil text-xs px-2.5 py-0.5 rounded">
+            PROLOG 1 / 4
+          </span>
+          <span id="prologue-location-tag" class="font-ui text-xs text-stone-300 font-bold tracking-wider uppercase">
+            LANTAI 4 • UNIT KAMAR 404 (SEHARI SEBELUM WABAH)
+          </span>
+        </div>
+        <button onclick="skipPrologueToMenu()" class="text-xs font-ui font-bold text-stone-400 hover:text-amber-400 px-2.5 py-1 rounded bg-stone-900 border border-stone-700 transition">
+          Lewati Prolog <i class="fa-solid fa-forward ml-1"></i>
+        </button>
+      </div>
+
+      <!-- Visual Novel Stage (Dynamic Artwork / Blackout / Smartphone Alert) -->
+      <div id="prologue-visual-stage" class="relative w-full h-64 md:h-80 bg-black flex items-center justify-center overflow-hidden">
+        <!-- Populated dynamically per slide (1: Sunset Normal Life, 2: Blackout 04:04, 3: Waking on Floor 4, 4: Smartphone Emergency Alert) -->
+      </div>
+
+      <!-- Bottom Visual Novel Dialogue Box -->
+      <div class="bg-[#1c1815] p-5 md:p-6 border-t-4 border-[#2b241d] space-y-4">
+        <div class="min-h-[84px]">
+          <h3 id="prologue-title" class="font-stencil text-xl md:text-2xl text-[#facc15] tracking-wide mb-1.5">
+            Sore yang Tenang di Lantai 4
+          </h3>
+          <p id="prologue-text" class="text-sm md:text-base text-[#f3e5ab] leading-relaxed font-bold"></p>
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-stone-800">
+          <!-- Slide Dots -->
+          <div class="flex items-center gap-2" id="prologue-dots">
+            <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+            <span class="w-3 h-3 rounded-full bg-stone-700"></span>
+            <span class="w-3 h-3 rounded-full bg-stone-700"></span>
+            <span class="w-3 h-3 rounded-full bg-stone-700"></span>
+          </div>
+
+          <button id="btn-prologue-next" onclick="nextPrologueSlide()" class="rubber-stamp bg-[#facc15] hover:bg-[#fde047] text-[#1c1917] border-[#1c1917] px-6 py-2 text-base cursor-pointer shadow-[3px_3px_0px_#b91c1c]">
+            LANJUTKAN CERITA <i class="fa-solid fa-arrow-right ml-1.5"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- START MENU, CHARACTER SELECTOR & 60-SECOND SCAVENGE MODE SELECTOR     -->
+  <!-- ===================================================================== -->
+  <div id="start-modal" class="fixed inset-0 z-50 hidden bg-[#0f0d0b]/95 flex items-center justify-center p-3 md:p-4 overflow-y-auto">
+    <div class="notebook-sheet notebook-enter max-w-4xl w-full rounded-xl p-5 md:p-7 relative overflow-hidden my-auto">
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <!-- Poster Badge -->
+        <div class="polaroid-card w-full md:w-60 text-center shrink-0 mx-auto md:mx-0">
+          <div class="bg-[#b91c1c] text-white p-4 rounded border-2 border-[#1c1917]">
+            <i id="start-poster-icon" class="fa-solid fa-biohazard text-5xl text-[#facc15] animate-pulse"></i>
+            <div class="font-stencil text-2xl mt-2 tracking-wider">ROOM 404</div>
+            <div class="font-ui text-[10px] uppercase tracking-widest text-amber-200 font-bold">LANTAI 4 • UNIT 04</div>
+          </div>
+          <p id="start-selected-char-label" class="font-stencil text-xs text-stone-800 mt-2.5">PENYINTAS: RAKA (TEKNISI)</p>
+          <button onclick="startOpeningVideo()" class="mt-2 w-full bg-[#231f20] hover:bg-[#3b332b] text-[#facc15] font-ui text-[11px] font-bold py-1.5 px-2 rounded border border-[#1c1917] transition">
+            <i class="fa-solid fa-film mr-1"></i> Putar Ulang Video Opening
+          </button>
+        </div>
+
+        <!-- Intro, Character Choice & Mode Choice -->
+        <div class="flex-1 space-y-3.5 w-full">
+          <div>
+            <span class="rubber-stamp text-red-800 text-xs">PERINGATAN DARURAT WABAH</span>
+            <h1 class="font-stencil text-2xl md:text-3xl text-[#1c1917] leading-tight mt-1">
+              TERJEBAK DI KAMAR APARTEMEN 404!
+            </h1>
+            <p class="text-xs md:text-sm text-stone-800 font-bold leading-relaxed mt-1">
+              Wabah zombie melumpuhkan kota. Bertahanlah hingga <b>Hari Ke-10</b> atau rakit <b>3 Komponen Radio</b> untuk evakuasi lebih cepat!
+            </p>
+          </div>
+
+          <!-- STEP 1: CHARACTER SELECTION -->
+          <div>
+            <div class="font-stencil text-xs uppercase tracking-wider text-red-900 mb-1.5">
+              1. PILIH KARAKTER PENYINTAS KAMAR 404:
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="char-select-grid">
+              <!-- Raka -->
+              <div id="char-card-raka" onclick="selectCharacter('raka')" class="cursor-pointer p-2.5 rounded-lg border-4 border-[#1c1917] bg-[#facc15]/50 shadow-[3px_3px_0px_#1c1917] transition">
+                <div class="flex items-center justify-between">
+                  <span class="font-stencil text-sm text-[#1c1917]"><i class="fa-solid fa-screwdriver-wrench text-amber-800 mr-1"></i> RAKA</span>
+                  <span id="char-badge-raka" class="bg-[#15803d] text-white font-ui text-[10px] font-bold px-1.5 py-0.5 rounded">✓ AKTIF</span>
+                </div>
+                <div class="font-ui text-[11px] font-bold text-red-950 mt-0.5">Mahasiswa Teknik</div>
+                <p class="font-ui text-[10px] text-stone-800 mt-1 leading-snug"><b>Bonus:</b> Mulai +1 Komponen Radio & peluang temukan Radio di koridor lebih tinggi.</p>
+              </div>
+
+              <!-- Siska -->
+              <div id="char-card-siska" onclick="selectCharacter('siska')" class="cursor-pointer p-2.5 rounded-lg border-2 border-[#2b241d] bg-[#e8d89c] hover:bg-[#dfd096] transition">
+                <div class="flex items-center justify-between">
+                  <span class="font-stencil text-sm text-[#1c1917]"><i class="fa-solid fa-user-nurse text-teal-800 mr-1"></i> SISKA</span>
+                  <span id="char-badge-siska" class="bg-[#231f20] text-[#facc15] font-ui text-[10px] font-bold px-1.5 py-0.5 rounded">PILIH</span>
+                </div>
+                <div class="font-ui text-[11px] font-bold text-teal-950 mt-0.5">Perawat Darurat</div>
+                <p class="font-ui text-[10px] text-stone-800 mt-1 leading-snug"><b>Bonus:</b> Mulai +1 Kotak P3K ekstra & pemulihan medis/mental jauh lebih kuat.</p>
+              </div>
+
+              <!-- Bima -->
+              <div id="char-card-bima" onclick="selectCharacter('bima')" class="cursor-pointer p-2.5 rounded-lg border-2 border-[#2b241d] bg-[#e8d89c] hover:bg-[#dfd096] transition">
+                <div class="flex items-center justify-between">
+                  <span class="font-stencil text-sm text-[#1c1917]"><i class="fa-solid fa-shield-halved text-blue-900 mr-1"></i> BIMA</span>
+                  <span id="char-badge-bima" class="bg-[#231f20] text-[#facc15] font-ui text-[10px] font-bold px-1.5 py-0.5 rounded">PILIH</span>
+                </div>
+                <div class="font-ui text-[11px] font-bold text-blue-950 mt-0.5">Mantan Sekuriti</div>
+                <p class="font-ui text-[10px] text-stone-800 mt-1 leading-snug"><b>Bonus:</b> Mulai dengan Pemukul Kasti, Barikade 100%, & tahan gempuran malam.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: MODE SELECTION -->
+          <div class="space-y-2 pt-1">
+            <div class="font-stencil text-xs uppercase tracking-wider text-red-900">
+              2. PILIH MODE MULAI PERMAINAN:
+            </div>
+            <!-- Mode 1: Authentic 60 Seconds Scavenge Clicker -->
+            <button onclick="startScavengePhase()" class="w-full text-left bg-[#b91c1c] hover:bg-[#dc2626] text-white border-4 border-[#1c1917] p-3 rounded-lg shadow-[4px_4px_0px_#1c1917] transition flex items-center justify-between">
+              <div>
+                <div class="font-stencil text-base md:text-lg text-[#facc15] flex items-center gap-2">
+                  <i class="fa-solid fa-stopwatch"></i> MODE PANIK 15 DETIK (GAYA 60 SECONDS!)
+                </div>
+                <p class="font-ui text-xs text-stone-100 mt-0.5">
+                  Klik & kumpulkan sendiri kaleng sup, air, P3K, pemukul kasti & radio di kamar sebelum waktu habis!
+                </p>
+              </div>
+              <i class="fa-solid fa-chevron-right text-xl"></i>
+            </button>
+
+            <!-- Mode 2: Quick Preset Loadout -->
+            <button onclick="startPresetGame()" class="w-full text-left bg-[#231f20] hover:bg-[#363032] text-[#f3e5ab] border-4 border-[#1c1917] p-3 rounded-lg shadow-[4px_4px_0px_#1c1917] transition flex items-center justify-between">
+              <div>
+                <div class="font-stencil text-base md:text-lg text-emerald-400 flex items-center gap-2">
+                  <i class="fa-solid fa-box-open"></i> LANGSUNG HARI KE-1 (PAKET LOGISTIK STANDAR)
+                </div>
+                <p class="font-ui text-xs text-stone-300 mt-0.5">
+                  Mulai langsung di Hari Ke-1 dengan paket logistik standar ditambah bonus keahlian karakter pilihanmu.
+                </p>
+              </div>
+              <i class="fa-solid fa-chevron-right text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- NIGHT TRANSITION CURTAIN (CINEMATIC TYPEWRITER REPORT)                -->
+  <!-- ===================================================================== -->
+  <div id="night-curtain" class="fixed inset-0 z-50 hidden bg-[#090807]/95 backdrop-blur-md text-[#f3e5ab] flex flex-col items-center justify-center p-6 text-center">
+    <div id="night-curtain-content" class="max-w-2xl w-full space-y-5 bg-[#161311] border-4 border-[#2b241d] p-6 md:p-8 rounded-xl shadow-[0_25px_70px_rgba(0,0,0,0.95)]">
+      <div class="flex items-center justify-center gap-3 text-[#facc15]">
+        <i class="fa-solid fa-moon text-4xl animate-pulse"></i>
+        <span class="font-ui text-xs uppercase tracking-widest px-3 py-1 rounded bg-red-950/90 border border-red-700 text-red-300 font-bold">
+          LAPORAN TENGAH MALAM • KAMAR 404
+        </span>
+      </div>
+      <h2 id="curtain-day-title" class="font-stencil text-4xl md:text-5xl tracking-widest text-white">MALAM HARI KE-1</h2>
+      <div id="curtain-night-log" class="text-left space-y-2.5 bg-[#0e0c0a] border-2 border-[#2b241d] p-4 rounded-lg min-h-[160px] font-mono text-sm md:text-base text-stone-200"></div>
+      <button id="btn-wake-morning" onclick="proceedToNextMorning()" class="mt-4 rubber-stamp bg-[#facc15] hover:bg-[#fde047] text-[#1c1917] border-white px-8 py-3 text-xl cursor-pointer shadow-[4px_4px_0px_#b91c1c] transition">
+        BANGUN DI PAGI BERIKUTNYA <i class="fa-solid fa-sun ml-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ENDING SCREEN MODAL -->
+  <div id="ending-modal" class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center p-4">
+    <div class="notebook-sheet max-w-2xl w-full rounded-xl p-6 md:p-8 text-center space-y-5">
+      <div id="ending-stamp" class="rubber-stamp text-red-800 text-sm">AKHIR CERITA ROOM 404</div>
+      <h2 id="ending-title" class="font-stencil text-3xl md:text-4xl text-[#1c1917]">DIEVAKUASI HELIKOPTER</h2>
+      <div class="polaroid-card max-w-xs mx-auto">
+        <div class="h-40 bg-[#1c1917] rounded flex items-center justify-center">
+          <i id="ending-icon" class="fa-solid fa-helicopter text-6xl text-[#facc15]"></i>
+        </div>
+        <p id="ending-polaroid-sub" class="font-stencil text-xs text-stone-800 mt-2">HARI KE-10 • ATAP APARTEMEN</p>
+      </div>
+      <p id="ending-desc" class="text-base font-bold text-[#1c1917] leading-relaxed"></p>
+      <div class="pt-2">
+        <button onclick="resetToStartMenu()" class="rubber-stamp bg-[#b91c1c] text-white border-[#1c1917] px-8 py-3 text-lg cursor-pointer">
+          <i class="fa-solid fa-rotate-right mr-2"></i> MAINKAN ULANG (CARI ENDING LAIN)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DEVELOPER ARCHITECTURE & JSON EXPORT MODAL FOR TEAM COLLABORATION     -->
+  <!-- ===================================================================== -->
+  <div id="dev-modal" class="fixed inset-0 z-50 hidden bg-black/80 flex items-center justify-center p-4 font-ui">
+    <div class="bg-slate-900 text-slate-100 border-2 border-amber-400 rounded-xl max-w-4xl w-full max-h-[88vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="bg-slate-950 px-6 py-4 flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-laptop-code text-amber-400 text-xl"></i>
+          <h3 class="font-bold text-lg">Arsitektur Teknis Tim Informatika — ROOM 404 (60 Seconds! Edition)</h3>
+        </div>
+        <button onclick="closeDevModal()" class="text-slate-400 hover:text-white text-sm font-bold px-3 py-1 rounded bg-slate-800">
+          Tutup [X]
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-xs md:text-sm leading-relaxed">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+            <h4 class="font-bold text-amber-400 mb-2"><i class="fa-solid fa-layer-group mr-1"></i> Cara Mengganti Visual SVG dengan Gambar AI / Video MP4</h4>
+            <ul class="list-disc pl-4 space-y-1 text-slate-300">
+              <li><b>Latar Kamar 404:</b> Ganti elemen latar di dalam <code>#room-svg</code> dengan tag <code>&lt;image href="assets/room404_bg.png" width="1280" height="720"/&gt;</code> hasil *generate* AI.</li>
+              <li><b>Cutscene Video Ending/Intro:</b> Sisipkan tag <code>&lt;video src="assets/heli_rescue.mp4" autoplay&gt;&lt;/video&gt;</code> pada kontainer <code>#ending-modal</code>.</li>
+              <li><b>Logika Prop Dinamis:</b> Fungsi <code>renderRoomProps()</code> secara otomatis menggambar jumlah Kaleng Sup, Air, P3K di rak serta papan barikade pintu sesuai *state*.</li>
+            </ul>
+          </div>
+          <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+            <h4 class="font-bold text-emerald-400 mb-2"><i class="fa-solid fa-sitemap mr-1"></i> Pembagian Modul 5 Anggota</h4>
+            <ul class="list-disc pl-4 space-y-1 text-slate-300">
+              <li><b>Prog 1 (State & Rationing):</b> Mengelola <code>gameState</code>, kalkulasi malam, dan syarat 5 *Endings*.</li>
+              <li><b>Prog 2 (Story & RNG Looting):</b> Mengelola array <code>STORY_EVENTS</code> (Hari 1–10) & probabilitas <code>EXPEDITION_LOCATIONS</code>.</li>
+              <li><b>Prog 3 (Interactive SVG & Notebook UI):</b> Mengatur interaksi klik objek kamar & buku catatan.</li>
+              <li><b>AI Artist & Video/Audio Editor:</b> Menyiapkan gambar Polaroid kejadian & video *cutscene*.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-amber-300">Data JSON Skenario & State Saat Ini (Siap Disalin ke story_data.json):</span>
+            <button onclick="copyStoryJson()" id="btn-copy-json" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3 py-1 rounded text-xs">
+              <i class="fa-solid fa-copy mr-1"></i> Salin JSON
+            </button>
+          </div>
+          <textarea id="dev-json-textarea" readonly class="w-full h-56 bg-slate-950 text-emerald-400 font-mono text-xs p-3 rounded border border-slate-800 focus:outline-none"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT ENGINE: STATE MACHINE, WEB AUDIO SYNTH, & 60S MECHANICS    -->
+  <!-- ===================================================================== -->
+  <script>
+    /* ---------------------------------------------------------------------
+       1. WEB AUDIO API SOUND SYNTHESIZER (NO EXTERNAL MP3 REQUIRED)
+    --------------------------------------------------------------------- */
+    let audioCtx = null;
+    let soundMuted = false;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function toggleAudioMute() {
+      soundMuted = !soundMuted;
+      const icon = document.getElementById('icon-mute');
+      const btn = document.getElementById('btn-mute');
+      if (soundMuted) {
+        icon.className = 'fa-solid fa-volume-xmark text-red-400';
+        btn.querySelector('span').textContent = 'SFX OFF';
+      } else {
+        icon.className = 'fa-solid fa-volume-high text-[#facc15]';
+        btn.querySelector('span').textContent = 'SFX ON';
+        playSfx('click');
+      }
+    }
+
+    function playSfx(type) {
+      if (soundMuted) return;
+      try {
+        initAudio();
+        const now = audioCtx.currentTime;
+
+        if (type === 'click' || type === 'page') {
+          // Crisp paper flip / mechanical click
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = type === 'page' ? 'triangle' : 'sine';
+          osc.frequency.setValueAtTime(type === 'page' ? 320 : 520, now);
+          osc.frequency.exponentialRampToValueAtTime(110, now + 0.08);
+          gain.gain.setValueAtTime(0.18, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.08);
+        } else if (type === 'stamp') {
+          // Heavy rubber stamp thud
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(130, now);
+          osc.frequency.exponentialRampToValueAtTime(38, now + 0.16);
+          gain.gain.setValueAtTime(0.32, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.16);
+        } else if (type === 'pickup') {
+          // Scavenge item grab chime
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(580, now);
+          osc.frequency.exponentialRampToValueAtTime(980, now + 0.12);
+          gain.gain.setValueAtTime(0.22, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.12);
+        } else if (type === 'bang') {
+          // Zombie door bang
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(92, now);
+          osc.frequency.exponentialRampToValueAtTime(28, now + 0.35);
+          gain.gain.setValueAtTime(0.38, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.35);
+        } else if (type === 'radio') {
+          // Short radio beep
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1040, now);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.2);
+        }
+      } catch (e) {
+        // Ignore audio context restrictions
+      }
+    }
+
+    /* ---------------------------------------------------------------------
+       2. STORY DATABASE (DAYS 1 TO 10) & CORRIDOR EXPEDITION LOCATIONS
+    --------------------------------------------------------------------- */
+    const STORY_EVENTS = [
+      {
+        day: 1,
+        title: "Ketukan Panik Tetangga Kamar 402",
+        polaroidTitle: "KETUKAN DI PINTU 404",
+        icon: "fa-hand-fist",
+        desc: "Seseorang menggedor pintu Kamar 404 sambil terengah-engah: 'Tolong! Aku penghuni 402, ada mayat hidup di tangga darurat! Beri aku 1 botol air, aku punya komponen frekuensi radio militer!'",
+        choices: [
+          {
+            label: "Beri 1 Air Bersih (Tukar Komponen Radio)",
+            reqItem: "water",
+            outcome: "Tetangga itu menyerahkan 1 Komponen Radio dari celah bawah pintu lalu berlari pergi. (+1 Komponen Radio, -1 Air, +10% Kewarasan)",
+            effect: (st) => { st.inventory.water--; st.inventory.radioParts = Math.min(3, st.inventory.radioParts + 1); st.sanity = Math.min(100, st.sanity + 10); }
+          },
+          {
+            label: "Tolak & Kunci Rapat Slot Intip Pintu",
+            outcome: "Kamu diam mematung hingga suara langkahnya menjauh. Aman, tapi rasa bersalah menghantuimu. (-10% Kewarasan)",
+            effect: (st) => { st.sanity = Math.max(0, st.sanity - 10); }
+          }
+        ]
+      },
+      {
+        day: 2,
+        title: "Pipa Air Apartemen Bocor",
+        polaroidTitle: "REMBESAN AIR ATAP",
+        icon: "fa-faucet-drip",
+        desc: "Langit-langit sudut Kamar 404 meneteskan air dari lantai atas. Airnya tampak agak keruh, namun krisis air bersih semakin nyata.",
+        choices: [
+          {
+            label: "Tadah dan Rebus dengan Lilin Darurat",
+            outcome: "Kamu berhasil mengumpulkan 2 Botol Air bersih meski cukup melelahkan. (+2 Air Bersih, -5% Kesehatan)",
+            effect: (st) => { st.inventory.water += 2; st.health = Math.max(0, st.health - 5); }
+          },
+          {
+            label: "Gunakan Kayu Pipa untuk Tambal Pintu",
+            outcome: "Kamu membongkar papan penutup pipa untuk memperkuat barikade pintu Kamar 404. (+20% Barikade)",
+            effect: (st) => { st.barricade = Math.min(100, st.barricade + 20); }
+          }
+        ]
+      },
+      {
+        day: 3,
+        title: "Siaran Gelap di Frekuensi Darurat",
+        polaroidTitle: "SINYAL RADIO STATIS",
+        icon: "fa-walkie-talkie",
+        desc: "Radio di meja berdesis keras. Terdengar suara penyiar militer yang terputus-putus menyebutkan kode evakuasi di atap gedung apartemen.",
+        choices: [
+          {
+            label: "Fokus Mencatat Koordinat Semalaman",
+            outcome: "Kamu begadang menyalin sandi militer. Harapan hidupmu meningkat pesat! (+20% Kewarasan, -10% Kenyang)",
+            effect: (st) => { st.sanity = Math.min(100, st.sanity + 20); st.hunger = Math.max(0, st.hunger - 10); }
+          },
+          {
+            label: "Bongkar Casing Radio untuk Cek Sirkuit",
+            outcome: "Kamu menemukan 1 modul pemancar cadangan yang masih utuh di dalam radio! (+1 Komponen Radio)",
+            effect: (st) => { st.inventory.radioParts = Math.min(3, st.inventory.radioParts + 1); }
+          }
+        ]
+      },
+      {
+        day: 4,
+        title: "Cakaran Ganas di Pintu Kamar 404",
+        polaroidTitle: "ANCAMAN DI KORIDOR",
+        icon: "fa-skull-crossbones",
+        desc: "Dua zombie tersesat di lorong lantai 4 dan menciumi celah pintu kamarmu. Papan barikade berderit keras menahan beban mereka.",
+        choices: [
+          {
+            label: "Pukul Balik dari Celah Pintu (Butuh Pemukul Kasti)",
+            reqWeapon: true,
+            outcome: "Dengan Pemukul Kasti, kamu menghantam tangan zombie tersebut hingga mereka mundur! (+10% Kewarasan, +1 Kaleng Sup dari tas zombie)",
+            effect: (st) => { st.sanity = Math.min(100, st.sanity + 10); st.inventory.food += 1; }
+          },
+          {
+            label: "Tahan Pintu dengan Tubuhmu Sekuat Tenaga",
+            outcome: "Pintu tidak jebol, tetapi bahumu terkilir dan tergores serpihan kayu. (-15% Kesehatan, -10% Barikade)",
+            effect: (st) => { st.health = Math.max(0, st.health - 15); st.barricade = Math.max(0, st.barricade - 10); }
+          }
+        ]
+      },
+      {
+        day: 5,
+        title: "Tas Ransel Tersangkut di Balkon",
+        polaroidTitle: "RANSEL PENYINTAS",
+        icon: "fa-kit-medical",
+        desc: "Dari jendela Kamar 404, kamu melihat ransel milik petugas medis tersangkut di teralis tepat di bawah jendelamu.",
+        choices: [
+          {
+            label: "Kaitkan dengan Gantungan Besi dari Jendela",
+            outcome: "Berhasil! Di dalam ransel terdapat 1 Kotak P3K dan 1 Kaleng Sup. (+1 P3K, +1 Sup)",
+            effect: (st) => { st.inventory.medkit += 1; st.inventory.food += 1; }
+          },
+          {
+            label: "Biarkan Saja, Terlalu Berbahaya",
+            outcome: "Kamu memilih tidak membuat suara gaduh di dekat jendela. (+5% Kewarasan)",
+            effect: (st) => { st.sanity = Math.min(100, st.sanity + 5); }
+          }
+        ]
+      },
+      {
+        day: 6,
+        title: "Tikus Masuk ke Rak Logistik",
+        polaroidTitle: "GANGGUAN HAMA",
+        icon: "fa-bug",
+        desc: "Seekor tikus got menyelinap lewat ventilasi dan mengincar sisa makanan di rak penyimpanan Kamar 404.",
+        choices: [
+          {
+            label: "Usir dan Tutup Rapat Ventilasi Besi",
+            outcome: "Kamu berhasil mengamankan rak dan memperkokoh ventilasi kamar. (+15% Barikade, -10% Kenyang)",
+            effect: (st) => { st.barricade = Math.min(100, st.barricade + 15); st.hunger = Math.max(0, st.hunger - 10); }
+          },
+          {
+            label: "Lempar 1 Kaleng Sup Rusak agar Tikus Pergi",
+            reqItem: "food",
+            outcome: "Tikus itu pergi membawa remahan makanan tanpa melukaimu. (-1 Kaleng Sup, +10% Kewarasan)",
+            effect: (st) => { st.inventory.food--; st.sanity = Math.min(100, st.sanity + 10); }
+          }
+        ]
+      },
+      {
+        day: 7,
+        title: "Listrik Darurat Apartemen Padam Total",
+        polaroidTitle: "MALAM GELAP GULITA",
+        icon: "fa-bolt-lightning",
+        desc: "Lampu gantung Kamar 404 berkedip lalu meredup. Hawa dingin dan kesunyian ekstrem mulai menguji kewarasan mentalmu.",
+        choices: [
+          {
+            label: "Nyalakan Lilin & Tulis Jurnal Harapan",
+            outcome: "Cahaya lilin menjaga pikiranmu tetap waras di tengah kegelapan. (+20% Kewarasan)",
+            effect: (st) => { st.sanity = Math.min(100, st.sanity + 20); }
+          },
+          {
+            label: "bongkar Aki Lampu Darurat untuk Radio",
+            outcome: "Kamu memperoleh komponen kelistrikan penting untuk memperkuat sinyal radio! (+1 Komponen Radio, -10% Kewarasan)",
+            effect: (st) => { st.inventory.radioParts = Math.min(3, st.inventory.radioParts + 1); st.sanity = Math.max(0, st.sanity - 10); }
+          }
+        ]
+      },
+      {
+        day: 8,
+        title: "Penyintas Terluka di Depan Kamar 404",
+        polaroidTitle: "DILEMA MORAL",
+        icon: "fa-user-injured",
+        desc: "Seorang kurir logistik terduduk lemas di depan pintumu. Ia tidak tergigit zombie, tapi kehausan parah dan menawarkan seluruh isi tasnya jika ditolong.",
+        choices: [
+          {
+            label: "Berikan 1 Botol Air Bersih Lewat Celah Pintu",
+            reqItem: "water",
+            outcome: "Sebagai balas budi, ia meninggalkan 2 Kaleng Sup dan 1 Kotak P3K! (-1 Air, +2 Sup, +1 P3K)",
+            effect: (st) => { st.inventory.water--; st.inventory.food += 2; st.inventory.medkit += 1; }
+          },
+          {
+            label: "Simpan Air untuk Diri Sendiri",
+            outcome: "Kamu mengabaikan rintihannya demi menghemat air. (-15% Kewarasan)",
+            effect: (st) => { st.sanity = Math.max(0, st.sanity - 15); }
+          }
+        ]
+      },
+      {
+        day: 9,
+        title: "Deru Baling-Baling Helikopter di Kejauhan!",
+        polaroidTitle: "H-1 EVAKUASI ATAP",
+        icon: "fa-helicopter",
+        desc: "Suara helikopter pengintai terdengar melintasi distrik apartemen! Besok adalah Hari Ke-10. Gerombolan zombie di bawah gedung menjadi sangat agresif karena suara bising.",
+        choices: [
+          {
+            label: "Perkuat Seluruh Papan Barikade Pintu 404!",
+            outcome: "Kamu memaku seluruh perabot tersisa ke pintu untuk menghadapi malam terakhir! (+35% Barikade, -10% Kenyang)",
+            effect: (st) => { st.barricade = Math.min(100, st.barricade + 35); st.hunger = Math.max(0, st.hunger - 10); }
+          },
+          {
+            label: "Siapkan Suar Darurat di Jendela Kamar",
+            outcome: "Pilot helikopter melihat tanda lampu dari Kamar 404! Mentalmu siap menyambut hari esok. (+25% Kewarasan)",
+            effect: (st) => { st.sanity = Math.min(100, st.sanity + 25); }
+          }
+        ]
+      },
+      {
+        day: 10,
+        title: "HARI KE-10: Panggilan Terakhir Menuju Atap!",
+        polaroidTitle: "DETIK-DETIK EKSTRAKSI",
+        icon: "fa-person-rifle",
+        desc: "Sirene evakuasi militer menggema! Helikopter mendarat di atap gedung apartemen selama 5 menit. Ini kesempatan terakhirmu keluar dari Kamar 404!",
+        choices: [
+          {
+            label: "Dobrak Pintu & Lari Menuju Tangga Atap Sekarang!",
+            outcome: "Kamu mengerahkan seluruh sisa tenagamu menembus lorong menuju atap gedung!",
+            effect: (st) => { st.readyForExtraction = true; }
+          }
+        ]
+      }
+    ];
+
+    const EXPEDITION_LOCATIONS = [
+      {
+        id: "stay_barricade",
+        name: "Bertahan di Kamar 404 & Palu Barikade",
+        risk: "AMAN (0% Risiko Infeksi)",
+        rewardText: "+25% Barikade Pintu & +5% Kewarasan",
+        desc: "Tetap di dalam Kamar 404, memaku ulang papan pintu dan beristirahat di kasur checkpoint.",
+        isInside: true
+      },
+      {
+        id: "room_401",
+        name: "Geledah Kamar Tetangga 401",
+        risk: "RENDAH (20% Risiko Terluka)",
+        rewardText: "Peluang tinggi Kaleng Sup & Air Bersih",
+        desc: "Pintu Kamar 401 sedikit terbuka. Jaraknya paling dekat dari Kamar 404.",
+        dangerChance: 0.20
+      },
+      {
+        id: "room_405",
+        name: "Geledah Kamar Medis 405",
+        risk: "SEDANG (35% Risiko Zombie)",
+        rewardText: "Peluang Kotak P3K & Komponen Radio",
+        desc: "Kamar milik mantan perawat rumah sakit di ujung koridor lantai 4.",
+        dangerChance: 0.35
+      },
+      {
+        id: "lobby_mart",
+        name: "Turun ke Minimarket Lobi Apartemen",
+        risk: "TINGGI (50% Risiko Tanpa Senjata)",
+        rewardText: "Jackpot Logistik (Sup, Air, P3K & Radio)",
+        desc: "Area paling berbahaya tetapi menyimpan logistik terbanyak di gedung ini.",
+        dangerChance: 0.50
+      }
+    ];
+
+    /* ---------------------------------------------------------------------
+       3. PLAYABLE SURVIVOR PROFILES & CORE GAME STATE
+    --------------------------------------------------------------------- */
+    const SURVIVOR_PROFILES = {
+      raka: {
+        id: "raka",
+        name: "RAKA",
+        role: "Mahasiswa Teknik",
+        fullTitle: "RAKA — TEKNISI 404",
+        traitText: "Keahlian: Mulai +1 Komponen Radio & Peluang Radio Tinggi",
+        icon: "fa-screwdriver-wrench",
+        torsoColor: "#b45309",
+        armColor: "#92400e",
+        shirtLabel: "404",
+        quotes: [
+          "Kalau 3 komponen radio terkumpul, kita bisa panggil helikopter lebih cepat!",
+          "Sirkuit frekuensi militer di meja itu hampir selesai kurakit...",
+          "Jangan sampai barikade pintu jebol malam ini!"
+        ]
+      },
+      siska: {
+        id: "siska",
+        name: "SISKA",
+        role: "Perawat Darurat",
+        fullTitle: "SISKA — MEDIS DARURAT",
+        traitText: "Keahlian: Mulai +1 P3K Ekstra & Pemulihan Medis/Mental +25%",
+        icon: "fa-user-nurse",
+        torsoColor: "#0f766e",
+        armColor: "#115e59",
+        shirtLabel: "MED",
+        quotes: [
+          "Tetap tenang dan jaga hidrasi, kepanikan lebih berbahaya dari virus.",
+          "Kotak P3K di rak bisa menghentikan infeksi gigitan zombie jika dipakai cepat.",
+          "Kita pasti bisa bertahan sampai helikopter tiba di Hari Ke-10!"
+        ]
+      },
+      bima: {
+        id: "bima",
+        name: "BIMA",
+        role: "Mantan Sekuriti",
+        fullTitle: "BIMA — SEKURITI GEDUNG",
+        traitText: "Keahlian: Mulai +Pemukul Kasti, Barikade 100% & Tahan Dobrakan",
+        icon: "fa-shield-halved",
+        torsoColor: "#1e3a8a",
+        armColor: "#172554",
+        shirtLabel: "SEC",
+        quotes: [
+          "Selama pemukul kasti ini di tanganku, tak ada zombie yang lewat pintu 404!",
+          "Aku sudah memaku rapat engsel pintu, tapi tetap awasi kondisi barikade.",
+          "Minimarket lobi memang berbahaya, tapi logistik di sana melimpah."
+        ]
+      }
+    };
+
+    let selectedCharacterId = "raka";
+    let typewriterTimeouts = [];
+
+    function getSelectedCharData() {
+      return SURVIVOR_PROFILES[selectedCharacterId] || SURVIVOR_PROFILES.raka;
+    }
+
+    function selectCharacter(charId) {
+      if (!SURVIVOR_PROFILES[charId]) return;
+      playSfx('stamp');
+      selectedCharacterId = charId;
+      const charData = getSelectedCharData();
+
+      // Update Start Modal Cards
+      ['raka', 'siska', 'bima'].forEach(id => {
+        const card = document.getElementById('char-card-' + id);
+        const badge = document.getElementById('char-badge-' + id);
+        if (id === charId) {
+          card.className = "cursor-pointer p-2.5 rounded-lg border-4 border-[#1c1917] bg-[#facc15]/50 shadow-[3px_3px_0px_#1c1917] transition";
+          badge.className = "bg-[#15803d] text-white font-ui text-[10px] font-bold px-1.5 py-0.5 rounded";
+          badge.textContent = "✓ AKTIF";
+        } else {
+          card.className = "cursor-pointer p-2.5 rounded-lg border-2 border-[#2b241d] bg-[#e8d89c] hover:bg-[#dfd096] transition";
+          badge.className = "bg-[#231f20] text-[#facc15] font-ui text-[10px] font-bold px-1.5 py-0.5 rounded";
+          badge.textContent = "PILIH";
+        }
+      });
+
+      document.getElementById('start-selected-char-label').textContent = `PENYINTAS: ${charData.name} (${charData.role.toUpperCase()})`;
+      document.getElementById('start-poster-icon').className = `fa-solid ${charData.icon} text-5xl text-[#facc15] animate-pulse`;
+      renderRoomProps();
+    }
+
+    /* ---------------------------------------------------------------------
+       CINEMATIC SCREEN SHAKE & FLASH TRANSITION HELPERS
+    --------------------------------------------------------------------- */
+    function triggerScreenShake() {
+      const stage = document.getElementById('game-stage');
+      if (!stage) return;
+      stage.classList.remove('screen-shake');
+      void stage.offsetWidth; // Force reflow
+      stage.classList.add('screen-shake');
+      setTimeout(() => stage.classList.remove('screen-shake'), 480);
+    }
+
+    function triggerDamageFlash() {
+      const flash = document.getElementById('fx-damage-flash');
+      if (!flash) return;
+      flash.style.opacity = '1';
+      triggerScreenShake();
+      setTimeout(() => { flash.style.opacity = '0'; }, 320);
+    }
+
+    function triggerDawnFlash() {
+      const flash = document.getElementById('fx-dawn-flash');
+      if (!flash) return;
+      flash.style.opacity = '1';
+      setTimeout(() => { flash.style.opacity = '0'; }, 650);
+    }
+
+    function triggerCharacterTalk() {
+      playSfx('click');
+      const charData = getSelectedCharData();
+      const quote = charData.quotes[Math.floor(Math.random() * charData.quotes.length)];
+      showRoomTooltip({ clientX: window.innerWidth * 0.56, clientY: window.innerHeight * 0.42 }, `💬 ${charData.name}: "${quote}"`);
+      setTimeout(() => {
+        openJournalTab(1);
+      }, 650);
+    }
+
+    let gameState = {
+      day: 1,
+      character: "raka",
+      health: 100,
+      hunger: 100,
+      sanity: 100,
+      barricade: 80,
+      infected: false,
+      inventory: {
+        food: 0,
+        water: 0,
+        medkit: 0,
+        weapon: false,
+        radioParts: 0
+      },
+      rationToday: {
+        food: false,
+        water: false,
+        medkit: false
+      },
+      eventResolvedToday: false,
+      selectedExpedition: "stay_barricade",
+      morningReport: "",
+      lastNightSummary: ""
+    };
+
+    let scavengeInterval = null;
+    let scavengeTimeLeft = 15.0;
+
+    /* ---------------------------------------------------------------------
+       4. START MODES: 15-SECOND SCAVENGE MINI-GAME vs PRESET LOADOUT
+    --------------------------------------------------------------------- */
+    function resetStateBase() {
+      const charData = getSelectedCharData();
+      gameState = {
+        day: 1,
+        character: charData.id,
+        health: 100,
+        hunger: 100,
+        sanity: 100,
+        barricade: charData.id === 'bima' ? 100 : 80,
+        infected: false,
+        inventory: {
+          food: 0,
+          water: 0,
+          medkit: charData.id === 'siska' ? 1 : 0,
+          weapon: charData.id === 'bima',
+          radioParts: charData.id === 'raka' ? 1 : 0
+        },
+        rationToday: { food: false, water: false, medkit: false },
+        eventResolvedToday: false,
+        selectedExpedition: "stay_barricade",
+        morningReport: `Hari Pertama di Kamar 404 bersama ${charData.name} (${charData.role}). Sirene darurat meraung di luar jendela. Bertahanlah sampai Hari Ke-10 atau rakit 3 Komponen Radio!`,
+        lastNightSummary: `${charData.traitText}. Cek Tab 2 untuk pembagian ransum dan Tab 3 untuk mengambil keputusan harian.`
+      };
+    }
+
+    function startScavengePhase() {
+      playSfx('stamp');
+      resetStateBase();
+      // Give 1 minimum soup & water so player never starts with 0 if they don't click fast
+      gameState.inventory.food += 1;
+      gameState.inventory.water += 1;
+
+      document.getElementById('start-modal').classList.add('hidden');
+      document.getElementById('top-hud-header').classList.remove('hidden');
+      document.getElementById('bottom-journal-dock').classList.remove('hidden');
+      document.getElementById('scavenge-layer').classList.remove('hidden');
+      document.getElementById('scavenge-hud').classList.remove('hidden');
+      document.getElementById('btn-open-notebook').classList.add('hidden');
+      document.getElementById('journal-hint-badge').classList.add('hidden');
+
+      // Reset all clickable scavenge items
+      for (let i = 1; i <= 8; i++) {
+        const el = document.getElementById('scav-' + i);
+        if (el) el.classList.remove('hidden');
+      }
+
+      renderRoomProps();
+      scavengeTimeLeft = 15.0;
+
+      if (scavengeInterval) clearInterval(scavengeInterval);
+      scavengeInterval = setInterval(() => {
+        scavengeTimeLeft = Math.max(0, scavengeTimeLeft - 0.1);
+        document.getElementById('scavenge-timer-text').textContent = scavengeTimeLeft.toFixed(1) + " DETIK!";
+        if (scavengeTimeLeft <= 0) {
+          finishScavengePhase();
+        }
+      }, 100);
+    }
+
+    function collectScavengeItem(elId, itemType, amount, label) {
+      playSfx('pickup');
+      const el = document.getElementById(elId);
+      if (el) el.classList.add('hidden');
+
+      if (itemType === 'weapon') {
+        gameState.inventory.weapon = true;
+      } else if (itemType === 'radioParts') {
+        gameState.inventory.radioParts = Math.min(3, gameState.inventory.radioParts + amount);
+      } else {
+        gameState.inventory[itemType] += amount;
+      }
+      renderRoomProps();
+      showRoomTooltip({ clientX: window.innerWidth / 2, clientY: 130 }, "BERHASIL DIAMBIL: " + label);
+      setTimeout(hideRoomTooltip, 900);
+
+      // Check if all 8 items grabbed early
+      let remaining = 0;
+      for (let i = 1; i <= 8; i++) {
+        if (!document.getElementById('scav-' + i).classList.contains('hidden')) remaining++;
+      }
+      if (remaining === 0) finishScavengePhase();
+    }
+
+    function finishScavengePhase() {
+      if (scavengeInterval) clearInterval(scavengeInterval);
+      playSfx('bang');
+      triggerDamageFlash();
+      document.getElementById('scavenge-layer').classList.add('hidden');
+      document.getElementById('scavenge-hud').classList.add('hidden');
+      document.getElementById('btn-open-notebook').classList.remove('hidden');
+      document.getElementById('journal-hint-badge').classList.remove('hidden');
+
+      gameState.lastNightSummary = `Fase Panik Selesai! ${getSelectedCharData().name} berhasil mengamankan total ${gameState.inventory.food} Kaleng Sup, ${gameState.inventory.water} Air, ${gameState.inventory.medkit} P3K, dan ${gameState.inventory.radioParts}/3 Komponen Radio sebelum mengunci pintu!`;
+      updateAllUI();
+      toggleNotebook(true);
+    }
+
+    function startPresetGame() {
+      playSfx('stamp');
+      const charData = getSelectedCharData();
+      resetStateBase();
+      gameState.inventory = {
+        food: 3,
+        water: 3,
+        medkit: charData.id === 'siska' ? 2 : 1,
+        weapon: true,
+        radioParts: charData.id === 'raka' ? 2 : 1
+      };
+      triggerDawnFlash();
+      document.getElementById('start-modal').classList.add('hidden');
+      document.getElementById('top-hud-header').classList.remove('hidden');
+      document.getElementById('bottom-journal-dock').classList.remove('hidden');
+      updateAllUI();
+      toggleNotebook(true);
+    }
+
+    function resetToStartMenu() {
+      playSfx('click');
+      document.getElementById('ending-modal').classList.add('hidden');
+      document.getElementById('notebook-modal').classList.add('hidden');
+      document.getElementById('top-hud-header').classList.add('hidden');
+      document.getElementById('bottom-journal-dock').classList.add('hidden');
+      document.getElementById('title-screen-modal').classList.remove('hidden');
+    }
+
+    /* ---------------------------------------------------------------------
+       5. DYNAMIC 2D ROOM SCENE RENDERER (60 SECONDS! VISUAL FEEDBACK)
+    --------------------------------------------------------------------- */
+    function renderRoomProps() {
+      const charData = getSelectedCharData();
+
+      // 1. Render Canned Soup on Top Shelf (Max 8 visual cans)
+      const foodGroup = document.getElementById('shelf-food-items');
+      foodGroup.innerHTML = '';
+      const foodCount = Math.min(8, gameState.inventory.food);
+      for (let i = 0; i < foodCount; i++) {
+        const x = 216 + (i * 29);
+        foodGroup.innerHTML += `
+          <g transform="translate(${x}, 212)">
+            <rect x="0" y="0" width="22" height="42" rx="3" fill="#dc2626" stroke="#1c1917" stroke-width="2.5"/>
+            <rect x="2" y="10" width="18" height="14" fill="#fef08a"/>
+            <text x="11" y="20" text-anchor="middle" fill="#991b1b" font-family="monospace" font-size="7" font-weight="bold">SUP</text>
+          </g>`;
+      }
+
+      // 2. Render Water Bottles on Second Shelf (Max 8 visual bottles)
+      const waterGroup = document.getElementById('shelf-water-items');
+      waterGroup.innerHTML = '';
+      const waterCount = Math.min(8, gameState.inventory.water);
+      for (let i = 0; i < waterCount; i++) {
+        const x = 216 + (i * 29);
+        waterGroup.innerHTML += `
+          <g transform="translate(${x}, 298)">
+            <rect x="2" y="8" width="18" height="38" rx="5" fill="#38bdf8" stroke="#0f172a" stroke-width="2.5"/>
+            <rect x="6" y="1" width="10" height="7" fill="#0284c7" stroke="#0f172a" stroke-width="2"/>
+            <rect x="4" y="18" width="14" height="10" fill="#e0f2fe"/>
+          </g>`;
+      }
+
+      // 3. Render Medkits on Third Shelf (Max 5 visual medkits)
+      const medkitGroup = document.getElementById('shelf-medkit-items');
+      medkitGroup.innerHTML = '';
+      const medCount = Math.min(5, gameState.inventory.medkit);
+      for (let i = 0; i < medCount; i++) {
+        const x = 218 + (i * 46);
+        medkitGroup.innerHTML += `
+          <g transform="translate(${x}, 396)">
+            <rect x="0" y="0" width="38" height="36" rx="4" fill="#f8fafc" stroke="#1c1917" stroke-width="2.5"/>
+            <path d="M19,8 L19,28 M9,18 L29,18" stroke="#dc2626" stroke-width="4"/>
+          </g>`;
+      }
+
+      // 4. Render Barricade Planks on Door 404 & Dynamic Lamp Alert Color
+      document.getElementById('plank-1').style.display = gameState.barricade >= 20 ? 'block' : 'none';
+      document.getElementById('plank-2').style.display = gameState.barricade >= 50 ? 'block' : 'none';
+      document.getElementById('plank-3').style.display = gameState.barricade >= 75 ? 'block' : 'none';
+
+      const zShadow = document.getElementById('window-zombie-shadow');
+      const lampStop = document.getElementById('lamp-stop-top');
+      if (gameState.barricade < 45) {
+        zShadow.classList.remove('hidden');
+        if (lampStop) lampStop.setAttribute('stop-color', '#f87171');
+      } else {
+        zShadow.classList.add('hidden');
+        if (lampStop) lampStop.setAttribute('stop-color', '#fef08a');
+      }
+
+      // 5. Render Baseball Bat & Radio Status on Desk
+      document.getElementById('prop-weapon').style.display = gameState.inventory.weapon ? 'block' : 'none';
+      document.getElementById('svg-radio-parts').textContent = `${gameState.inventory.radioParts}/3`;
+      const radioDot = document.getElementById('radio-signal-dot');
+      if (gameState.inventory.radioParts >= 3) {
+        radioDot.setAttribute('fill', '#22c55e');
+      } else {
+        radioDot.setAttribute('fill', '#ef4444');
+      }
+
+      // 6. Render Selected Character Outfit, Hair & Dynamic Facial Expression
+      document.getElementById('char-torso').setAttribute('fill', charData.torsoColor);
+      document.getElementById('char-arm-l').setAttribute('stroke', charData.armColor);
+      document.getElementById('char-arm-r').setAttribute('stroke', charData.armColor);
+      document.getElementById('char-shirt-label').textContent = charData.shirtLabel;
+
+      ['raka', 'siska', 'bima'].forEach(id => {
+        const hairEl = document.getElementById('char-hair-' + id);
+        if (hairEl) {
+          if (id === charData.id) hairEl.classList.remove('hidden');
+          else hairEl.classList.add('hidden');
+        }
+      });
+
+      const head = document.getElementById('char-head');
+      const bandage = document.getElementById('char-bandage');
+      const eyebags = document.getElementById('char-eyebags');
+      const sweat = document.getElementById('char-sweat');
+      const bodyAnim = document.getElementById('char-body-anim');
+      const mouth = document.getElementById('char-mouth');
+      const statusText = document.getElementById('char-status-text');
+      const pupilL = document.getElementById('pupil-left');
+      const pupilR = document.getElementById('pupil-right');
+
+      // Skin color if infected
+      head.setAttribute('fill', gameState.infected ? '#a3e635' : '#fde68a');
+
+      // Bandage if hurt
+      if (gameState.health < 65 || gameState.infected) {
+        bandage.classList.remove('hidden');
+      } else {
+        bandage.classList.add('hidden');
+      }
+
+      // Eyebags if hungry
+      if (gameState.hunger < 55) {
+        eyebags.classList.remove('hidden');
+      } else {
+        eyebags.classList.add('hidden');
+      }
+
+      // Sweat & Shiver if stressed, sick, or starving
+      if (gameState.sanity < 50 || gameState.infected || gameState.health <= 40) {
+        sweat.classList.remove('hidden');
+        bodyAnim.classList.add('survivor-shiver');
+      } else {
+        sweat.classList.add('hidden');
+        bodyAnim.classList.remove('survivor-shiver');
+      }
+
+      // Crazy pupils if low sanity
+      if (gameState.sanity < 45) {
+        pupilL.setAttribute('r', '1.8');
+        pupilR.setAttribute('r', '4.8');
+      } else {
+        pupilL.setAttribute('r', '3.2');
+        pupilR.setAttribute('r', '3.2');
+      }
+
+      // Mouth & Speech Bubble Status
+      if (gameState.infected) {
+        mouth.setAttribute('d', 'M50,74 Q65,62 80,74');
+        statusText.textContent = `${charData.name}: TERINFEKSI!`;
+        statusText.setAttribute('fill', '#b91c1c');
+      } else if (gameState.health <= 40) {
+        mouth.setAttribute('d', 'M50,74 Q65,62 80,74');
+        statusText.textContent = `${charData.name}: KRITIS!`;
+        statusText.setAttribute('fill', '#b91c1c');
+      } else if (gameState.hunger <= 35) {
+        mouth.setAttribute('d', 'M52,72 L78,72');
+        statusText.textContent = `${charData.name}: KELAPARAN`;
+        statusText.setAttribute('fill', '#d97706');
+      } else if (gameState.sanity <= 40) {
+        mouth.setAttribute('d', 'M48,72 Q58,64 65,72 Q72,80 82,68');
+        statusText.textContent = `${charData.name}: PANIK!`;
+        statusText.setAttribute('fill', '#4f46e5');
+      } else {
+        mouth.setAttribute('d', 'M52,68 Q65,76 78,68');
+        statusText.textContent = `${charData.name}: STABIL`;
+        statusText.setAttribute('fill', '#15803d');
+      }
+    }
+
+    /* ---------------------------------------------------------------------
+       6. NOTEBOOK / CLIPBOARD UI & INTERACTIONS
+    --------------------------------------------------------------------- */
+    function updateAllUI() {
+      const charData = getSelectedCharData();
+
+      // Top HUD
+      document.getElementById('hud-char-icon').className = `fa-solid ${charData.icon}`;
+      document.getElementById('hud-char-name').textContent = charData.name;
+      document.getElementById('hud-day-label').textContent = `HARI KE-${gameState.day} / 10`;
+      document.getElementById('hud-hp').textContent = `${gameState.health}%`;
+      document.getElementById('hud-hunger').textContent = `${gameState.hunger}%`;
+      document.getElementById('hud-sanity').textContent = `${gameState.sanity}%`;
+      document.getElementById('hud-barricade').textContent = `${gameState.barricade}%`;
+
+      // Notebook Header & Polaroid
+      document.getElementById('notebook-day-stamp').textContent = `HARI KE-${gameState.day}`;
+      document.getElementById('nb-header-char').textContent = `${charData.name} (${charData.role})`;
+      document.getElementById('nb-polaroid-icon').className = `fa-solid ${charData.icon} text-5xl text-[#facc15] mb-2`;
+      document.getElementById('nb-polaroid-caption').textContent = charData.fullTitle;
+      document.getElementById('nb-polaroid-trait').textContent = charData.traitText;
+      document.getElementById('nb-radio-count').textContent = `${gameState.inventory.radioParts}/3`;
+      document.getElementById('btn-end-day-num').textContent = gameState.day;
+
+      // Tab 1: Report & Bars
+      document.getElementById('nb-morning-report').textContent = gameState.morningReport;
+      document.getElementById('nb-last-night-result').textContent = gameState.lastNightSummary;
+      document.getElementById('nb-stat-hp').textContent = `${gameState.health}%`;
+      document.getElementById('nb-stat-hunger').textContent = `${gameState.hunger}%`;
+      document.getElementById('nb-stat-sanity').textContent = `${gameState.sanity}%`;
+      document.getElementById('nb-stat-barricade').textContent = `${gameState.barricade}%`;
+
+      document.getElementById('bar-hp').style.width = `${gameState.health}%`;
+      document.getElementById('bar-hunger').style.width = `${gameState.hunger}%`;
+      document.getElementById('bar-sanity').style.width = `${gameState.sanity}%`;
+      document.getElementById('bar-barricade').style.width = `${gameState.barricade}%`;
+
+      const infBadge = document.getElementById('nb-infection-badge');
+      if (gameState.infected) {
+        infBadge.textContent = "PERINGATAN: TERINFEKSI (GUNAKAN P3K!)";
+        infBadge.className = "font-stencil text-xs text-red-700 mt-2 uppercase animate-pulse";
+      } else {
+        infBadge.textContent = "STATUS: BEBAS INFEKSI";
+        infBadge.className = "font-stencil text-xs text-emerald-800 mt-2 uppercase";
+      }
+
+      // Tab 2: Rationing Controls
+      document.getElementById('stock-food').textContent = `Stok: ${gameState.inventory.food}`;
+      document.getElementById('stock-water').textContent = `Stok: ${gameState.inventory.water}`;
+      document.getElementById('stock-medkit').textContent = `Stok: ${gameState.inventory.medkit}`;
+
+      updateRationButton('food', 'btn-ration-food', 'MAKAN SUP HARI INI');
+      updateRationButton('water', 'btn-ration-water', 'MINUM AIR HARI INI');
+      updateRationButton('medkit', 'btn-ration-medkit', 'GUNAKAN P3K HARI INI');
+x
+      // Tab 3: Daily Dilemma Event
+      renderDailyEventTab();
+
+      // Tab 4: Expedition & Room Task
+      renderExpeditionTab();
+
+      // Render 2D SVG Room Props
+      renderRoomProps();
+    }
+
+    function updateRationButton(type, btnId, label) {
+      const btn = document.getElementById(btnId);
+      const hasStock = gameState.inventory[type] > 0;
+      const isChecked = gameState.rationToday[type];
+
+      if (!hasStock && !isChecked) {
+        btn.disabled = true;
+        btn.textContent = `STOK HABIS (0)`;
+        btn.className = "mt-4 w-full py-2.5 rounded border-2 border-stone-400 font-stencil text-sm bg-stone-300 text-stone-500 cursor-not-allowed";
+      } else if (isChecked) {
+        btn.disabled = false;
+        btn.textContent = `[✓] DIJADWALKAN HARI INI`;
+        btn.className = "mt-4 w-full py-2.5 rounded border-2 border-[#1c1917] font-stencil text-sm bg-[#15803d] text-white shadow-[3px_3px_0px_#1c1917]";
+      } else {
+        btn.disabled = false;
+        btn.textContent = `[ ] ${label}`;
+        btn.className = "mt-4 w-full py-2.5 rounded border-2 border-[#2b241d] font-stencil text-sm bg-[#f3e5ab] hover:bg-[#fde047] text-[#1c1917]";
+      }
+    }
+
+    function toggleRation(type) {
+      if (!gameState.rationToday[type] && gameState.inventory[type] <= 0) return;
+      playSfx('stamp');
+      gameState.rationToday[type] = !gameState.rationToday[type];
+      updateAllUI();
+    }
+
+    function renderDailyEventTab() {
+      const ev = STORY_EVENTS[Math.min(gameState.day - 1, STORY_EVENTS.length - 1)];
+      document.getElementById('event-icon').className = `fa-solid ${ev.icon} text-5xl text-[#facc15] mb-3`;
+      document.getElementById('event-tag').textContent = `KEJADIAN HARI KE-${gameState.day}`;
+      document.getElementById('event-title-polaroid').textContent = ev.polaroidTitle;
+      document.getElementById('event-title').textContent = ev.title;
+      document.getElementById('event-desc').textContent = ev.desc;
+
+      const choicesBox = document.getElementById('event-choices-box');
+      const outcomeBox = document.getElementById('event-outcome-box');
+      const pendingBadge = document.getElementById('badge-event-pending');
+
+      if (gameState.eventResolvedToday) {
+        choicesBox.classList.add('hidden');
+        outcomeBox.classList.remove('hidden');
+        pendingBadge.classList.add('hidden');
+      } else {
+        choicesBox.classList.remove('hidden');
+        outcomeBox.classList.add('hidden');
+        pendingBadge.classList.remove('hidden');
+        choicesBox.innerHTML = '';
+
+        ev.choices.forEach((ch, idx) => {
+          let disabled = false;
+          let reqNote = '';
+          if (ch.reqItem && gameState.inventory[ch.reqItem] <= 0) {
+            disabled = true;
+            reqNote = ' (Stok Tidak Cukup)';
+          }
+          if (ch.reqWeapon && !gameState.inventory.weapon) {
+            disabled = true;
+            reqNote = ' (Butuh Pemukul Kasti)';
+          }
+
+          const btn = document.createElement('button');
+          btn.disabled = disabled;
+          btn.className = disabled
+            ? "w-full text-left p-3 rounded border-2 border-stone-400 bg-stone-300 text-stone-500 font-stencil text-sm cursor-not-allowed"
+            : "w-full text-left p-3 rounded border-2 border-[#1c1917] bg-[#e8d89c] hover:bg-[#facc15] text-[#1c1917] font-stencil text-sm shadow-[3px_3px_0px_#1c1917] transition flex items-center justify-between";
+          btn.innerHTML = `<span><i class="fa-solid fa-stamp mr-2 text-red-800"></i> ${ch.label}${reqNote}</span> <i class="fa-solid fa-arrow-right"></i>`;
+          if (!disabled) {
+            btn.onclick = () => resolveDailyEvent(idx);
+          }
+          choicesBox.appendChild(btn);
+        });
+      }
+    }
+
+    function resolveDailyEvent(choiceIdx) {
+      playSfx('stamp');
+      const ev = STORY_EVENTS[Math.min(gameState.day - 1, STORY_EVENTS.length - 1)];
+      const chosen = ev.choices[choiceIdx];
+
+      chosen.effect(gameState);
+      gameState.eventResolvedToday = true;
+      document.getElementById('event-outcome-text').textContent = chosen.outcome;
+      updateAllUI();
+    }
+
+    function renderExpeditionTab() {
+      document.getElementById('expedition-weapon-label').textContent = gameState.inventory.weapon
+        ? "Pemukul Kasti (Mengurangi Risiko Koridor!)"
+        : "Tangan Kosong";
+
+      const container = document.getElementById('expedition-cards-container');
+      container.innerHTML = '';
+
+      EXPEDITION_LOCATIONS.forEach(loc => {
+        const isSelected = gameState.selectedExpedition === loc.id;
+        const card = document.createElement('div');
+        card.className = isSelected
+          ? "bg-[#facc15]/40 border-4 border-[#1c1917] p-3.5 rounded-lg shadow-[4px_4px_0px_#1c1917] cursor-pointer transition"
+          : "bg-[#e8d89c] hover:bg-[#dfd096] border-2 border-[#2b241d] p-3.5 rounded-lg cursor-pointer transition";
+        card.onclick = () => {
+          playSfx('stamp');
+          gameState.selectedExpedition = loc.id;
+          renderExpeditionTab();
+        };
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="font-stencil text-base text-[#1c1917]">${loc.name}</span>
+            <span class="font-stencil text-xs px-2 py-0.5 rounded ${isSelected ? 'bg-[#15803d] text-white' : 'bg-[#231f20] text-[#facc15]'}">
+              ${isSelected ? '✓ DIPILIH' : 'PILIH'}
+            </span>
+          </div>
+          <p class="text-xs text-stone-800 mt-1 font-bold">${loc.desc}</p>
+          <div class="mt-2 pt-2 border-t border-[#2b241d]/20 flex items-center justify-between font-ui text-[11px] font-bold">
+            <span class="text-red-800">${loc.risk}</span>
+            <span class="text-emerald-900">${loc.rewardText}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleNotebook(open) {
+      playSfx('page');
+      const modal = document.getElementById('notebook-modal');
+      const sheet = document.getElementById('notebook-sheet-box');
+      if (open) {
+        updateAllUI();
+        modal.classList.remove('hidden');
+        if (sheet) {
+          sheet.classList.remove('notebook-enter');
+          void sheet.offsetWidth;
+          sheet.classList.add('notebook-enter');
+        }
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function openJournalTab(tabIndex) {
+      toggleNotebook(true);
+      switchNotebookTab(tabIndex);
+    }
+
+    function switchNotebookTab(tabIndex) {
+      playSfx('page');
+      for (let i = 1; i <= 4; i++) {
+        const page = document.getElementById('nb-page-' + i);
+        const btn = document.getElementById('tab-btn-' + i);
+        if (i === tabIndex) {
+          page.classList.remove('hidden');
+          page.classList.remove('tab-page-anim');
+          void page.offsetWidth;
+          page.classList.add('tab-page-anim');
+          btn.className = "px-3.5 py-2 rounded-t-lg border-t-2 border-x-2 border-[#2b241d] bg-[#f3e5ab] text-[#1c1917] flex items-center gap-2";
+        } else {
+          page.classList.add('hidden');
+          btn.className = "px-3.5 py-2 rounded-t-lg border-t-2 border-x-2 border-[#2b241d] bg-[#cbb878] text-[#4a3f35] flex items-center gap-2";
+        }
+      }
+    }
+
+    function inspectRadioDesk() {
+      playSfx('radio');
+      openJournalTab(1);
+    }
+
+    /* ---------------------------------------------------------------------
+       7. END OF DAY RESOLUTION, CINEMATIC TYPEWRITER & 5 MULTIPLE ENDINGS
+    --------------------------------------------------------------------- */
+    function playTypewriterNightLogs(logs) {
+      typewriterTimeouts.forEach(t => clearTimeout(t));
+      typewriterTimeouts = [];
+
+      const logBox = document.getElementById('curtain-night-log');
+      logBox.innerHTML = '';
+
+      logs.forEach((line, index) => {
+        const t = setTimeout(() => {
+          playSfx('click');
+          const row = document.createElement('div');
+          row.className = "p-2 rounded bg-stone-900/90 border-l-4 border-amber-400 tab-page-anim";
+          row.innerHTML = line;
+          logBox.appendChild(row);
+        }, index * 420);
+        typewriterTimeouts.push(t);
+      });
+    }
+
+    function attemptEndDay() {
+      if (!gameState.eventResolvedToday) {
+        playSfx('bang');
+        triggerScreenShake();
+        switchNotebookTab(3);
+        document.getElementById('footer-summary-text').textContent = "⚠️ Harap ambil keputusan pada Tab 3 (Kasus Hari Ini) terlebih dahulu!";
+        return;
+      }
+
+      playSfx('stamp');
+      const charData = getSelectedCharData();
+      let nightLogs = [];
+
+      // 1. Apply Rationing Consumed Today (Siska gets bonus medical & sanity recovery)
+      const isSiska = charData.id === 'siska';
+      const isRaka = charData.id === 'raka';
+      const isBima = charData.id === 'bima';
+
+      if (gameState.rationToday.food && gameState.inventory.food > 0) {
+        gameState.inventory.food--;
+        gameState.hunger = Math.min(100, gameState.hunger + 35);
+        gameState.sanity = Math.min(100, gameState.sanity + (isSiska ? 10 : 5));
+        nightLogs.push("🍲 Kamu menyantap 1 Kaleng Sup (+35% Kenyang).");
+      }
+      if (gameState.rationToday.water && gameState.inventory.water > 0) {
+        gameState.inventory.water--;
+        gameState.hunger = Math.min(100, gameState.hunger + 25);
+        gameState.sanity = Math.min(100, gameState.sanity + (isSiska ? 20 : 15));
+        nightLogs.push("💧 Kamu meminum 1 Botol Air Bersih (+25% Hidrasi, +15% Kewarasan).");
+      }
+      if (gameState.rationToday.medkit && gameState.inventory.medkit > 0) {
+        gameState.inventory.medkit--;
+        const healAmt = isSiska ? 60 : 45;
+        gameState.health = Math.min(100, gameState.health + healAmt);
+        if (gameState.infected) {
+          gameState.infected = false;
+          nightLogs.push("💉 Kotak P3K berhasil menghentikan penyebaran infeksi gigitan zombie!");
+        } else {
+          nightLogs.push(`🩹 Kotak P3K memulihkan luka fisikmu (+${healAmt}% Kesehatan).`);
+        }
+      }
+
+      // Reset daily ration toggles
+      gameState.rationToday = { food: false, water: false, medkit: false };
+
+      // 2. Resolve Selected Corridor Expedition / Room Activity
+      const exp = EXPEDITION_LOCATIONS.find(l => l.id === gameState.selectedExpedition);
+      if (exp.isInside) {
+        const barricadeBoost = isBima ? 32 : 25;
+        gameState.barricade = Math.min(100, gameState.barricade + barricadeBoost);
+        gameState.sanity = Math.min(100, gameState.sanity + 5);
+        nightLogs.push(`🔨 ${charData.name} bertahan di Kamar 404 dan memperkuat papan barikade pintu (+${barricadeBoost}% Barikade).`);
+      } else {
+        // RNG Scavenging in Apartment Corridor
+        const weaponReduction = gameState.inventory.weapon ? 0.15 : 0;
+        const bimaReduction = isBima ? 0.08 : 0;
+        const roll = Math.random();
+        if (roll < Math.max(0.06, exp.dangerChance - weaponReduction - bimaReduction)) {
+          // Attacked during scavenging
+          const dmg = gameState.inventory.weapon ? 14 : 28;
+          gameState.health = Math.max(0, gameState.health - dmg);
+          triggerDamageFlash();
+          if (!gameState.inventory.weapon && Math.random() < 0.45) {
+            gameState.infected = true;
+            nightLogs.push(`🧟 BAHAYA! Saat menjarah ${exp.name}, zombie menyergapmu di lorong gelap! Kamu tergigit (-${dmg}% Kesehatan & TERINFEKSI!).`);
+          } else {
+            nightLogs.push(`⚠️ Kamu berpapasan dengan zombie di ${exp.name}, namun berhasil lolos meski terluka (-${dmg}% Kesehatan).`);
+          }
+        }
+
+        // Loot rewards based on location (Raka has higher chance of finding Radio Parts)
+        const radioChance = isRaka ? 0.85 : 0.65;
+        if (exp.id === "room_401") {
+          gameState.inventory.food += 1;
+          gameState.inventory.water += 1;
+          nightLogs.push("🎒 Hasil Geledah Kamar 401: Ditemukan +1 Kaleng Sup dan +1 Botol Air!");
+        } else if (exp.id === "room_405") {
+          gameState.inventory.medkit += 1;
+          if (gameState.inventory.radioParts < 3 && Math.random() < radioChance) {
+            gameState.inventory.radioParts++;
+            nightLogs.push("🎒 Hasil Geledah Kamar 405: Ditemukan +1 Kotak P3K & +1 Komponen Radio!");
+          } else {
+            gameState.inventory.water += 1;
+            nightLogs.push("🎒 Hasil Geledah Kamar 405: Ditemukan +1 Kotak P3K & +1 Botol Air!");
+          }
+        } else if (exp.id === "lobby_mart") {
+          gameState.inventory.food += 2;
+          gameState.inventory.water += 1;
+          if (gameState.inventory.radioParts < 3) gameState.inventory.radioParts++;
+          nightLogs.push("🎒 JACKPOT Minimarket Lobi: Ditemukan +2 Sup, +1 Air, & +1 Komponen Radio!");
+        }
+      }
+
+      // 3. Nightly Hunger, Sanity & Zombie Door Siege
+      gameState.hunger = Math.max(0, gameState.hunger - 18);
+      if (gameState.hunger === 0) {
+        gameState.health = Math.max(0, gameState.health - 22);
+        nightLogs.push("🥀 Perutmu kelaparan hebat semalaman (-22% Kesehatan).");
+      }
+
+      if (gameState.infected) {
+        gameState.health = Math.max(0, gameState.health - 15);
+        gameState.sanity = Math.max(0, gameState.sanity - 12);
+        nightLogs.push("☣️ Demam infeksi virus menggerogoti tubuhmu (-15% Kesehatan, -12% Kewarasan).");
+      }
+
+      // Zombie Night Siege against Door 404 (Bima reduces door siege damage)
+      const baseAttack = 12 + (gameState.day * 2);
+      const nightAttackForce = isBima ? Math.max(8, baseAttack - 6) : baseAttack;
+      gameState.barricade = Math.max(0, gameState.barricade - nightAttackForce);
+      if (gameState.barricade === 0) {
+        gameState.health = Math.max(0, gameState.health - 30);
+        gameState.sanity = Math.max(0, gameState.sanity - 20);
+        playSfx('bang');
+        triggerDamageFlash();
+        nightLogs.push("🚨 Papan barikade Pintu 404 JEBOL! Zombie sempat mendobrak masuk sebelum kamu mendorongnya keluar (-30% Kesehatan)!");
+      } else {
+        nightLogs.push(`🚪 Gerombolan zombie menggedor pintu semalaman (Barikade -${nightAttackForce}%).`);
+      }
+
+      // 4. Check Early Radio Extraction Ending or Day 10 Endings or Death
+      if (checkEndings()) return;
+
+      // Show Night Curtain Transition with Typewriter Logs
+      document.getElementById('notebook-modal').classList.add('hidden');
+      const curtain = document.getElementById('night-curtain');
+      document.getElementById('curtain-day-title').textContent = `MALAM HARI KE-${gameState.day}`;
+      curtain.classList.remove('hidden');
+      curtain.classList.remove('curtain-enter');
+      void curtain.offsetWidth;
+      curtain.classList.add('curtain-enter');
+
+      playTypewriterNightLogs(nightLogs);
+
+      // Advance Day
+      gameState.day++;
+      gameState.eventResolvedToday = false;
+      gameState.selectedExpedition = "stay_barricade";
+      gameState.morningReport = `Pagi Hari Ke-${gameState.day} di Kamar 404 bersama ${charData.name}. Tinggal ${Math.max(0, 10 - gameState.day)} hari lagi menuju jadwal evakuasi helikopter di atap gedung.`;
+      gameState.lastNightSummary = nightLogs.join(" ");
+    }
+
+    function proceedToNextMorning() {
+      typewriterTimeouts.forEach(t => clearTimeout(t));
+      typewriterTimeouts = [];
+      playSfx('page');
+      triggerDawnFlash();
+      document.getElementById('night-curtain').classList.add('hidden');
+      updateAllUI();
+      toggleNotebook(true);
+      switchNotebookTab(1);
+    }
+
+    function checkEndings() {
+      // 1. Death by Health / Overrun
+      if (gameState.health <= 0) {
+        showEndingScreen(
+          "TEWAS DI KAMAR 404 (BAD ENDING #1)",
+          "fa-skull",
+          `HARI KE-${gameState.day} • KAMAR 404 JATUH`,
+          "Luka fisik, kelaparan, dan dobrakan zombie di pintu Kamar 404 akhirnya menghentikan perjuanganmu sebelum tim penyelamat tiba."
+        );
+        return true;
+      }
+
+      // 2. Madness / Insanity Ending
+      if (gameState.sanity <= 0) {
+        showEndingScreen(
+          "KEHILANGAN KEWARASAN (BAD ENDING #2)",
+          "fa-face-dizzy",
+          `HARI KE-${gameState.day} • ISOLASI EKSTREM`,
+          "Tekanan mental dan rasa takut yang tak tertahankan di dalam Kamar 404 membuatmu membuka pintu kamar sendiri di tengah malam buta."
+        );
+        return true;
+      }
+
+      // 3. Secret Radio Extraction Ending (3/3 Radio Parts collected before Day 10)
+      if (gameState.inventory.radioParts >= 3 && !gameState.infected && gameState.day >= 4) {
+        showEndingScreen(
+          "SINYAL DARURAT 404 (SECRET TECH ENDING)",
+          "fa-tower-broadcast",
+          `HARI KE-${gameState.day} • EVAKUASI KILAT`,
+          "Luar biasa! Kamu berhasil merakit 3/3 Komponen Radio Darurat di meja kerja Kamar 404 dan menghubungi frekuensi khusus militer. Regu taktis menjemputmu lebih awal sebelum Hari Ke-10!"
+        );
+        return true;
+      }
+
+      // 4. Day 10 Extraction Reached
+      if (gameState.day >= 10 && gameState.eventResolvedToday) {
+        if (gameState.infected) {
+          showEndingScreen(
+            "DITOLAK DI HELIPAD (INFECTED ENDING)",
+            "fa-biohazard",
+            "HARI KE-10 • KARANTINA GAGAL",
+            "Kamu berhasil mencapai atap gedung pada Hari Ke-10, namun pemindai medis tentara mendeteksi luka gigitan zombie yang belum disembuhkan dengan P3K. Helikopter lepas landas tanpamu."
+          );
+        } else {
+          showEndingScreen(
+            "SELAMAT DARI ROOM 404! (TRUE GOOD ENDING)",
+            "fa-helicopter",
+            "HARI KE-10 • EKSTRAKSI BERHASIL",
+            "Kamu bertahan hidup melewati 10 hari penuh teror di Kamar 404! Dalam kondisi bebas infeksi, tentara menarikmu naik ke dalam helikopter evakuasi saat gedung apartemen di bawah mulai runtuh."
+          );
+        }
+        return true;
+      }
+
+      return false;
+    }
+
+    function showEndingScreen(title, iconClass, sub, desc) {
+      playSfx('stamp');
+      document.getElementById('notebook-modal').classList.add('hidden');
+      document.getElementById('night-curtain').classList.add('hidden');
+      document.getElementById('ending-title').textContent = title;
+      document.getElementById('ending-icon').className = `fa-solid ${iconClass} text-6xl text-[#facc15]`;
+      document.getElementById('ending-polaroid-sub').textContent = sub;
+      document.getElementById('ending-desc').textContent = desc;
+      document.getElementById('ending-modal').classList.remove('hidden');
+    }
+
+    /* ---------------------------------------------------------------------
+       8. TOOLTIP & DEVELOPER ARCHITECTURE MODAL
+    --------------------------------------------------------------------- */
+    function showRoomTooltip(evt, text) {
+      const tip = document.getElementById('room-tooltip');
+      tip.textContent = text;
+      tip.style.left = Math.min(window.innerWidth - 280, evt.clientX + 14) + 'px';
+      tip.style.top = Math.max(20, evt.clientY - 36) + 'px';
+      tip.classList.remove('hidden');
+    }
+
+    function hideRoomTooltip() {
+      document.getElementById('room-tooltip').classList.add('hidden');
+    }
+
+    function openDevModal() {
+      playSfx('click');
+      const exportData = {
+        project: "ROOM 404 - 60 Seconds! Reatomized Edition",
+        selectedSurvivor: getSelectedCharData(),
+        currentGameState: gameState,
+        survivorProfiles: SURVIVOR_PROFILES,
+        expeditionLocations: EXPEDITION_LOCATIONS,
+        storyDays: STORY_EVENTS
+      };
+      document.getElementById('dev-json-textarea').value = JSON.stringify(exportData, null, 2);
+      document.getElementById('dev-modal').classList.remove('hidden');
+    }
+
+    function closeDevModal() {
+      playSfx('click');
+      document.getElementById('dev-modal').classList.add('hidden');
+    }
+
+    function copyStoryJson() {
+      const textarea = document.getElementById('dev-json-textarea');
+      textarea.select();
+      document.execCommand('copy');
+      const btn = document.getElementById('btn-copy-json');
+      btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> Tersalin!';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-copy mr-1"></i> Salin JSON';
+      }, 1800);
+    }
+
+    /* ---------------------------------------------------------------------
+       9. PROLOGUE VISUAL NOVEL / STORYBOARD CUTSCENE (4 SCENES)
+    --------------------------------------------------------------------- */
+    const PROLOGUE_SLIDES = [
+      {
+        badge: "PROLOG 1 / 4",
+        location: "LANTAI 4 • KAMAR 404 (SEHARI SEBELUM WABAH)",
+        title: "Kehidupan Normal di Lantai 4",
+        text: "Kemarin semuanya masih berjalan normal di Apartemen Griya Sentosa. Dari jendela Kamar 404 (Unit 04 di Lantai 4), cahaya senja dan lampu jalanan kota tampak hangat seperti hari-hari biasanya. Kamu menutup malam dan pergi tidur tanpa curiga sedikit pun...",
+        sfx: "page",
+        shake: false,
+        visualHtml: `
+          <svg viewBox="0 0 800 320" class="w-full h-full">
+            <defs>
+              <linearGradient id="sunsetGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="55%" stop-color="#facc15"/>
+                <stop offset="100%" stop-color="#431407"/>
+              </linearGradient>
+            </defs>
+            <rect width="800" height="320" fill="#271c15"/>
+            <!-- Warm Sunset Window on 4th Floor -->
+            <rect x="240" y="30" width="320" height="200" rx="6" fill="url(#sunsetGrad)" stroke="#140d08" stroke-width="10"/>
+            <circle cx="460" cy="110" r="38" fill="#fef08a" opacity="0.9"/>
+            <!-- Peaceful City Skyline from Floor 4 -->
+            <polygon points="245,225 245,140 295,140 295,170 350,170 350,115 415,115 415,165 480,165 480,130 555,130 555,225" fill="#431407"/>
+            <line x1="400" y1="30" x2="400" y2="230" stroke="#140d08" stroke-width="8"/>
+            <line x1="240" y1="135" x2="560" y2="135" stroke="#140d08" stroke-width="8"/>
+            <!-- Warm Coffee Mug on Sill -->
+            <rect x="330" y="200" width="26" height="28" rx="4" fill="#f8fafc" stroke="#1c1917" stroke-width="3"/>
+            <path d="M338,192 Q343,180 338,170 M348,192 Q353,180 348,170" stroke="#fef08a" stroke-width="2" fill="none"/>
+            <div class="absolute bottom-3 right-4 bg-black/60 text-amber-300 font-ui text-xs px-3 py-1 rounded border border-amber-500/40">
+              ☀️ SORE HARI — H-1 SEBELUM INSIDEN
+            </div>
+          </svg>
+        `
+      },
+      {
+        badge: "PROLOG 2 / 4",
+        location: "KEESOKAN HARINYA • PUKUL 04:04 DINI HARI",
+        title: "Layar Hitam & Suara Gemuruh di Luar",
+        text: "...Hingga keesokan paginya tepat pukul 04:04. BRUAAAK!! Dalam kegelapan total, suara gemuruh dahsyat, ledakan kejauhan, dan deru sirene dari jalanan raya merambati dinding beton gedung hingga membangunkanmu secara paksa!",
+        sfx: "bang",
+        shake: true,
+        visualHtml: `
+          <div class="w-full h-full bg-black flex flex-col items-center justify-center relative">
+            <div class="font-mono text-6xl md:text-7xl font-bold text-red-600 tracking-widest animate-pulse drop-shadow-[0_0_20px_rgba(220,38,38,0.9)]">
+              04:04
+            </div>
+            <p class="font-stencil text-sm md:text-base text-stone-400 tracking-[0.25em] mt-3 uppercase">
+              [ SUARA GEMURUH BERAT & DENTUMAN DI LUAR GEDUNG ]
+            </p>
+            <div class="absolute inset-x-12 bottom-5 flex justify-between text-xs font-mono text-red-500/70">
+              <span>((( BRUAAAK! )))</span>
+              <span>((( SIRENE DARURAT )))</span>
+            </div>
+          </div>
+        `
+      },
+      {
+        badge: "PROLOG 3 / 4",
+        location: "TERBANGUN DI LANTAI KAMAR 404 (LANTAI 4)",
+        title: "Terjatuh di Lantai Kamar 404",
+        text: "Kamu terbangun terduduk di atas lantai kayu Kamar 404 akibat kuatnya getaran. Karena kamarmu berada di Lantai 4 (Unit 404), kamu bisa mendengar jelas suara kacau balau dari jalanan bawah sekaligus langkah kaki panik penghuni lain yang berlarian di koridor luar!",
+        sfx: "click",
+        shake: true,
+        visualHtml: `
+          <svg viewBox="0 0 800 320" class="w-full h-full">
+            <rect width="800" height="320" fill="#18120e"/>
+            <!-- Perspective Floor Planks (Waking up on the floor POV) -->
+            <polygon points="0,190 800,190 800,320 0,320" fill="#291d15" stroke="#0f0a07" stroke-width="4"/>
+            <line x1="120" y1="190" x2="20" y2="320" stroke="#140d08" stroke-width="3"/>
+            <line x1="400" y1="190" x2="400" y2="320" stroke="#140d08" stroke-width="3"/>
+            <line x1="680" y1="190" x2="780" y2="320" stroke="#140d08" stroke-width="3"/>
+            <!-- Red Eerie Window Light from 4th Floor -->
+            <rect x="460" y="25" width="210" height="145" fill="#450a0a" stroke="#0f0a07" stroke-width="8"/>
+            <circle cx="520" cy="75" r="24" fill="#ef4444" opacity="0.8"/>
+            <polygon points="465,165 465,105 510,105 510,130 565,130 565,85 620,85 620,165" fill="#090d16"/>
+            <!-- Door 404 vibrating on the left -->
+            <rect x="95" y="30" width="110" height="160" fill="#3b2618" stroke="#0f0a07" stroke-width="5"/>
+            <rect x="128" y="65" width="44" height="22" fill="#eab308" stroke="#000" stroke-width="2"/>
+            <text x="150" y="81" text-anchor="middle" fill="#000" font-family="Impact" font-size="14">404</text>
+            <!-- Survivor waking up on the floor -->
+            <g transform="translate(290, 145)">
+              <circle cx="60" cy="45" r="28" fill="#fde68a" stroke="#1c1917" stroke-width="4"/>
+              <path d="M25,115 C30,75 90,75 95,115 Z" fill="#b45309" stroke="#1c1917" stroke-width="4"/>
+              <text x="135" y="45" fill="#facc15" font-family="monospace" font-weight="bold" font-size="14">"Suara apa di luar itu?!" </text>
+            </g>
+          </svg>
+        `
+      },
+      {
+        badge: "PROLOG 4 / 4",
+        location: "NOTIFIKASI DARURAT DI HANDPHONE KAMU",
+        title: "Peringatan Darurat: Jangan Buka Pintu!",
+        text: "Saat kamu merangkak di lantai hendak mengecek pintu kamar, layar handphone-mu tiba-tiba menyala terang dan bergetar hebat! Sebuah pesan Siaran Darurat Nasional muncul dengan peringatan keras:",
+        sfx: "radio",
+        shake: true,
+        visualHtml: `
+          <div class="w-full h-full bg-[#0d0a09] flex items-center justify-center p-4">
+            <!-- Vibrating Smartphone Screen UI -->
+            <div class="survivor-shiver w-full max-w-md bg-stone-950 border-4 border-stone-700 rounded-3xl p-4 shadow-[0_0_45px_rgba(220,38,38,0.65)] relative">
+              <!-- Phone Speaker & Time -->
+              <div class="flex items-center justify-between text-[11px] font-mono text-stone-400 border-b border-stone-800 pb-2 mb-3">
+                <span><i class="fa-solid fa-signal text-red-500 mr-1"></i> DARURAT SOS</span>
+                <span>04:05 WIB</span>
+                <span><i class="fa-solid fa-battery-half text-amber-400"></i> 48%</span>
+              </div>
+              <!-- Emergency Alert Banner -->
+              <div class="bg-red-950/90 border-2 border-red-500 rounded-xl p-3.5 text-left space-y-2">
+                <div class="flex items-center gap-2 text-amber-300 font-stencil text-sm md:text-base tracking-wider">
+                  <i class="fa-solid fa-triangle-exclamation text-red-400 animate-ping"></i>
+                  PERINGATAN DARURAT NASIONAL
+                </div>
+                <p class="font-ui text-xs md:text-sm text-white font-bold leading-snug">
+                  BAHAYA BIOLOGIS DI SELURUH KOTA! DILARANG KERAS KELUAR RUANGAN DAN <span class="text-amber-300 underline">JANGAN MEMBUKA PINTU</span> DENGAN ALASAN APA PUN SAMPAI INFORMASI EVAKUASI SELANJUTNYA!
+                </p>
+                <div class="text-[11px] font-mono text-red-300 pt-1">
+                  > Lokasi Anda: Lantai 4 - Unit 404. Kunci & barikade pintu sekarang!
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    let currentPrologueIndex = 0;
+
+    function openPrologueCutscene() {
+      currentPrologueIndex = 0;
+      document.getElementById('start-modal').classList.add('hidden');
+      document.getElementById('prologue-modal').classList.remove('hidden');
+      renderPrologueSlide();
+    }
+
+    function renderPrologueSlide() {
+      const slide = PROLOGUE_SLIDES[currentPrologueIndex];
+      document.getElementById('prologue-badge').textContent = slide.badge;
+      document.getElementById('prologue-location-tag').textContent = slide.location;
+      document.getElementById('prologue-title').textContent = slide.title;
+      document.getElementById('prologue-text').textContent = slide.text;
+      document.getElementById('prologue-visual-stage').innerHTML = slide.visualHtml;
+
+      // Update indicator dots
+      const dots = document.getElementById('prologue-dots').children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = i === currentPrologueIndex
+          ? "w-3 h-3 rounded-full bg-amber-400 scale-125 transition"
+          : "w-3 h-3 rounded-full bg-stone-700 transition";
+      }
+
+      // Update button text on last slide
+      const nextBtn = document.getElementById('btn-prologue-next');
+      if (currentPrologueIndex === PROLOGUE_SLIDES.length - 1) {
+        nextBtn.innerHTML = `KUNCI PINTU 404 & SIAP BERTAHAN! <i class="fa-solid fa-lock ml-1.5"></i>`;
+        nextBtn.className = "rubber-stamp bg-[#b91c1c] hover:bg-[#dc2626] text-white border-white px-6 py-2 text-base cursor-pointer shadow-[3px_3px_0px_#000]";
+      } else {
+        nextBtn.innerHTML = `LANJUTKAN CERITA <i class="fa-solid fa-arrow-right ml-1.5"></i>`;
+        nextBtn.className = "rubber-stamp bg-[#facc15] hover:bg-[#fde047] text-[#1c1917] border-[#1c1917] px-6 py-2 text-base cursor-pointer shadow-[3px_3px_0px_#b91c1c]";
+      }
+
+      if (slide.sfx) playSfx(slide.sfx);
+      if (slide.shake) {
+        const card = document.getElementById('prologue-card');
+        card.classList.remove('screen-shake');
+        void card.offsetWidth;
+        card.classList.add('screen-shake');
+      }
+    }
+
+    function nextPrologueSlide() {
+      if (currentPrologueIndex < PROLOGUE_SLIDES.length - 1) {
+        currentPrologueIndex++;
+        renderPrologueSlide();
+      } else {
+        skipPrologueToMenu();
+      }
+    }
+
+    function skipPrologueToMenu() {
+      playSfx('stamp');
+      document.getElementById('prologue-modal').classList.add('hidden');
+      document.getElementById('start-modal').classList.remove('hidden');
+    }
+
+    function startOpeningVideo() {
+      playSfx('stamp');
+      document.getElementById('title-screen-modal').classList.add('hidden');
+      document.getElementById('start-modal').classList.add('hidden');
+      const videoModal = document.getElementById('opening-video-modal');
+      const videoPlayer = document.getElementById('opening-video-player');
+      videoModal.classList.remove('hidden');
+      if (videoPlayer) {
+        videoPlayer.currentTime = 0;
+        videoPlayer.muted = false;
+        const playPromise = videoPlayer.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            finishOpeningVideo();
+          });
+        }
+      }
+    }
+
+    function finishOpeningVideo() {
+      const videoModal = document.getElementById('opening-video-modal');
+      const videoPlayer = document.getElementById('opening-video-player');
+      if (videoPlayer) {
+        videoPlayer.pause();
+      }
+      videoModal.classList.add('hidden');
+      document.getElementById('start-modal').classList.remove('hidden');
+    }
+
+    // Initialize Room Props & Clean Title Screen on Window Load
+    window.onload = function() {
+      selectCharacter('raka');
+      resetStateBase();
+      gameState.inventory = { food: 3, water: 3, medkit: 1, weapon: true, radioParts: 1 };
+      renderRoomProps();
+    };
+  </script>
+</body>
+</html>

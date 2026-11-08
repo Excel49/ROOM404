@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 290" width="140" height="290">
+  <!-- Stool -->
+  <rect x="25" y="200" width="90" height="16" rx="4" fill="#451a03" stroke="#1c1917" stroke-width="4"/>
+  <line x1="40" y1="216" x2="30" y2="280" stroke="#291002" stroke-width="8" stroke-linecap="round"/>
+  <line x1="100" y1="216" x2="110" y2="280" stroke="#291002" stroke-width="8" stroke-linecap="round"/>
+  <!-- Legs -->
+  <path d="M47,200 L43,265 M91,200 L97,265" stroke="#1e293b" stroke-width="18" stroke-linecap="round"/>
+  <rect x="25" y="260" width="30" height="16" rx="6" fill="#0f172a" stroke="#000" stroke-width="3"/>
+  <rect x="83" y="260" width="30" height="16" rx="6" fill="#0f172a" stroke="#000" stroke-width="3"/>
+  <!-- Raka Torso -->
+  <path d="M27,110 C27,90 113,90 113,110 L121,203 L19,203 Z" fill="#b45309" stroke="#1c1917" stroke-width="4"/>
+  <text x="70" y="162" text-anchor="middle" fill="#fef08a" font-family="Impact, sans-serif" font-size="22">404</text>
+  <path d="M27,113 L10,173 L40,183" fill="none" stroke="#92400e" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M113,113 L130,173 L100,183" fill="none" stroke="#92400e" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Head & Tech Goggles -->
+  <circle cx="70" cy="53" r="42" fill="#fde68a" stroke="#1c1917" stroke-width="4"/>
+  <path d="M29,43 C25,13 53,0 75,7 C100,1 117,23 111,45 C100,27 83,23 67,27 C50,25 37,31 29,43 Z" fill="#1c1917"/>
+  <rect x="38" y="21" width="26" height="14" rx="5" fill="#38bdf8" stroke="#1c1917" stroke-width="3"/>
+  <rect x="76" y="21" width="26" height="14" rx="5" fill="#38bdf8" stroke="#1c1917" stroke-width="3"/>
+  <circle cx="53" cy="53" r="7" fill="#ffffff" stroke="#1c1917" stroke-width="2.5"/>
+  <circle cx="87" cy="53" r="7" fill="#ffffff" stroke="#1c1917" stroke-width="2.5"/>
+  <circle cx="53" cy="53" r="3" fill="#1c1917"/>
+  <circle cx="87" cy="53" r="3" fill="#1c1917"/>
+  <path d="M57,74 Q70,81 83,74" fill="none" stroke="#1c1917" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
+

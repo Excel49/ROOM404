@@ -1,0 +1,135 @@
+{
+  "project": "ROOM 404 - Godot 4 Edition",
+  "survivors": {
+    "raka": {
+      "name": "RAKA",
+      "role": "Mahasiswa Teknik",
+      "sprite": "res://assets/characters/char_raka.svg",
+      "bonus_desc": "Mulai +1 Komponen Radio & Peluang Radio Koridor Tinggi"
+    },
+    "siska": {
+      "name": "SISKA",
+      "role": "Perawat Darurat",
+      "sprite": "res://assets/characters/char_siska.svg",
+      "bonus_desc": "Mulai +1 P3K Ekstra & Efek Medis/Sanity +25%"
+    },
+    "bima": {
+      "name": "BIMA",
+      "role": "Mantan Sekuriti",
+      "sprite": "res://assets/characters/char_bima.svg",
+      "bonus_desc": "Mulai +Pemukul Kasti, Barikade 100% & Tahan Dobrakan"
+    }
+  },
+  "events": [
+    {
+      "day": 1,
+      "title": "Ketukan Panik Tetangga Kamar 402",
+      "desc": "Dani dari Kamar 402 menggedor pintu: 'Tolong! Ada mayat hidup di tangga darurat! Beri aku 1 botol air, aku punya komponen frekuensi radio militer!'",
+      "choice_a": "Beri 1 Air Bersih (Tukar +1 Komponen Radio, -1 Air, +10% Waras)",
+      "outcome_a": "Dani menyerahkan 1 Komponen Radio dari celah bawah pintu lalu berlari pergi. (+1 Radio, -1 Air, +10% Kewarasan)",
+      "effect_a": { "water": -1, "radio_parts": 1, "sanity": 10 },
+      "choice_b": "Tolak & Kunci Rapat Slot Intip Pintu (-10% Kewarasan)",
+      "outcome_b": "Kamu diam mematung hingga suara langkahnya menjauh. Air aman, tapi rasa bersalah menghantuimu. (-10% Kewarasan)",
+      "effect_b": { "sanity": -10 }
+    },
+    {
+      "day": 2,
+      "title": "Pipa Air Apartemen Bocor",
+      "desc": "Langit-langit sudut Kamar 404 meneteskan air dari lantai atas. Airnya agak keruh, namun krisis air bersih semakin nyata.",
+      "choice_a": "Tadah & Rebus dengan Lilin Darurat (+2 Air Bersih, -5% HP)",
+      "outcome_a": "Kamu berhasil menyaring dan merebus 2 Botol Air bersih meski cukup melelahkan. (+2 Air, -5% Kesehatan)",
+      "effect_a": { "water": 2, "health": -5 },
+      "choice_b": "Bongkar Papan Penutup Pipa untuk Pintu (+20% Barikade)",
+      "outcome_b": "Kamu membongkar papan kayu penutup pipa untuk memperkuat barikade pintu Kamar 404. (+20% Barikade)",
+      "effect_b": { "barricade": 20 }
+    },
+    {
+      "day": 3,
+      "title": "Siaran Gelap di Frekuensi Darurat",
+      "desc": "Radio di meja kerja berdesis keras menyebutkan sandi evakuasi militer di atap gedung apartemen.",
+      "choice_a": "Fokus Mencatat Koordinat Semalaman (+20% Waras, -10% Kenyang)",
+      "outcome_a": "Kamu begadang menyalin sandi militer. Harapan hidupmu meningkat pesat! (+20% Kewarasan, -10% Kenyang)",
+      "effect_a": { "sanity": 20, "hunger": -10 },
+      "choice_b": "Bongkar Casing Radio untuk Cek Sirkuit (+1 Komponen Radio)",
+      "outcome_b": "Kamu menemukan 1 modul pemancar cadangan yang masih utuh di dalam radio! (+1 Komponen Radio)",
+      "effect_b": { "radio_parts": 1 }
+    },
+    {
+      "day": 4,
+      "title": "Cakaran Ganas di Pintu Kamar 404",
+      "desc": "Dua zombie tersesat di lorong lantai 4 dan menciumi celah pintu kamarmu. Papan barikade berderit keras.",
+      "choice_a": "Pukul Balik dari Celah Pintu (+1 Kaleng Sup, +10% Waras)",
+      "outcome_a": "Kamu menghantam tangan zombie tersebut hingga mereka mundur dan menjatuhkan ransum! (+1 Sup, +10% Kewarasan)",
+      "effect_a": { "food": 1, "sanity": 10 },
+      "choice_b": "Tahan Pintu dengan Tubuhmu Sekuat Tenaga (-15% HP, -10% Barikade)",
+      "outcome_b": "Pintu tidak jebol, tetapi bahumu terkilir dan tergores serpihan kayu. (-15% Kesehatan, -10% Barikade)",
+      "effect_b": { "health": -15, "barricade": -10 }
+    },
+    {
+      "day": 5,
+      "title": "Tas Ransel Medis di Teralis Jendela",
+      "desc": "Dari jendela Kamar 404, kamu melihat ransel petugas medis tersangkut di teralis tepat di bawah jendelamu.",
+      "choice_a": "Kaitkan dengan Gantungan Besi (+1 P3K, +1 Kaleng Sup)",
+      "outcome_a": "Berhasil! Di dalam ransel terdapat 1 Kotak P3K dan 1 Kaleng Sup. (+1 P3K, +1 Sup)",
+      "effect_a": { "medkit": 1, "food": 1 },
+      "choice_b": "Biarkan Saja & Tutup Tirai Rapat (+5% Kewarasan)",
+      "outcome_b": "Kamu memilih tidak membuat suara gaduh di dekat jendela. (+5% Kewarasan)",
+      "effect_b": { "sanity": 5 }
+    },
+    {
+      "day": 6,
+      "title": "Tikus Masuk ke Rak Logistik",
+      "desc": "Seekor tikus got menyelinap lewat ventilasi dan mengincar sisa makanan di rak penyimpanan Kamar 404.",
+      "choice_a": "Usir & Paku Rapat Ventilasi Besi (+15% Barikade, -10% Kenyang)",
+      "outcome_a": "Kamu berhasil mengamankan rak dan memperkokoh ventilasi kamar. (+15% Barikade, -10% Kenyang)",
+      "effect_a": { "barricade": 15, "hunger": -10 },
+      "choice_b": "Lempar 1 Kaleng Sup agar Tikus Pergi (-1 Sup, +10% Waras)",
+      "outcome_b": "Tikus itu pergi membawa makanan tersebut tanpa membuat gaduh. (-1 Kaleng Sup, +10% Kewarasan)",
+      "effect_b": { "food": -1, "sanity": 10 }
+    },
+    {
+      "day": 7,
+      "title": "Listrik Darurat Apartemen Padam Total",
+      "desc": "Lampu gantung Kamar 404 berkedip lalu meredup. Hawa dingin dan kesunyian ekstrem menguji mentalmu.",
+      "choice_a": "Nyalakan Lilin & Tulis Jurnal Harapan (+20% Kewarasan)",
+      "outcome_a": "Cahaya hangat lilin menjaga pikiranmu tetap waras di tengah kegelapan. (+20% Kewarasan)",
+      "effect_a": { "sanity": 20 },
+      "choice_b": "Bongkar Aki Lampu Darurat untuk Radio (+1 Radio, -10% Waras)",
+      "outcome_b": "Kamu memperoleh komponen kelistrikan penting untuk memperkuat sinyal radio! (+1 Komponen Radio, -10% Kewarasan)",
+      "effect_b": { "radio_parts": 1, "sanity": -10 }
+    },
+    {
+      "day": 8,
+      "title": "Kurir Logistik Terluka di Depan Kamar 404",
+      "desc": "Seorang kurir logistik kehausan parah di depan pintumu dan menawarkan seluruh isi tasnya jika ditolong.",
+      "choice_a": "Berikan 1 Botol Air Lewat Celah Pintu (-1 Air, +2 Sup, +1 P3K)",
+      "outcome_a": "Sebagai balas budi, ia meninggalkan 2 Kaleng Sup dan 1 Kotak P3K! (-1 Air, +2 Sup, +1 P3K)",
+      "effect_a": { "water": -1, "food": 2, "medkit": 1 },
+      "choice_b": "Simpan Air untuk Diri Sendiri (-15% Kewarasan)",
+      "outcome_b": "Kamu mengabaikan rintihannya demi menghemat air. (-15% Kewarasan)",
+      "effect_b": { "sanity": -15 }
+    },
+    {
+      "day": 9,
+      "title": "Deru Baling-Baling Helikopter di Kejauhan!",
+      "desc": "Suara helikopter pengintai terdengar! Besok adalah Hari Ke-10. Zombie di bawah gedung menjadi sangat agresif.",
+      "choice_a": "Paku Seluruh Perabot ke Pintu 404! (+35% Barikade, -10% Kenyang)",
+      "outcome_a": "Kamu memaku seluruh perabot tersisa ke pintu untuk menghadapi malam terakhir! (+35% Barikade, -10% Kenyang)",
+      "effect_a": { "barricade": 35, "hunger": -10 },
+      "choice_b": "Pasang Suar Darurat di Jendela Kamar (+25% Kewarasan)",
+      "outcome_b": "Pilot helikopter melihat tanda lampu dari Kamar 404! Mentalmu siap menyambut hari esok. (+25% Kewarasan)",
+      "effect_b": { "sanity": 25 }
+    },
+    {
+      "day": 10,
+      "title": "HARI KE-10: Panggilan Terakhir Menuju Atap!",
+      "desc": "Sirene evakuasi militer menggema! Helikopter mendarat di atap gedung apartemen selama 5 menit. Saatnya keluar dari Kamar 404!",
+      "choice_a": "Dobrak Pintu & Lari Menuju Tangga Atap Sekarang! (+10% Waras)",
+      "outcome_a": "Kamu mengerahkan seluruh sisa tenagamu menembus lorong menuju atap gedung!",
+      "effect_a": { "sanity": 10 },
+      "choice_b": "Nyalakan Sinyal Radio & Bergerak Hati-hati (+10% Barikade)",
+      "outcome_b": "Kamu mengirim sinyal konfirmasi terakhir lalu bergegas naik ke helipad atap!",
+      "effect_b": { "barricade": 10 }
+    }
+  ]
+}

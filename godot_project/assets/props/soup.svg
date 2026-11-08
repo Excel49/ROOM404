@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 48" width="36" height="48">
+  <rect x="2" y="2" width="32" height="44" rx="4" fill="#dc2626" stroke="#1c1917" stroke-width="3"/>
+  <rect x="5" y="13" width="26" height="16" fill="#fef08a"/>
+  <text x="18" y="25" text-anchor="middle" fill="#991b1b" font-family="monospace" font-size="10" font-weight="bold">SUP</text>
+</svg>
+

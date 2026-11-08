@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="240" height="280">
+  <!-- PLAYER PORTRAIT (BOTTOM-LEFT LIKE GAMBAR 3) -->
+  <!-- Dark Hoodie Shoulders -->
+  <path d="M15 280 L35 195 Q75 170 120 170 Q165 170 205 195 L225 280 Z" fill="#1e242b" stroke="#0c0e12" stroke-width="4"/>
+  <!-- Hoodie Collar -->
+  <path d="M75 175 L120 225 L165 175" fill="#2e3640" stroke="#0c0e12" stroke-width="3.5"/>
+  <!-- Neck -->
+  <rect x="98" y="140" width="44" height="45" fill="#d9b396" stroke="#1c1917" stroke-width="3.5"/>
+  <!-- Ears -->
+  <ellipse cx="64" cy="108" rx="10" ry="16" fill="#d9b396" stroke="#1c1917" stroke-width="3"/>
+  <ellipse cx="176" cy="108" rx="10" ry="16" fill="#d9b396" stroke="#1c1917" stroke-width="3"/>
+  <!-- Face -->
+  <path d="M68 65 Q68 162 120 165 Q172 162 172 65 Z" fill="#e6c3a8" stroke="#1c1917" stroke-width="3.8"/>
+  <!-- Spiky Short Dark Hair (Like Gambar 3 Bottom-Left) -->
+  <path d="M62 85 L58 60 L72 52 L82 36 L102 32 L120 26 L142 32 L162 40 L174 55 L178 85 L166 68 L152 72 L138 64 L120 70 L102 64 L86 72 L72 68 Z" fill="#23272e" stroke="#0c0e12" stroke-width="3.5"/>
+  <!-- Serious / Cautious Eyebrows & Eyes -->
+  <line x1="82" y1="88" x2="108" y2="90" stroke="#1c1917" stroke-width="3.5"/>
+  <line x1="132" y1="90" x2="158" y2="88" stroke="#1c1917" stroke-width="3.5"/>
+  <circle cx="98" cy="100" r="4.5" fill="#1c1917"/>
+  <circle cx="144" cy="100" r="4.5" fill="#1c1917"/>
+  <!-- Nose & Mouth -->
+  <path d="M120 102 L116 122 L124 124" fill="none" stroke="#1c1917" stroke-width="2.5"/>
+  <line x1="104" y1="140" x2="136" y2="137" stroke="#1c1917" stroke-width="3"/>
+</svg>

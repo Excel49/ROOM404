@@ -1,0 +1,182 @@
+================================================================================
+PANDUAN PRAKTIS GODOT ENGINE — KHUSUS PROJECT "ROOM 404" (60 SECONDS! STYLE)
+================================================================================
+Lokasi Project Godot : c:\Users\mling\Documents\PROJECTS\ROOM404\godot_project\
+File Utama Project   : project.godot
+Scene Utama          : res://scenes/MainRoom404.tscn
+Script Utama         : res://scripts/GameState.gd & res://scripts/MainRoom404.gd
+Database Cerita      : res://data/story_data.json
+================================================================================
+
+DAFTAR ISI PANDUAN INI:
+1. Cara Membuka & Menjalankan Project ROOM 404 di Godot
+2. Mengenal Susunan Node (Scene Tree) di MainRoom404.tscn
+3. Cara Memasukkan / Mengganti Asset Gambar (Background, Karakter, Item)
+4. Cara Mengatur Posisi (Move), Ukuran (Scale), & Urutan Layer (Z-Index)
+5. Cara Menambah Efek Cahaya Lampu Gantung (PointLight2D)
+6. Cara Memasukkan Suara / Musik (AudioStreamPlayer)
+7. Cara Mengedit Cerita Harian & Karakter di story_data.json
+8. Cara Export Game Menjadi File .EXE (Windows)
+
+--------------------------------------------------------------------------------
+1. CARA MEMBUKA & MENJALANKAN PROJECT ROOM 404 DI GODOT
+--------------------------------------------------------------------------------
+1. Buka aplikasi Godot Engine.
+2. Pada jendela Project Manager, klik tombol **"Import"** di sebelah kanan atas.
+3. Klik **"Browse"** lalu arahkan ke folder:
+   `c:\Users\mling\Documents\PROJECTS\ROOM404\godot_project\project.godot`
+4. Klik **"Import & Edit"**.
+5. Setelah editor Godot terbuka:
+   - Pastikan tab **2D** (di bagian tengah atas layar) terpilih.
+   - Tekan tombol **F5** di keyboard (atau tombol Play segitiga di pojok kanan atas)
+     untuk langsung memainkan game ROOM 404!
+
+--------------------------------------------------------------------------------
+2. MENGENAL SUSUNAN NODE (SCENE TREE) DI MainRoom404.tscn
+--------------------------------------------------------------------------------
+Di panel sebelah kiri atas (**Scene**), kamu akan melihat susunan Node project ini:
+
+MainRoom404 (Node2D)               --> Node induk seluruh kamar
+├── RoomBackground (Sprite2D)      --> Gambar latar Kamar 404 (1280x720)
+├── ShelfProps (Node2D)            --> Wadah item dinamis di rak logistik
+│   ├── Soup1, Soup2, Soup3        --> Kaleng sup (muncul/hilang otomatis sesuai stok)
+│   ├── Water1, Water2             --> Botol air bersih
+│   └── Medkit1                    --> Kotak P3K
+├── SurvivorCharacter (Node2D)     --> Wadah karakter penyintas di kursi
+│   ├── CharSprite (Sprite2D)      --> Gambar Raka / Siska / Bima (bernapas otomatis)
+│   └── SpeechBubble (Panel)       --> Gelembung status bicara di atas kepala karakter
+└── CanvasLayerUI (CanvasLayer)    --> Lapisan UI di atas layar
+    ├── TitleScreenLayer           --> Halaman Awal (Background Kamar 404 Lepas + Tombol PLAY & OPTIONS)
+    ├── OptionsModal               --> Menu Options (Pilih Karakter Raka/Siska/Bima, Mode Intro, Fullscreen)
+    ├── OpeningVideoLayer          --> Pemutar Video Opening (lockdown_404_opening_v2) + Tombol Lewati Video
+    ├── TopHUD                     --> Bar status atas & tombol ganti karakter / kembali ke Menu
+    ├── BtnOpenJournal             --> Tombol kuning "BUKA JURNAL 404" di kanan bawah
+    ├── NotebookModal              --> Buku Jurnal (Konsumsi, Kasus Hari Ini, Ekspedisi)
+    ├── NightCurtain               --> Layar transisi laporan malam hari
+    └── PrologueCutscene           --> Cutscene Visual Novel 4 Slide (opsional dari menu Options)
+
+--------------------------------------------------------------------------------
+3. CARA MEMASUKKAN / MENGGANTI ASSET GAMBAR BARU (PNG / WEBP / SVG)
+--------------------------------------------------------------------------------
+Misalnya kamu sudah membuat gambar AI baru untuk Background Kamar 404 atau Karakter:
+
+Langkah-langkahnya:
+1. Siapkan file gambar (misal `bg_baru.png` atau `raka_baru.png`).
+2. Copy-paste file gambar tersebut lewat Windows Explorer ke dalam folder:
+   - Background : `godot_project/assets/backgrounds/`
+   - Karakter   : `godot_project/assets/characters/`
+   - Item Rak   : `godot_project/assets/props/`
+3. Kembali ke aplikasi Godot. Godot akan otomatis meng-import gambar tersebut dan
+   menampilkannya di panel **FileSystem** (pojok kiri bawah).
+4. Untuk mengganti gambar Background Kamar:
+   - Klik node **`RoomBackground`** di panel **Scene** (kiri atas).
+   - Lihat panel **Inspector** di sebelah kanan layar.
+   - Tarik (*drag & drop*) file `bg_baru.png` dari panel **FileSystem** (kiri bawah)
+     ke dalam kotak properti **Texture** di panel **Inspector** (kanan).
+5. Untuk mengganti gambar Karakter (Raka / Siska / Bima):
+   - Jika nama filenya sama (`char_raka.svg` diganti isinya), Godot otomatis memperbaruinya.
+   - Jika memakai file `.png` baru (misal `char_raka.png`), buka script `MainRoom404.gd`
+     di baris 25-29 lalu ubah alamatnya:
+     ```gdscript
+     var char_textures := {
+         "raka": preload("res://assets/characters/char_raka.png"),
+         "siska": preload("res://assets/characters/char_siska.png"),
+         "bima": preload("res://assets/characters/char_bima.png")
+     }
+     ```
+
+--------------------------------------------------------------------------------
+4. CARA MENGATUR POSISI (MOVE), UKURAN (SCALE), & LAYER (Z-INDEX)
+--------------------------------------------------------------------------------
+Saat gambar baru dimasukkan, ukurannya kadang terlalu besar atau terlalu kecil.
+Berikut cara mengaturnya di ruang kerja **2D Viewport** Godot:
+
+A. Menggunakan Shortcut Toolbar 2D (di bagian atas Viewport):
+   - **Q (Select Mode / Ikon Kursor Panah)** : Untuk klik memilih, menggeser, dan
+     menarik titik-titik sudut merah gambar untuk mengubah ukuran.
+   - **W (Move Mode / Ikon Panah Silang)**   : Untuk menggeser posisi objek dengan presisi.
+   - **E (Rotate Mode / Ikon Panah Putar)**  : Untuk memiringkan objek (misal poster/pemukul kasti).
+   - **S (Scale Mode / Ikon Kotak Membesar)**: Untuk memperbesar/memperkecil ukuran objek.
+     *(TIPS: Tahan tombol **Shift** saat menarik sudut gambar agar rasio gambar tidak gepeng!)*
+
+B. Mengatur Scale & Posisi secara Presisi lewat Panel Inspector (Kanan):
+   1. Klik node yang ingin diatur (contoh: klik `SurvivorCharacter` atau `Soup1`).
+   2. Di panel **Inspector** (kanan), buka bagian **Node2D -> Transform**:
+      - **Position (x, y)** :
+        Lebar layar project ini adalah `1280` dan tinggi `720`.
+        Titik tengah layar persis adalah `x = 640`, `y = 360`.
+      - **Scale (x, y)** :
+        - `x = 1.0, y = 1.0` adalah ukuran asli (100%).
+        - Jika gambar karaktermu kebesaran, ubah **Scale** menjadi `x = 0.5, y = 0.5` (50%).
+        - Jika kekecilan, ubah menjadi `x = 1.5, y = 1.5` (150%).
+        - *PENTING untuk `CharSprite`*: Karena `CharSprite` punya animasi bernapas ke `scale (1.0, 1.03)`,
+          jika ingin mengubah ukuran dasar karakter, ubahlah **Scale** milik node induknya
+          yaitu **`SurvivorCharacter`**, bukan `CharSprite`!
+
+C. Mengatur Urutan Tumpukan Gambar (Z-Index):
+   - Jika gambar karakter tertutup oleh meja atau background:
+   - Klik node tersebut -> lihat **Inspector -> Ordering -> Z Index**.
+   - Semakin besar angka **Z Index** (misal `1`, `2`, `5`), semakin di depan posisi gambarnya.
+
+--------------------------------------------------------------------------------
+5. CARA MENAMBAH EFEK CAHAYA LAMPU GANTUNG ASLI (PointLight2D)
+--------------------------------------------------------------------------------
+Kalau ingin lampu gantung di Kamar 404 benar-benar menyinari ruangan secara dinamis:
+1. Klik kanan node `MainRoom404` -> pilih **Add Child Node** (`Ctrl + A`).
+2. Cari dan pilih **`PointLight2D`** -> klik **Create**.
+3. Di panel **Inspector** (kanan):
+   - Pada properti **Texture**, klik `<empty>` -> pilih **New GradientTexture2D**.
+   - Klik gambar gradasi tersebut, ubah **Fill** menjadi **Radial** (lingkaran).
+   - Ubah **Color** lampu menjadi kuning hangat (`#fef08a`) dan **Energy** menjadi `1.2`.
+4. Geser posisi lampu ke atas tengah kamar (`x = 640, y = 180`).
+
+--------------------------------------------------------------------------------
+6. CARA MEMASUKKAN SUARA / MUSIK (BGM Hujan & SFX Ketukan Pintu)
+--------------------------------------------------------------------------------
+1. Taruh file `.mp3`, `.ogg`, atau `.wav` ke folder `godot_project/assets/audio/`.
+2. Klik kanan node `MainRoom404` -> pilih **Add Child Node** -> cari **`AudioStreamPlayer`**.
+3. Beri nama node tersebut `BgmRain` (untuk suara hujan latar) atau `SfxKnock` (untuk efek).
+4. Tarik file audio dari **FileSystem** ke properti **Stream** di panel **Inspector**.
+5. Untuk musik latar hujan (`BgmRain`), centang kotak **Autoplay = On** di Inspector.
+6. Untuk memutar efek suara lewat kode GDScript di `MainRoom404.gd`, cukup panggil:
+   ```gdscript
+   $SfxKnock.play()
+   ```
+
+--------------------------------------------------------------------------------
+7. CARA MENGEDIT CERITA HARIAN DI story_data.json
+--------------------------------------------------------------------------------
+1. Buka file `godot_project/data/story_data.json` menggunakan VS Code / Notepad,
+   atau langsung klik 2x dari dalam panel **FileSystem** Godot.
+2. Kamu bisa mengedit judul kasus (`title`), cerita (`desc`), serta teks pilihan A & B
+   untuk Hari ke-1 sampai Hari ke-10 tanpa perlu mengutak-atik tampilan UI!
+
+--------------------------------------------------------------------------------
+8. CARA EXPORT GAME MENJADI FILE .EXE (WINDOWS DESKTOP)
+--------------------------------------------------------------------------------
+Saat project siap dikumpulkan atau dipamerkan:
+1. Di menu atas Godot, klik **Project -> Export...**
+2. Klik tombol **Add...** -> pilih **Windows Desktop**.
+   *(Jika muncul tulisan merah "Export templates notfound", klik link "Manage Export Templates"
+   di bawahnya lalu klik "Download and Install" sekali saja).*
+3. Klik tombol **Export Project...** di bagian bawah, beri nama `ROOM404_Survival.exe`,
+   lalu simpan!
+
+--------------------------------------------------------------------------------
+9. TENTANG VIDEO OPENING (lockdown_404_opening_v2.mp4) DI GODOT PROJECT
+--------------------------------------------------------------------------------
+Video `lockdown_404_opening_v2.mp4` sudah dimasukkan ke dalam folder:
+`godot_project/assets/video/lockdown_404_opening_v2.mp4` beserta ekstraksi frame HD-nya
+di `godot_project/assets/video/frames/`!
+
+Kenapa perlu diekstrak/dikonversi di Godot 4?
+- Secara bawaan, Godot 4 **menyembunyikan file `.mp4`** di panel FileSystem karena
+  `VideoStreamPlayer` bawaan Godot hanya membaca format **`.ogv` (Ogg Theora)**.
+- Agar kamu **bisa langsung klik PLAY di Godot sekarang juga tanpa perlu konversi manual**,
+  script `MainRoom404.gd` sudah otomatis memutar 114 frame HD (`1280x720`) dari video
+  `lockdown_404_opening_v2.mp4` pada node `OpeningVideoLayer/VideoFrameRect`!
+- Jika nantinya kamu mengonversi video `.mp4` ke `.ogv` dan menyimpannya sebagai
+  `godot_project/assets/video/opening_404.ogv`, Godot juga akan otomatis mendeteksinya
+  dan memutarnya lewat node `OpeningVideoLayer/NativeOgvPlayer` (`VideoStreamPlayer`).
+================================================================================
+

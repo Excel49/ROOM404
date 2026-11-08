@@ -1,0 +1,527 @@
+================================================================================
+                    LAPORAN PROPOSAL & PROGRESS PROJECT GAME
+               "ROOM 404: APARTMENT LOCKDOWN SURVIVAL"
+================================================================================
+
+
+================================================================================
+                                    COVER
+                (Format Standar Laporan Institut Teknologi Nasional)
+================================================================================
+
+                  LAPORAN PERANCANGAN & PENGEMBANGAN PROTOTYPE
+               "ROOM 404: APARTMENT LOCKDOWN SURVIVAL"
+          GAME SIMULASI SURVIVAL & INTERACTIVE VISUAL NOVEL 2D
+                       BERBASIS GODOT ENGINE 4
+
+
+                           Diajukan untuk Memenuhi
+                 Tugas Mata Kuliah [Nama Mata Kuliah Anda]
+                    Semester [Ganjil/Genap] Tahun Akademik
+                                 2026 / 2027
+
+
+                                 LOGO ITENAS
+                     (Institut Teknologi Nasional Bandung)
+
+
+                                Disusun Oleh:
+                     [Nama Lengkap Anda] — [NRP / NIM Anda]
+                     [Nama Anggota 2 (Jika Kelompok)] — [NRP]
+                     [Nama Anggota 3 (Jika Kelompok)] — [NRP]
+
+
+                        PROGRAM STUDI [INFORMATIKA / DKV]
+                  FAKULTAS [TEKNOLOGI INDUSTRI / ARSITEKTUR & DESAIN]
+                         INSTITUT TEKNOLOGI NASIONAL
+                                   BANDUNG
+                                    2026
+
+
+================================================================================
+                                KATA PENGANTAR
+================================================================================
+
+Puji dan syukur penulis panjatkan ke hadirat Tuhan Yang Maha Esa karena atas
+rahmat dan karunia-Nya, penulis dapat menyelesaikan Laporan Proposal dan
+Progress Pengembangan Project Game yang berjudul "ROOM 404: Apartment Lockdown
+Survival" tepat pada waktunya.
+
+Laporan ini disusun untuk mendokumentasikan tahapan perancangan konsep, analisis
+kebutuhan, pretesting alur interaksi, hingga pengembangan prototype permainan
+simulasi bertahan hidup (survival simulation) berbasis 2D menggunakan Godot
+Engine 4. Dalam proses penyusunan project dan laporan ini, penulis banyak
+mendapatkan bimbingan, masukan, serta dukungan dari berbagai pihak. Oleh karena
+itu, penulis mengucapkan terima kasih kepada:
+
+1. Bapak/Ibu [Nama Dosen Pengampu], selaku Dosen Pengampu mata kuliah yang telah
+   memberikan arahan, evaluasi, serta masukan konstruktif terhadap pengembangan
+   mekanika dan antarmuka game ini.
+2. Rekan-rekan mahasiswa di Institut Teknologi Nasional (Itenas) Bandung yang
+   telah membantu dalam tahap brainstorming dan pengujian awal (pretesting)
+   prototype permainan.
+3. Semua pihak yang tidak dapat disebutkan satu per satu atas dukungannya.
+
+Penulis menyadari bahwa laporan dan prototype project ini masih memiliki ruang
+untuk pengembangan lebih lanjut. Oleh sebab itu, kritik dan saran yang membangun
+sangat penulis harapkan demi penyempurnaan karya ini di masa mendatang. Semoga
+laporan ini dapat memberikan manfaat bagi pembaca dan pengembang game lainnya.
+
+
+Bandung, November 2026
+
+Penulis
+
+
+================================================================================
+                                  DAFTAR ISI
+================================================================================
+
+COVER ...................................................................... i
+KATA PENGANTAR ............................................................. ii
+DAFTAR ISI ................................................................. iii
+
+BAB 1 – PENDAHULUAN ........................................................ 1
+  a. Nama Project / Judul Project .......................................... 1
+  b. Latar Belakang Project ................................................ 1
+
+BAB 2 – PERANCANGAN ........................................................ 3
+  a. Pemilihan Ide (Riset, ATM, Brainstorming) ............................. 3
+  b. Analisis .............................................................. 5
+     1. Analisis Kebutuhan (Hardware & Software) ........................... 5
+     2. Analisis Biaya dan Waktu ........................................... 6
+     3. Analisis Isi Project ............................................... 7
+     4. Analisis Target Usia dan Pasar ..................................... 8
+     5. Analisis Media Teknologi dan Media Perantara ....................... 9
+  c. Pretesting ............................................................ 10
+     1. Identifikasi Risiko dan Mitigasi ................................... 10
+     2. Model Alur Interaksi (Interaction Flow Model) ...................... 11
+     3. Model Skenario Permainan ........................................... 12
+  d. Prototype Development ................................................. 14
+     1. Contoh Aset yang Digunakan ......................................... 14
+     2. Interface / Antarmuka Project ...................................... 15
+     3. Storyline (Alur Cerita & Penokohan) ................................ 17
+
+BAB 3 – PENUTUP ............................................................ 20
+  a. Kesimpulan ............................................................ 20
+  b. Saran ................................................................. 20
+
+
+================================================================================
+                             BAB 1 – PENDAHULUAN
+================================================================================
+
+a. Nama Project / Judul Project
+--------------------------------------------------------------------------------
+Nama Project  : ROOM 404: Apartment Lockdown Survival
+Genre         : 2D Point-and-Click Survival Simulation & Interactive Visual Novel
+Platform      : PC / Windows Desktop (Godot Engine 4) & Web HTML5 Prototype
+Tema Utama    : Bertahan hidup di dalam kamar apartemen lantai 4 (Unit 404)
+                selama masa karantina darurat 10 hari dengan keterbatasan
+                logistik dan dilema moral.
+
+
+b. Latar Belakang Project
+--------------------------------------------------------------------------------
+Perkembangan industri game independen (indie game) menunjukkan bahwa permainan
+dengan mekanika sederhana namun memiliki kedalaman narasi dan pengambilan
+keputusan (decision-making) mampu memberikan pengalaman bermain yang sangat
+kuat bagi pemain. Salah satu sub-genre yang diminati adalah "Single-Room
+Survival Simulation", di mana pemain ditempatkan dalam ruang terbatas dengan
+sumber daya yang menipis dan harus bertahan hidup dari hari ke hari.
+
+Di Indonesia, hunian vertikal seperti apartemen atau rumah susun dan kos-kosan
+bertingkat merupakan latar tempat yang sangat dekat dengan keseharian mahasiswa
+maupun masyarakat perkotaan. Namun, belum banyak game lokal yang mengangkat
+ketegangan psikologis bertahan hidup di dalam satu unit kamar apartemen saat
+terjadi bencana isolasi/lockdown mendadak.
+
+Project "ROOM 404: Apartment Lockdown Survival" berangkat dari gagasan tersebut.
+Angka "404" yang dalam dunia digital dikenal sebagai kode "Not Found" (Tidak
+Ditemukan) diadaptasikan menjadi nomor kamar apartemen di Lantai 4 (Unit 404)
+yang terputus dari bantuan luar. Pemain terbangun pada pukul 04:04 dini hari
+akibat suara gemuruh hebat di luar gedung dan menerima peringatan darurat di
+handphone bahwa tidak boleh ada satu pun penghuni yang keluar gedung.
+
+Melalui project ini, pemain ditantang untuk mengelola kebutuhan dasar (kesehatan,
+kewarasan, lapar, dan haus), berinteraksi langsung dengan objek di dalam kamar
+(lemari makanan/minuman, pintu kamar, radio darurat, buku catatan fisik, dan
+tempat tidur), serta menghadapi dilema moral ketika ada ketukan pintu di tengah
+malam—apakah akan membuka pintu untuk menolong tetangga/petugas Hazmat, atau
+justru berhadapan dengan bandit penjarah.
+
+
+================================================================================
+                             BAB 2 – PERANCANGAN
+================================================================================
+
+a. Pemilihan Ide (Riset, ATM, Brainstorming)
+--------------------------------------------------------------------------------
+Proses pencarian dan pematangan ide untuk project "ROOM 404" dilakukan melalui
+tiga tahapan terstruktur, yaitu Riset Referensi, Metode ATM (Amati, Tiru,
+Modifikasi), serta Brainstorming.
+
+1. Riset (Research)
+   Penulis melakukan riset terhadap beberapa game survival dan visual novel
+   populer yang berfokus pada manajemen ruang terbatas:
+   - "60 Seconds! Reatomized" (Robot Gentleman): Menjadi referensi utama untuk
+     gaya buku catatan harian fisik (survival journal) dan suasana ruang
+     perlindungan dengan stok kaleng sup serta botol air yang tampak secara
+     visual di rak penyimpanan.
+   - "Quarantine / Freakshow Visual Novel" & "No, I'm Not a Human": Menjadi
+     referensi utama untuk tampilan interaksi dialog tatap muka ketika tamu
+     mengetuk pintu (karakter tamu berdiri besar di tengah layar, potret
+     protagonis di kiri bawah, dan kotak dialog gelap bernuansa tegang).
+   - "Papers, Please": Menjadi referensi untuk ketegangan pemeriksaan identitas
+     tamu melalui lubang intip pintu sebelum memutuskan membuka atau menutup
+     pintu.
+
+2. Metode ATM (Amati, Tiru, Modifikasi)
+   - AMATI:
+     Mengamati bagaimana game "60 Seconds!" menyajikan buku catatan harian yang
+     tidak transparan (bertekstur kertas tua dengan gulungan halaman dan tab
+     indeks di samping), tampilan Main Menu bergaya papan petunjuk jalan di
+     luar ruangan, serta bagaimana game Visual Novel menampilkan percakapan
+     dengan tamu seperti petugas Hazmat.
+   - TIRU:
+     Mengadaptasi tata letak buku catatan ber-tab untuk mencatat laporan harian,
+     tata letak papan petunjuk jalan (signpost) untuk halaman Main Menu, serta
+     sistem visualisasi stok barang di lemari yang berkurang secara nyata saat
+     dikonsumsi.
+   - MODIFIKASI:
+     Melakukan modifikasi besar agar sesuai dengan konsep orisinal "ROOM 404":
+     a) Mengubah latar bunker nuklir Amerika tahun 1950-an menjadi Kamar 404 di
+        Lantai 4 Apartemen Griya Sentosa dengan atmosfer karantina modern.
+     b) Mengganti sistem klik pasif di buku menjadi interaksi langsung di dalam
+        kamar (Point-and-Click): pemain langsung mengklik Kaleng Sup/Botol Air
+        di lemari untuk menghilangkan simbol Lapar/Haus di HUD.
+     c) Menambahkan mekanika "Aturan Pintu 1x Sehari", di mana pemain dapat
+        memilih antara Looting Koridor (dengan opsi membawa senjata atau tangan
+        kosong) atau mengunjungi kamar tetangga spesifik (Kamar 401, 402, 403,
+        dan 405) sebelum pintu dikunci rapat untuk sisa hari tersebut.
+     d) Menggabungkan fase tidur malam (klik Tempat Tidur) dengan sistem
+        interaksi ketukan pintu (Buka Pintu, Intip Lubang Pintu, atau Tetap
+        Tutup) yang langsung memicu adegan obrolan Visual Novel interaktif.
+
+3. Brainstorming
+   Dari sesi brainstorming dan evaluasi bertahap, ditetapkan 8 pilar desain
+   utama yang diterapkan pada prototype terbaru:
+   - Buku Log/Catatan dibuat padat (non-transparan) menyerupai buku fisik.
+   - Indikator kebutuhan menggunakan kombinasi Simbol Dinamis (Lapar, Haus,
+     Terluka, Cemas yang hilang saat pemain mengklik makanan/minuman/obat) dan
+     4 Bar Warna (HP, Kewarasan, Lapar, Haus).
+   - Karakter utama berjumlah 1 orang dengan fitur kustomisasi Nama Pemain saat
+     memulai "NEW GAME".
+   - Halaman Main Menu menggunakan latar eksterior gedung dan jalanan dengan
+     tombol papan penunjuk jalan.
+   - Interaksi objek langsung di kamar (Lemari, Pintu, Radio, Tempat Tidur).
+   - Pembatasan penggunaan Pintu maksimal 1 kali per hari.
+   - Event tengah malam saat tidur (ketukan pintu, surat misterius, bandit,
+     petugas Hazmat, atau tetangga).
+   - Tampilan obrolan bergaya Visual Novel sinematik saat pemain membuka pintu.
+
+
+b. Analisis
+--------------------------------------------------------------------------------
+1. Analisis Kebutuhan (System & Development Requirements)
+   a) Kebutuhan Perangkat Keras (Hardware):
+      - Laptop/PC Pengembang: Prosesor setara Intel Core i5 / AMD Ryzen 5,
+        RAM minimal 8 GB, GPU terintegrasi/dedicated yang mendukung Vulkan /
+        OpenGL 3.3, ruang penyimpanan kosong minimal 2 GB.
+      - Perangkat Target Pemain: PC/Laptop spesifikasi ringan (RAM 4 GB,
+        resolusi layar 1280x720 piksel).
+   b) Kebutuhan Perangkat Lunak (Software):
+      - Game Engine      : Godot Engine v4.x (GDScript)
+      - Code Editor      : Visual Studio Code & Built-in Godot Script Editor
+      - Pengolah Grafis  : Vector SVG Editor / Adobe Illustrator / Inkscape &
+                           AI Image Generation untuk pembuatan aset 2D
+      - Pengolah Video   : AI Video Generator & OpenCV/Media Foundation untuk
+                           ekstraksi cutscene pembuka (scene_opening.mp4) dan
+                           sinkronisasi audio stereo 48kHz (.wav).
+
+2. Analisis Biaya dan Waktu
+   a) Estimasi Biaya Pengembangan (Skala Proyek Akademik / Indie):
+      --------------------------------------------------------------------------
+      No.  Komponen Kebutuhan                     Sumber / Lisensi     Biaya
+      --------------------------------------------------------------------------
+      1.   Godot Engine 4                         Open Source (MIT)    Rp 0
+      2.   Visual Studio Code & Python Tools      Open Source / Free   Rp 0
+      3.   Pembuatan Aset Grafis SVG & Cutscene   In-House & AI Tools  Rp 0
+      4.   Kuota Internet, Listrik, & Operasional Pribadi (4 Minggu)   Rp 150.000
+      --------------------------------------------------------------------------
+      TOTAL ESTIMASI BIAYA                                             Rp 150.000
+      --------------------------------------------------------------------------
+
+   b) Jadwal dan Waktu Pengerjaan (Timeline 4 Minggu):
+      - Minggu 1: Riset referensi, brainstorming cerita Kamar 404, penyusunan
+                  naskah alur 10 hari, dan pembuatan cutscene video opening.
+      - Minggu 2: Pembuatan prototype awal berbasis Web (HTML5) dan migrasi
+                  struktur project ke Godot Engine 4 (GameState.gd & Scene).
+      - Minggu 3: Iterasi evaluasi UI/UX (desain Buku Catatan non-transparan,
+                  Main Menu papan jalan, sistem Simbol + 4 Bar, dan mekanika
+                  klik objek lemari/pintu/radio/tempat tidur).
+      - Minggu 4: Implementasi sistem dialog Visual Novel (Hazmat, Tetangga,
+                  Bandit), sinkronisasi audio-video opening, pengujian akhir
+                  (playtesting), dan penyusunan laporan.
+
+3. Analisis Isi Project
+   Isi dari project "ROOM 404" mencakup 4 fase permainan yang saling terhubung:
+   - Fase Pembuka (Main Menu, Input Nama, & Cutscene Video 20 Detik):
+     Menampilkan latar eksterior gedung sebelum wabah, pengisian nama karakter
+     utama, dan pemutaran video sinematik "scene_opening.mp4" yang menceritakan
+     transisi dari kehidupan normal menuju kepanikan pukul 04:04 dini hari.
+   - Fase Siang di Kamar 404 (Manajemen Kebutuhan & Klik Objek):
+     Pemain memantau simbol Lapar/Haus/Luka di kiri atas layar dan mengklik
+     Kaleng Sup, Botol Air, atau P3K langsung di lemari kamar, membaca Buku
+     Catatan 4 tab, serta memeriksa Radio Darurat di meja.
+   - Fase Eksplorasi Pintu (Maksimal 1 Kali Sehari):
+     Pemain mengklik pintu untuk memilih opsi keluar (dengan opsi membawa
+     Senjata Pipa Besi atau tangan kosong): Looting Koridor Lantai 4, masuk ke
+     kamar tetangga (Kamar 401, 402, 403, atau 405), atau memperkuat barikade.
+   - Fase Tidur Malam & Interaksi Tamu (Visual Novel Event):
+     Saat mengklik Tempat Tidur, pemain menghadapi kejadian tengah malam
+     (ketukan pintu) dan memilih untuk mengintip, tetap menutup pintu, atau
+     membuka pintu dan berdialog langsung dengan tamu.
+
+4. Analisis Target Usia dan Pasar
+   - Target Usia (Age Rating):
+     Remaja hingga Dewasa Muda (13+ / Teen), khususnya rentang usia 15–28 tahun
+     (pelajar SMA, mahasiswa, dan penikmat game indie).
+   - Target Pasar (Market Segment):
+     1) Penggemar game strategi bertahan hidup kasual (seperti "60 Seconds!",
+        "Sheltered", "This War of Mine").
+     2) Penggemar game cerita interaktif / Visual Novel misteri-thriller.
+     3) Pemain PC/Laptop dengan spesifikasi standar yang menyukai game dengan
+        nilai replayability (dapat dimainkan berulang kali dengan hasil acak).
+
+5. Analisis Media Teknologi dan Media Perantara yang Digunakan
+   - Media Teknologi Pengembangan:
+     1) Godot Engine 4 (2D Node System & CanvasLayer UI) sebagai mesin utama
+        permainan.
+     2) Bahasa Pemrograman GDScript dengan arsitektur Singleton Autoload
+        (`GameState.gd`) untuk memisahkan logika data dari tampilan visual
+        (`MainRoom404.gd`).
+     3) Format Grafik Vektor SVG (`Scalable Vector Graphics`) yang dimuat secara
+        dinamis agar tampilan aset tetap tajam di berbagai resolusi layar.
+     4) Sistem Sinkronisasi Audio-Video (`AudioStreamWAV` 48kHz + Frame Sequence
+        15 FPS) untuk memastikan video pembuka berputar mulus beserta suaranya.
+   - Media Perantara (Distribusi & Penyajian):
+     Aplikasi Desktop Windows (`.exe` / Godot Project) dan Prototype Web
+     Interaktif (`.html`) yang dapat dijalankan langsung saat presentasi maupun
+     pengujian pengguna.
+
+
+c. Pretesting
+--------------------------------------------------------------------------------
+1. Identifikasi Risiko dan Mitigasi
+   Sebelum dan selama pengembangan prototype, dilakukan identifikasi terhadap
+   potensi risiko teknis maupun desain permainan:
+   - Risiko 1 (Teknis Video di Godot 4):
+     Node `VideoStreamPlayer` bawaan Godot 4 hanya mendukung format `.ogv` dan
+     menyembunyikan file `.mp4`, serta berisiko kehilangan jalur suara.
+     -> Mitigasi: Mengekstrak 300 frame HD dari `scene_opening.mp4` dan jalur
+        audio `scene_opening_audio.wav`, lalu menyinkronkan pemutaran frame
+        langsung terhadap posisi waktu audio (`get_playback_position()`).
+   - Risiko 2 (Antarmuka Buku Log Terlalu Penuh / Transparan):
+     Tampilan modal standar yang gelap/transparan mengurangi nuansa imersif.
+     -> Mitigasi: Mengganti panel transparan menjadi ilustrasi buku catatan
+        fisik padat (`notebook_60s.svg`) dengan 4 tab halaman terpisah.
+   - Risiko 3 (Eksploitasi Aksi Pintu Berulang Kali dalam Sehari):
+     Jika pemain bisa mengklik pintu berkali-kali dalam satu hari, pemain dapat
+     mengumpulkan item tanpa batas (farming).
+     -> Mitigasi: Menerapkan variabel pengunci `door_used_today = true` segera
+        setelah pintu digunakan 1 kali, sehingga pemain wajib beralih ke aksi
+        dalam kamar (makan, minum, radio, atau tidur di kasur).
+   - Risiko 4 (Pemain Bingung Kapan Harus Makan/Minum):
+     -> Mitigasi: Menampilkan simbol visual `🍲 LAPAR`, `💧 HAUS`, dan
+        `➕ TERLUKA` di pojok kiri atas yang langsung menghilang saat pemain
+        mengklik objek makanan/minuman/P3K di lemari.
+
+2. Model Alur Interaksi (Interaction Flow Model)
+   Berikut adalah alur interaksi pengguna dari awal permainan hingga tamat:
+
+   [HALAMAN MAIN MENU (Latar Eksterior + Papan Petunjuk Jalan)]
+         │
+         ├──► Klik "Options / Credits" ──► Atur Fullscreen / Info Project
+         ├──► Klik "Exit" ───────────────► Keluar Aplikasi
+         │
+         ▼
+   [Klik "NEW GAME"] ──► [Input Nama Karakter Utama (Default: Raka)]
+         │
+         ▼
+   [CUTSCENE VIDEO OPENING (scene_opening.mp4 + Audio Stereo 20 Detik)]
+         │ (Opsi: Klik "SKIP ⏭" atau tunggu selesai)
+         ▼
+   [MASUK KE KAMAR 404 (DAY 1) — Buku Catatan Terbuka Otomatis]
+         │
+         ▼
+   [FASE AKTIVITAS SIANG DI DALAM KAMAR 404 (Point & Click)]
+         ├──► 1. Klik Kaleng Sup di Lemari ──► Makan (+Lapar, Simbol 🍲 Hilang)
+         ├──► 2. Klik Botol Air di Lemari ───► Minum (+Haus, Simbol 💧 Hilang)
+         ├──► 3. Klik Kotak P3K di Lemari ───► Obati (+HP, Simbol ➕ Hilang)
+         ├──► 4. Klik Radio di Meja ─────────► Cek Frekuensi (+Waras / Cek Sinyal)
+         ├──► 5. Klik Pintu 404 (Maks 1x/Hari):
+         │       ├─► Toggle: [✓] Bawa Senjata Pipa Besi / [ ] Tangan Kosong
+         │       ├─► Opsi A: Looting Koridor Lantai 4
+         │       ├─► Opsi B: Kunjungi Kamar Tetangga (401 / 402 / 403 / 405)
+         │       │           (Kamar 402 & 405 memicu Layar Obrolan Visual Novel)
+         │       └─► Opsi C: Perkuat Barikade Pintu (+25% Barikade)
+         │       *(Setelah 1 aksi pintu, Pintu Terkunci untuk sisa hari itu)*
+         │
+         ▼
+   [6. Klik Tempat Tidur (Kasur) untuk Tidur Malam]
+         │
+         ▼
+   [EVENT TENGAH MALAM (Ketukan Pintu / Tamu / Bandit / Surat)]
+         ├──► Opsi 1: Intip dari Lubang Pintu (Muncul petunjuk siapa di luar)
+         ├──► Opsi 2: Tetap Tutup Pintu (Tamu pergi / Bandit gagal masuk)
+         └──► Opsi 3: Buka Pintu ──► [LAYAR DIALOG VISUAL NOVEL (Gambar 3)]
+                                      ├─► Pilih Respons Dialog 1 / 2 / 3
+                                      └─► Terima Efek (Barter / Loot / Luka)
+         │
+         ▼
+   [EVALUASI KONDISI AKHIR MALAM]
+         ├──► Jika HP <= 0 ──────────────────────► BAD ENDING (Game Over)
+         ├──► Jika Radio 3/3 & Radio Dinyalakan ─► SECRET ENDING (Evakuasi Cepat)
+         ├──► Jika Selamat Mencapai DAY 10 ──────► TRUE GOOD ENDING (Selamat)
+         └──► Jika Belum Tamat ──────────────────► Lanjut ke Pagi Hari Berikutnya
+
+3. Model Skenario Permainan
+   a) Skenario Kamar Tetangga di Lantai 4 (Saat Klik Pintu):
+      - Kamar 401 (Eksplorasi Logistik): Peluang 65% menemukan +1 Kaleng Sup &
+        +1 Botol Air peninggalan penghuni lama; peluang 35% ruangan kosong yang
+        menurunkan kewarasan (-8%).
+      - Kamar 402 (Interaksi Tetangga - Siska): Memicu layar Visual Novel bersama
+        Siska. Pemain dapat menukar 1 Botol Air dengan 2 Kaleng Sup, meminta
+        perawatan medis (+30% HP & menghilangkan simbol Luka), atau mengobrol.
+      - Kamar 403 (Zona Rawan Penjarah/Jebakan): Jika pemain membawa Senjata Pipa
+        Besi, penjarah di dalam kabur dan meninggalkan +1 Kotak P3K. Jika tanpa
+        senjata, pemain terkena jebakan kawat (-22% HP & simbol Luka muncul).
+      - Kamar 405 (Zona Karantina Petugas Hazmat): Memicu layar Visual Novel
+        bersama Petugas Hazmat yang menawarkan bungkusan logistik "404 Mart"
+        (+1 Sup & +1 Air) atau +1 Komponen Radio Darurat.
+
+   b) Skenario Ketukan Pintu Tengah Malam (Saat Klik Tempat Tidur):
+      - Skenario 1 (Petugas Hazmat): Mengetuk pintu pukul 02:15 dini hari. Jika
+        dibuka, pemain dapat menerima logistik darurat atau menukar makanan
+        dengan P3K.
+      - Skenario 2 (Tetangga Kamar 402): Mengetuk pintu karena listrik kamarnya
+        padam. Menawarkan +1 Komponen Radio jika dibantu 1 Kaleng Sup hangat.
+      - Skenario 3 (Bandit Koridor): Menggedor pintu dengan kasar. Jika diintip,
+        terlihat membawa linggis. Jika tetap ditutup, barikade menahan serangan.
+        Jika dibuka, pemain harus melawan dengan Pipa Besi atau menyerahkan sup.
+      - Skenario 4 (Pesan di Bawah Pintu): Kurir misterius menyelipkan amplop
+        frekuensi radio dan +1 Kaleng Sup di bawah celah pintu.
+
+
+d. Prototype Development
+--------------------------------------------------------------------------------
+1. Contoh Aset yang Digunakan
+   Seluruh aset visual dan audio telah diintegrasikan ke dalam folder
+   `godot_project/assets/`:
+   -----------------------------------------------------------------------------
+   Kategori Aset        Nama File Aset                  Fungsi dalam Prototype
+   -----------------------------------------------------------------------------
+   Background Menu      bg_main_menu.svg                Latar eksterior gedung
+                                                        404, mobil biru klasik,
+                                                        & tiang papan jalan.
+   Background Kamar     bg_room404.svg                  Interior Kamar 404
+                                                        (Pintu, Lemari Stok,
+                                                        Meja Radio, & Kasur).
+   Buku Catatan         notebook_60s.svg                Buku log fisik bergaya
+                                                        60 Seconds! (kertas tua,
+                                                        gulungan kiri, 4 tab).
+   Karakter Utama       char_raka.svg &                 Sprite karakter di kamar
+                        player_portrait.svg             & potret kiri bawah VN.
+   Karakter Tamu (NPC)  npc_hazmat.svg,                 Ilustrasi besar tamu
+                        npc_neighbor.svg,               pada layar obrolan
+                        npc_bandit.svg                  Visual Novel.
+   Item Logistik        soup.svg, water.svg,            Objek dinamis di lemari
+                        medkit.svg                      yang bisa diklik.
+   Video & Audio        scene_opening.mp4 (300 frame)   Cutscene pembuka 20
+                        & scene_opening_audio.wav       detik bersuara stereo.
+   -----------------------------------------------------------------------------
+
+2. Interface / Antarmuka Project
+   Antarmuka pengguna (User Interface) dirancang menjadi 5 tampilan utama:
+   a) Antarmuka Halaman Menu Utama (Main Menu):
+      Menampilkan suasana jalanan depan Apartemen 404 di siang/sore hari dengan
+      papan petunjuk jalan kayu di sisi kiri berisi tombol `NEW GAME`,
+      `Options`, `Credits`, dan `Exit`, dilengkapi modal input nama pemain.
+   b) Antarmuka HUD Dalam Kamar (In-Game HUD):
+      - Pojok Kiri Atas: Deretan simbol dinamis (`➕ TERLUKA`, `🍲 LAPAR`,
+        `💧 HAUS`, `👁️ CEMAS`) yang muncul sesuai kondisi karakter dan langsung
+        hilang ketika pemain mengklik item terkait di lemari.
+      - Tengah Atas: 4 Bar Warna (`❤️ HP` berwarna merah, `🧠 WARAS` berwarna
+        ungu, `🍲 LAPAR` berwarna oranye, dan `💧 HAUS` berwarna biru).
+      - Pojok Kanan Atas: Penanda hari berukuran besar (`DAY 1` s/d `DAY 10`)
+        dan tombol kembali ke `MENU`.
+   c) Antarmuka Buku Catatan Fisik (Non-Transparent Notebook UI):
+      Berupa lembaran kertas coklat padat dengan pita merah dan 4 tab di sisi
+      kanan: Tab 1 (Catatan Harian), Tab 2 (Stok Logistik & Kondisi Tubuh),
+      Tab 3 (Peta Kamar Tetangga Lantai 4), dan Tab 4 (Misi Evakuasi Radio).
+   d) Antarmuka Modal Pintu Kamar 404:
+      Menampilkan tombol pengaktif senjata (`Bawa Senjata Pipa Besi`), tombol
+      Looting Koridor, pilihan 4 kamar tetangga (`401`, `402`, `403`, `405`),
+      dan tombol perkuat barikade.
+   e) Antarmuka Dialog Visual Novel (VN Interaction Screen):
+      Menampilkan karakter lawan bicara berukuran besar di tengah ruangan,
+      potret wajah karakter utama di pojok kiri bawah, kotak dialog hitam pekat
+      dengan aksen bercak merah di bagian bawah, serta 3 tombol pilihan dialog.
+
+3. Storyline (Alur Cerita)
+   - Judul Cerita : "The Lockdown of Room 404"
+   - Premis / Hook:
+     Sehari sebelumnya, kehidupan di Apartemen Griya Sentosa berjalan normal.
+     Namun tepat pukul 04:04 dini hari keesokan harinya, suara gemuruh hebat
+     mengguncang gedung. Sang tokoh utama terbangun di atas lantai kayu Kamar
+     404 (Lantai 4, Unit 04) dan mendapati pesan darurat nasional di layar
+     handphone-nya: "DILARANG KERAS KELUAR RUANGAN DAN JANGAN MEMBUKA PINTU
+     DENGAN ALASAN APA PUN SAMPAI INFORMASI SELANJUTNYA."
+   - Konflik Utama:
+     Persediaan di lemari Kamar 404 hanya cukup untuk beberapa hari pertama.
+     Untuk bertahan hidup hingga helikopter evakuasi tiba pada Hari Ke-10 (atau
+     merakit 3 komponen radio darurat untuk memanggil jemputan lebih cepat),
+     pemain terpaksa membuka pintu maksimal satu kali sehari untuk memeriksa
+     koridor dan kamar tetangga, serta memutuskan siapa yang layak dipercaya
+     ketika terdengar ketukan pintu di tengah malam.
+
+
+================================================================================
+                              BAB 3 – PENUTUP
+================================================================================
+
+a. Kesimpulan
+--------------------------------------------------------------------------------
+Berdasarkan hasil perancangan, pretesting, dan pengembangan prototype "ROOM 404:
+Apartment Lockdown Survival" menggunakan Godot Engine 4, dapat disimpulkan bahwa:
+1. Penerapan metode ATM (Amati, Tiru, Modifikasi) dari referensi "60 Seconds!"
+   dan game Visual Novel berhasil menghasilkan mekanika permainan baru yang
+   memadukan manajemen logistik point-and-click di dalam kamar dengan interaksi
+   dialog naratif.
+2. Seluruh 8 poin evaluasi desain telah berhasil diimplementasikan secara penuh
+   pada prototype Godot, meliputi tampilan Buku Catatan non-transparan, sistem
+   indikator simbol kebutuhan yang responsif terhadap klik objek di lemari + 4
+   bar status berwarna, kustomisasi nama karakter tunggal di awal permainan,
+   Main Menu bergaya papan petunjuk jalan dengan latar berbeda, pembatasan aksi
+   pintu 1 kali sehari beserta eksplorasi 4 kamar tetangga, hingga event tidur
+   malam dengan layar obrolan Visual Novel.
+3. Masalah teknis pemutaran video `.mp4` dan sinkronisasi suara pada Godot 4
+   berhasil diatasi melalui sistem sinkronisasi frame HD dan stream audio WAV
+   stereo 48kHz.
+
+
+b. Saran
+--------------------------------------------------------------------------------
+Untuk pengembangan project "ROOM 404" ke tahap rilis penuh (full release) di
+masa mendatang, terdapat beberapa saran pengembangan:
+1. Penambahan Efek Suara (SFX) dan Musik Latar (BGM) berlapis, seperti suara
+   ketukan pintu kayu, efek membuka kaleng makanan, dan suara hujan di jendela
+   Lantai 4 untuk meningkatkan ketegangan atmosfer permainan.
+2. Penambahan variasi kamar tetangga di lantai lain (misalnya akses tangga
+   darurat menuju Lantai 3 atau Atap Gedung) serta lebih banyak karakter tamu
+   dengan percabangan cerita berantai.
+3. Penambahan fitur penyimpanan otomatis (Save/Load System) agar progres hari
+   dan koleksi pencapaian (Achievements/Memories) pemain dapat tersimpan secara
+   permanen.
+================================================================================

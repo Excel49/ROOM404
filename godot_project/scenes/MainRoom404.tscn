@@ -1,0 +1,1069 @@
+[gd_scene format=3 uid="uid://u6naeducnxdu"]
+
+[ext_resource type="Script" uid="uid://blpgp4m20spmy" path="res://scripts/MainRoom404.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b7svlpfvwes3g" path="res://assets/backgrounds/bg_room404.svg" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://cs4hd472x3y3s" path="res://assets/characters/char_raka.svg" id="3_char"]
+[ext_resource type="Texture2D" uid="uid://ukgc5lhwykj5" path="res://assets/props/soup.svg" id="4_soup"]
+[ext_resource type="Texture2D" uid="uid://yp00w234sbqp" path="res://assets/props/water.svg" id="5_water"]
+[ext_resource type="Texture2D" uid="uid://2tjlttnd4u5w" path="res://assets/props/medkit.svg" id="6_medkit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.12, 0.1, 0.09, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.05, 0.04, 0.04, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_fill"]
+bg_color = Color(0.86, 0.15, 0.15, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sanity_fill"]
+bg_color = Color(0.65, 0.3, 0.9, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hunger_fill"]
+bg_color = Color(0.92, 0.5, 0.1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thirst_fill"]
+bg_color = Color(0.15, 0.65, 0.95, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn_box"]
+bg_color = Color(0.05, 0.04, 0.04, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45, 0.08, 0.08, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sign_top"]
+bg_color = Color(0.86, 0.87, 0.82, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.18, 0.16, 0.14, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sign_plank"]
+bg_color = Color(0.83, 0.84, 0.78, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.18, 0.16, 0.14, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MainRoom404" type="Node2D" unique_id=294651502]
+script = ExtResource("1_script")
+
+[node name="RoomBackground" type="Sprite2D" parent="." unique_id=1241689248]
+position = Vector2(640, 360)
+texture = ExtResource("2_bg")
+
+[node name="ShelfProps" type="Node2D" parent="." unique_id=1441211279]
+
+[node name="Soup1" type="Sprite2D" parent="ShelfProps" unique_id=906981429]
+position = Vector2(256, 224)
+texture = ExtResource("4_soup")
+
+[node name="Soup2" type="Sprite2D" parent="ShelfProps" unique_id=511338971]
+position = Vector2(302, 224)
+texture = ExtResource("4_soup")
+
+[node name="Soup3" type="Sprite2D" parent="ShelfProps" unique_id=162334804]
+position = Vector2(348, 224)
+texture = ExtResource("4_soup")
+
+[node name="Water1" type="Sprite2D" parent="ShelfProps" unique_id=1505629391]
+position = Vector2(272, 312)
+texture = ExtResource("5_water")
+
+[node name="Water2" type="Sprite2D" parent="ShelfProps" unique_id=308888244]
+position = Vector2(326, 312)
+texture = ExtResource("5_water")
+
+[node name="Medkit1" type="Sprite2D" parent="ShelfProps" unique_id=316508365]
+position = Vector2(302, 402)
+texture = ExtResource("6_medkit")
+
+[node name="SurvivorCharacter" type="Node2D" parent="." unique_id=1057875625]
+position = Vector2(775, 455)
+
+[node name="CharSprite" type="Sprite2D" parent="SurvivorCharacter" unique_id=728022066]
+texture = ExtResource("3_char")
+
+[node name="SpeechBubble" type="Panel" parent="SurvivorCharacter" unique_id=1831941919]
+offset_left = -95.0
+offset_top = -185.0
+offset_right = 105.0
+offset_bottom = -145.0
+
+[node name="SpeechLabel" type="Label" parent="SurvivorCharacter/SpeechBubble" unique_id=1495497238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RAKA: SIAP BERTAHAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayerUI" type="CanvasLayer" parent="." unique_id=221811218]
+
+[node name="RoomInteractiveHotspots" type="Control" parent="CanvasLayerUI" unique_id=1414586068]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BtnClickDoor" type="Button" parent="CanvasLayerUI/RoomInteractiveHotspots" unique_id=1841582127]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 135.0
+offset_right = 198.0
+offset_bottom = 525.0
+tooltip_text = "Klik Pintu Kamar 404 (Maksimal 1x Sehari: Looting / Kamar Tetangga / Barikade)"
+flat = true
+
+[node name="DoorTag" type="Panel" parent="CanvasLayerUI/RoomInteractiveHotspots/BtnClickDoor" unique_id=1747076542]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 345.0
+offset_right = 145.0
+offset_bottom = 382.0
+mouse_filter = 2
+
+[node name="DoorTagLabel" type="Label" parent="CanvasLayerUI/RoomInteractiveHotspots/BtnClickDoor/DoorTag" unique_id=1671818342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.98, 0.85, 0.25, 1)
+theme_override_font_sizes/font_size = 12
+text = "🚪 PINTU (1x/Hari)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnClickSoup" type="Button" parent="CanvasLayerUI/RoomInteractiveHotspots" unique_id=478893623]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 185.0
+offset_right = 376.0
+offset_bottom = 262.0
+tooltip_text = "Klik Kaleng Sup untuk Makan (Menghilangkan Simbol Lapar)"
+text = "🍲 Makan Sup"
+
+[node name="BtnClickWater" type="Button" parent="CanvasLayerUI/RoomInteractiveHotspots" unique_id=1557374589]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 272.0
+offset_right = 376.0
+offset_bottom = 350.0
+tooltip_text = "Klik Botol Air untuk Minum (Menghilangkan Simbol Haus)"
+text = "💧 Minum Air"
+
+[node name="BtnClickMedkit" type="Button" parent="CanvasLayerUI/RoomInteractiveHotspots" unique_id=723261996]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 362.0
+offset_right = 376.0
+offset_bottom = 440.0
+tooltip_text = "Klik Kotak P3K untuk Mengobati Luka"
+text = "➕ Pakai P3K"
+
+[node name="BtnClickRadio" type="Button" parent="CanvasLayerUI/RoomInteractiveHotspots" unique_id=15370854]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 335.0
+offset_right = 605.0
+offset_bottom = 405.0
+tooltip_text = "Klik Radio Darurat untuk Cek Frekuensi & Menenangkan Diri"
+text = "📻 Cek Radio"
+
+[node name="BtnClickBed" type="Button" parent="CanvasLayerUI/RoomInteractiveHotspots" unique_id=550159568]
+layout_mode = 0
+offset_left = 925.0
+offset_top = 365.0
+offset_right = 1235.0
+offset_bottom = 515.0
+tooltip_text = "Klik Tempat Tidur untuk Tidur & Menghadapi Event Malam"
+text = "🛏️ TIDUR (AKHIRI HARI)"
+
+[node name="TopHUD" type="Control" parent="CanvasLayerUI" unique_id=194300331]
+visible = false
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="StatusSymbolsBox" type="HBoxContainer" parent="CanvasLayerUI/TopHUD" unique_id=468020785]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 470.0
+offset_bottom = 58.0
+theme_override_constants/separation = 10
+
+[node name="BadgeInjured" type="PanelContainer" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox" unique_id=1948829010]
+visible = false
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox/BadgeInjured" unique_id=2108261383]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_font_sizes/font_size = 16
+text = " ➕ TERLUKA "
+
+[node name="BadgeHungry" type="PanelContainer" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox" unique_id=819892643]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox/BadgeHungry" unique_id=1964110175]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0.3, 1)
+theme_override_font_sizes/font_size = 16
+text = " 🍲 LAPAR "
+
+[node name="BadgeThirsty" type="PanelContainer" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox" unique_id=989398464]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox/BadgeThirsty" unique_id=1261765032]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = " 💧 HAUS "
+
+[node name="BadgeStressed" type="PanelContainer" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox" unique_id=1986475347]
+visible = false
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="CanvasLayerUI/TopHUD/StatusSymbolsBox/BadgeStressed" unique_id=1606249267]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.55, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = " 👁️ CEMAS "
+
+[node name="BarsPanel" type="Panel" parent="CanvasLayerUI/TopHUD" unique_id=968269634]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 10.0
+offset_right = 1030.0
+offset_bottom = 66.0
+
+[node name="LblHP" type="Label" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=781399958]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 130.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 12
+text = "❤️ HP"
+
+[node name="BarHP" type="ProgressBar" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=1994607264]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 28.0
+offset_right = 134.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp_fill")
+value = 100.0
+show_percentage = false
+
+[node name="LblSanity" type="Label" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=470380938]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 8.0
+offset_right = 272.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 12
+text = "🧠 WARAS"
+
+[node name="BarSanity" type="ProgressBar" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=1513412314]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 28.0
+offset_right = 272.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sanity_fill")
+value = 100.0
+show_percentage = false
+
+[node name="LblHunger" type="Label" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=662880149]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 8.0
+offset_right = 410.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 12
+text = "🍲 LAPAR"
+
+[node name="BarHunger" type="ProgressBar" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=1681379465]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 28.0
+offset_right = 410.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hunger_fill")
+value = 70.0
+show_percentage = false
+
+[node name="LblThirst" type="Label" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=660500306]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 8.0
+offset_right = 550.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 12
+text = "💧 HAUS"
+
+[node name="BarThirst" type="ProgressBar" parent="CanvasLayerUI/TopHUD/BarsPanel" unique_id=1772581530]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 28.0
+offset_right = 550.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_thirst_fill")
+value = 70.0
+show_percentage = false
+
+[node name="DayBadge" type="Panel" parent="CanvasLayerUI/TopHUD" unique_id=1601802041]
+layout_mode = 0
+offset_left = 1145.0
+offset_top = 10.0
+offset_right = 1264.0
+offset_bottom = 72.0
+
+[node name="DayBigLabel" type="Label" parent="CanvasLayerUI/TopHUD/DayBadge" unique_id=1869053591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.98, 0.85, 0.25, 1)
+theme_override_font_sizes/font_size = 24
+text = "DAY 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnBackToTitle" type="Button" parent="CanvasLayerUI/TopHUD" unique_id=644494414]
+layout_mode = 0
+offset_left = 1045.0
+offset_top = 16.0
+offset_right = 1135.0
+offset_bottom = 60.0
+text = "🏠 MENU"
+
+[node name="ToastBanner" type="Panel" parent="CanvasLayerUI" unique_id=488900228]
+visible = false
+offset_left = 340.0
+offset_top = 645.0
+offset_right = 940.0
+offset_bottom = 695.0
+
+[node name="ToastLabel" type="Label" parent="CanvasLayerUI/ToastBanner" unique_id=853961697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.98, 0.9, 0.5, 1)
+text = "Notifikasi aksi..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnOpenJournal" type="Button" parent="CanvasLayerUI" unique_id=1328816091]
+visible = false
+offset_left = 1045.0
+offset_top = 635.0
+offset_right = 1260.0
+offset_bottom = 702.0
+theme_override_font_sizes/font_size = 16
+text = "📓 BUKU CATATAN"
+
+[node name="DoorActionModal" type="ColorRect" parent="CanvasLayerUI" unique_id=1986377963]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.72)
+
+[node name="DoorCard" type="Panel" parent="CanvasLayerUI/DoorActionModal" unique_id=476753826]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 95.0
+offset_right = 990.0
+offset_bottom = 625.0
+
+[node name="DoorTitle" type="Label" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=1732099560]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 676.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.98, 0.82, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "🚪 PINTU KAMAR 404 — PILIH AKSI KELUAR (MAKS 1X SEHARI)"
+horizontal_alignment = 1
+
+[node name="DoorSub" type="Label" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=736586711]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 54.0
+offset_right = 668.0
+offset_bottom = 96.0
+text = "Setelah kamu menggunakan pintu hari ini, pintu akan dikunci rapat sampai esok pagi."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BtnToggleWeapon" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=61483137]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 104.0
+offset_right = 655.0
+offset_bottom = 148.0
+text = "🔧 Opsi Senjata: [✓ BAWA SENJATA PIPA BESI SAAT KELUAR]"
+
+[node name="BtnDoorLoot" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=86261481]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 164.0
+offset_right = 655.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 16
+text = "🎒 1. LOOTING KORIDOR LANTAI 4 (Cari Makanan / Air / Radio)"
+
+[node name="RoomsLabel" type="Label" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=1608962052]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 232.0
+offset_right = 655.0
+offset_bottom = 258.0
+text = "🚪 2. MENUJU RUANGAN TETANGGA DI LANTAI 4 (Pilih Kamar):"
+
+[node name="RoomGrid" type="GridContainer" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=1474416701]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 264.0
+offset_right = 655.0
+offset_bottom = 384.0
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="BtnRoom401" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid" unique_id=1630760355]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "🔑 Kamar 401 (Cek Ruangan)"
+
+[node name="BtnRoom402" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid" unique_id=173257607]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "🔑 Kamar 402 (Kamar Siska)"
+
+[node name="BtnRoom403" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid" unique_id=527555197]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "🔑 Kamar 403 (Koridor Gelap)"
+
+[node name="BtnRoom405" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid" unique_id=1968935555]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "🔑 Kamar 405 (Zona Karantina)"
+
+[node name="BtnDoorReinforce" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=1213341725]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 400.0
+offset_right = 655.0
+offset_bottom = 448.0
+text = "🔨 3. TIDAK KELUAR — PERKUAT BARIKADE PINTU 404 (+25% Barikade)"
+
+[node name="BtnCloseDoorModal" type="Button" parent="CanvasLayerUI/DoorActionModal/DoorCard" unique_id=947098383]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 466.0
+offset_right = 470.0
+offset_bottom = 508.0
+text = "✖ BATAL (JANGAN BUKA PINTU DULU)"
+
+[node name="NotebookModal" type="ColorRect" parent="CanvasLayerUI" unique_id=2043742283]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.55)
+
+[node name="BookGraphic" type="TextureRect" parent="CanvasLayerUI/NotebookModal" unique_id=1183228248]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 45.0
+offset_right = 1050.0
+offset_bottom = 665.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DayHeaderLabel" type="Label" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=1477463230]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 72.0
+offset_right = 640.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.12, 0.09, 0.06, 1)
+theme_override_font_sizes/font_size = 34
+text = "DAY 1"
+horizontal_alignment = 1
+
+[node name="PageBodyText" type="RichTextLabel" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=1333764477]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 132.0
+offset_right = 655.0
+offset_bottom = 435.0
+theme_override_colors/default_color = Color(0.14, 0.1, 0.06, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+text = "Catatan harian Kamar 404..."
+
+[node name="BottomIconsLabel" type="Label" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=2108927732]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 445.0
+offset_right = 655.0
+offset_bottom = 480.0
+theme_override_colors/font_color = Color(0.25, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 15
+text = "🍲 Sup: 3   |   💧 Air: 3   |   ➕ P3K: 1   |   📻 Radio: 1/3"
+horizontal_alignment = 1
+
+[node name="BtnPrevPage" type="Button" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=1981168414]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 492.0
+offset_right = 365.0
+offset_bottom = 538.0
+theme_override_colors/font_color = Color(0.1, 0.07, 0.04, 1)
+theme_override_font_sizes/font_size = 22
+text = "◄——"
+flat = true
+
+[node name="BtnNextPage" type="Button" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=16658753]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 492.0
+offset_right = 660.0
+offset_bottom = 538.0
+theme_override_colors/font_color = Color(0.1, 0.07, 0.04, 1)
+theme_override_font_sizes/font_size = 22
+text = "——►|"
+flat = true
+
+[node name="BtnTab1" type="Button" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=1995249390]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 56.0
+offset_right = 768.0
+offset_bottom = 148.0
+tooltip_text = "Halaman 1: Catatan Harian"
+flat = true
+
+[node name="BtnTab2" type="Button" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=39648290]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 152.0
+offset_right = 768.0
+offset_bottom = 242.0
+tooltip_text = "Halaman 2: Stok Logistik & Kondisimu"
+flat = true
+
+[node name="BtnTab3" type="Button" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=321310066]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 246.0
+offset_right = 768.0
+offset_bottom = 335.0
+tooltip_text = "Halaman 3: Catatan Kamar Tetangga Lantai 4"
+flat = true
+
+[node name="BtnTab4" type="Button" parent="CanvasLayerUI/NotebookModal/BookGraphic" unique_id=236260465]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 338.0
+offset_right = 774.0
+offset_bottom = 435.0
+tooltip_text = "Halaman 4: Petunjuk Evakuasi & Tutup Buku"
+flat = true
+
+[node name="BtnCloseJournal" type="Button" parent="CanvasLayerUI/NotebookModal" unique_id=1452934382]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 665.0
+offset_right = 750.0
+offset_bottom = 708.0
+text = "✖ TUTUP BUKU CATATAN"
+
+[node name="SleepEventModal" type="ColorRect" parent="CanvasLayerUI" unique_id=249272313]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.02, 0.02, 0.03, 0.94)
+
+[node name="SleepBox" type="Panel" parent="CanvasLayerUI/SleepEventModal" unique_id=2009350697]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 115.0
+offset_right = 1020.0
+offset_bottom = 605.0
+
+[node name="SleepTitle" type="Label" parent="CanvasLayerUI/SleepEventModal/SleepBox" unique_id=1321887268]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 732.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.98, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "🌙 TENGAH MALAM DI KAMAR 404..."
+horizontal_alignment = 1
+
+[node name="SleepDesc" type="RichTextLabel" parent="CanvasLayerUI/SleepEventModal/SleepBox" unique_id=796687800]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 75.0
+offset_right = 724.0
+offset_bottom = 275.0
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Deskripsi kejadian tengah malam..."
+
+[node name="BtnKnockOpen" type="Button" parent="CanvasLayerUI/SleepEventModal/SleepBox" unique_id=2054338525]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 290.0
+offset_right = 680.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 17
+text = "🚪 BUKA PINTU & HADAPI TAMU (INTERAKSI LANGSUNG)"
+
+[node name="BtnKnockPeek" type="Button" parent="CanvasLayerUI/SleepEventModal/SleepBox" unique_id=1317492483]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 352.0
+offset_right = 680.0
+offset_bottom = 398.0
+text = "🔍 INTIP DARI LUBANG PINTU DULU"
+
+[node name="BtnKnockKeepClosed" type="Button" parent="CanvasLayerUI/SleepEventModal/SleepBox" unique_id=244269265]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 410.0
+offset_right = 680.0
+offset_bottom = 460.0
+text = "🔒 TETAP TUTUP PINTU & LANJUT TIDUR SAMPAI PAGI"
+
+[node name="VNDialogueLayer" type="Control" parent="CanvasLayerUI" unique_id=931173689]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VNDarkTint" type="ColorRect" parent="CanvasLayerUI/VNDialogueLayer" unique_id=1586090992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="VNVisitorSprite" type="TextureRect" parent="CanvasLayerUI/VNDialogueLayer" unique_id=1451768558]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 45.0
+offset_right = 870.0
+offset_bottom = 665.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VNPlayerPortrait" type="TextureRect" parent="CanvasLayerUI/VNDialogueLayer" unique_id=493275051]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 420.0
+offset_right = 262.0
+offset_bottom = 720.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VNBloodAccent" type="ColorRect" parent="CanvasLayerUI/VNDialogueLayer" unique_id=2119111916]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 472.0
+offset_right = 540.0
+offset_bottom = 528.0
+color = Color(0.45, 0.04, 0.04, 0.85)
+
+[node name="VNDialogueBox" type="Panel" parent="CanvasLayerUI/VNDialogueLayer" unique_id=1533851775]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 515.0
+offset_right = 1245.0
+offset_bottom = 704.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vn_box")
+
+[node name="VNDialogueText" type="RichTextLabel" parent="CanvasLayerUI/VNDialogueLayer/VNDialogueBox" unique_id=423388238]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 975.0
+offset_bottom = 78.0
+theme_override_colors/default_color = Color(0.94, 0.9, 0.82, 1)
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "\"Ada goresan aneh di sepanjang dinding lantai 4 ini...\""
+
+[node name="VNChoicesBox" type="VBoxContainer" parent="CanvasLayerUI/VNDialogueLayer/VNDialogueBox" unique_id=734126291]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 80.0
+offset_right = 975.0
+offset_bottom = 180.0
+theme_override_constants/separation = 5
+
+[node name="BtnVNChoice1" type="Button" parent="CanvasLayerUI/VNDialogueLayer/VNDialogueBox/VNChoicesBox" unique_id=1887125538]
+layout_mode = 2
+text = "▸ Pilihan Dialog 1"
+alignment = 0
+
+[node name="BtnVNChoice2" type="Button" parent="CanvasLayerUI/VNDialogueLayer/VNDialogueBox/VNChoicesBox" unique_id=1448388586]
+layout_mode = 2
+text = "▸ Pilihan Dialog 2"
+alignment = 0
+
+[node name="BtnVNChoice3" type="Button" parent="CanvasLayerUI/VNDialogueLayer/VNDialogueBox/VNChoicesBox" unique_id=722571372]
+layout_mode = 2
+text = "▸ Pilihan Dialog 3"
+alignment = 0
+
+[node name="VNSpeakerName" type="Label" parent="CanvasLayerUI/VNDialogueLayer" unique_id=86057074]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 480.0
+offset_right = 680.0
+offset_bottom = 514.0
+theme_override_colors/font_color = Color(0.95, 0.65, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "Hazmat Guy"
+
+[node name="TitleScreenLayer" type="Control" parent="CanvasLayerUI" unique_id=1440463642]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBackground" type="TextureRect" parent="CanvasLayerUI/TitleScreenLayer" unique_id=1226519777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="SignpostContainer" type="Control" parent="CanvasLayerUI/TitleScreenLayer" unique_id=1493219058]
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 135.0
+offset_right = 310.0
+offset_bottom = 560.0
+
+[node name="BtnTitlePlay" type="Button" parent="CanvasLayerUI/TitleScreenLayer/SignpostContainer" unique_id=2064447487]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 262.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.12, 0.11, 0.1, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.12, 0.12, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_sign_top")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sign_top")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sign_top")
+text = "NEW GAME"
+
+[node name="BtnTitleOptions" type="Button" parent="CanvasLayerUI/TitleScreenLayer/SignpostContainer" unique_id=922329022]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 102.0
+offset_right = 240.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.12, 0.11, 0.1, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.12, 0.12, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_sign_plank")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sign_plank")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sign_plank")
+text = "Options"
+
+[node name="BtnTitleCredits" type="Button" parent="CanvasLayerUI/TitleScreenLayer/SignpostContainer" unique_id=2028307382]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 158.0
+offset_right = 240.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.12, 0.11, 0.1, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.12, 0.12, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_sign_plank")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sign_plank")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sign_plank")
+text = "Credits"
+
+[node name="BtnTitleQuit" type="Button" parent="CanvasLayerUI/TitleScreenLayer/SignpostContainer" unique_id=825468712]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 214.0
+offset_right = 240.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0.12, 0.11, 0.1, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.12, 0.12, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_sign_plank")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sign_plank")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sign_plank")
+text = "Exit"
+
+[node name="NameInputModal" type="ColorRect" parent="CanvasLayerUI" unique_id=280722843]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.75)
+
+[node name="NameBox" type="Panel" parent="CanvasLayerUI/NameInputModal" unique_id=422026781]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 190.0
+offset_right = 900.0
+offset_bottom = 520.0
+
+[node name="Title" type="Label" parent="CanvasLayerUI/NameInputModal/NameBox" unique_id=810006814]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 496.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.98, 0.82, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "SIAPA NAMA PENYINTAS KAMAR 404?"
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="CanvasLayerUI/NameInputModal/NameBox" unique_id=1195775340]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 62.0
+offset_right = 490.0
+offset_bottom = 92.0
+text = "Ketik nama karakter utamamu sebelum memulai permainan:"
+horizontal_alignment = 1
+
+[node name="NameLineEdit" type="LineEdit" parent="CanvasLayerUI/NameInputModal/NameBox" unique_id=103267335]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 105.0
+offset_right = 460.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 22
+text = "Raka"
+placeholder_text = "Masukkan nama pemain..."
+alignment = 1
+
+[node name="BtnConfirmStartVideo" type="Button" parent="CanvasLayerUI/NameInputModal/NameBox" unique_id=464862935]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 175.0
+offset_right = 460.0
+offset_bottom = 228.0
+theme_override_font_sizes/font_size = 18
+text = "▶ MULAI & PUTAR VIDEO OPENING"
+
+[node name="BtnConfirmSkipVideo" type="Button" parent="CanvasLayerUI/NameInputModal/NameBox" unique_id=1342181660]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 238.0
+offset_right = 315.0
+offset_bottom = 284.0
+text = "⏩ LANGSUNG MASUK KAMAR"
+
+[node name="BtnCancelName" type="Button" parent="CanvasLayerUI/NameInputModal/NameBox" unique_id=2061600778]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 238.0
+offset_right = 460.0
+offset_bottom = 284.0
+text = "BATAL"
+
+[node name="OptionsModal" type="Panel" parent="CanvasLayerUI" unique_id=1973039589]
+visible = false
+offset_left = 420.0
+offset_top = 210.0
+offset_right = 860.0
+offset_bottom = 490.0
+
+[node name="OptionsTitle" type="Label" parent="CanvasLayerUI/OptionsModal" unique_id=167018034]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 420.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 22
+text = "OPTIONS & CREDITS"
+horizontal_alignment = 1
+
+[node name="OptionsInfo" type="Label" parent="CanvasLayerUI/OptionsModal" unique_id=1505286862]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 60.0
+offset_right = 410.0
+offset_bottom = 125.0
+text = "ROOM 404: Apartment Lockdown Survival
+Terinspirasi dari 60 Seconds! & Quarantine VN"
+horizontal_alignment = 1
+
+[node name="BtnOptFullscreen" type="Button" parent="CanvasLayerUI/OptionsModal" unique_id=415334222]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 135.0
+offset_right = 390.0
+offset_bottom = 182.0
+text = "Layar Penuh (Fullscreen): OFF"
+
+[node name="BtnCloseOptions" type="Button" parent="CanvasLayerUI/OptionsModal" unique_id=789046760]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 205.0
+offset_right = 330.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 16
+text = "TUTUP"
+
+[node name="OpeningVideoLayer" type="ColorRect" parent="CanvasLayerUI" unique_id=525902851]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoFrameRect" type="TextureRect" parent="CanvasLayerUI/OpeningVideoLayer" unique_id=530949924]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NativeOgvPlayer" type="VideoStreamPlayer" parent="CanvasLayerUI/OpeningVideoLayer" unique_id=1160857589]
+visible = false
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+expand = true
+
+[node name="OpeningAudioPlayer" type="AudioStreamPlayer" parent="CanvasLayerUI/OpeningVideoLayer" unique_id=1716851373]
+
+[node name="BtnSkipVideo" type="Button" parent="CanvasLayerUI/OpeningVideoLayer" unique_id=1367594472]
+layout_mode = 0
+offset_left = 1120.0
+offset_top = 20.0
+offset_right = 1256.0
+offset_bottom = 58.0
+text = "SKIP ⏭"
+
+[connection signal="pressed" from="CanvasLayerUI/RoomInteractiveHotspots/BtnClickDoor" to="." method="_on_btn_click_door_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/RoomInteractiveHotspots/BtnClickSoup" to="." method="_on_btn_click_soup_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/RoomInteractiveHotspots/BtnClickWater" to="." method="_on_btn_click_water_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/RoomInteractiveHotspots/BtnClickMedkit" to="." method="_on_btn_click_medkit_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/RoomInteractiveHotspots/BtnClickRadio" to="." method="_on_btn_click_radio_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/RoomInteractiveHotspots/BtnClickBed" to="." method="_on_btn_click_bed_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/TopHUD/BtnBackToTitle" to="." method="_on_btn_back_to_title_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/BtnOpenJournal" to="." method="_on_btn_open_journal_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/BtnToggleWeapon" to="." method="_on_btn_toggle_weapon_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/BtnDoorLoot" to="." method="_on_btn_door_loot_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid/BtnRoom401" to="." method="_on_btn_room_401_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid/BtnRoom402" to="." method="_on_btn_room_402_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid/BtnRoom403" to="." method="_on_btn_room_403_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/RoomGrid/BtnRoom405" to="." method="_on_btn_room_405_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/BtnDoorReinforce" to="." method="_on_btn_door_reinforce_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/DoorActionModal/DoorCard/BtnCloseDoorModal" to="." method="_on_btn_close_door_modal_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NotebookModal/BookGraphic/BtnPrevPage" to="." method="_on_btn_prev_page_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NotebookModal/BookGraphic/BtnNextPage" to="." method="_on_btn_next_page_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NotebookModal/BookGraphic/BtnTab1" to="." method="_on_btn_tab_1_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NotebookModal/BookGraphic/BtnTab2" to="." method="_on_btn_tab_2_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NotebookModal/BookGraphic/BtnTab3" to="." method="_on_btn_tab_3_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NotebookModal/BookGraphic/BtnTab4" to="." method="_on_btn_tab_4_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NotebookModal/BtnCloseJournal" to="." method="_on_btn_close_journal_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/SleepEventModal/SleepBox/BtnKnockOpen" to="." method="_on_btn_knock_open_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/SleepEventModal/SleepBox/BtnKnockPeek" to="." method="_on_btn_knock_peek_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/SleepEventModal/SleepBox/BtnKnockKeepClosed" to="." method="_on_btn_knock_keep_closed_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/VNDialogueLayer/VNDialogueBox/VNChoicesBox/BtnVNChoice1" to="." method="_on_btn_vn_choice_1_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/VNDialogueLayer/VNDialogueBox/VNChoicesBox/BtnVNChoice2" to="." method="_on_btn_vn_choice_2_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/VNDialogueLayer/VNDialogueBox/VNChoicesBox/BtnVNChoice3" to="." method="_on_btn_vn_choice_3_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/TitleScreenLayer/SignpostContainer/BtnTitlePlay" to="." method="_on_btn_title_play_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/TitleScreenLayer/SignpostContainer/BtnTitleOptions" to="." method="_on_btn_title_options_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/TitleScreenLayer/SignpostContainer/BtnTitleCredits" to="." method="_on_btn_title_options_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/TitleScreenLayer/SignpostContainer/BtnTitleQuit" to="." method="_on_btn_title_quit_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NameInputModal/NameBox/BtnConfirmStartVideo" to="." method="_on_btn_confirm_start_video_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NameInputModal/NameBox/BtnConfirmSkipVideo" to="." method="_on_btn_confirm_skip_video_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/NameInputModal/NameBox/BtnCancelName" to="." method="_on_btn_cancel_name_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/OptionsModal/BtnOptFullscreen" to="." method="_on_btn_opt_fullscreen_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/OptionsModal/BtnCloseOptions" to="." method="_on_btn_close_options_pressed"]
+[connection signal="finished" from="CanvasLayerUI/OpeningVideoLayer/NativeOgvPlayer" to="." method="_on_opening_video_finished"]
+[connection signal="pressed" from="CanvasLayerUI/OpeningVideoLayer/BtnSkipVideo" to="." method="_on_btn_skip_video_pressed"]

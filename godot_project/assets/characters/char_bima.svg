@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 290" width="140" height="290">
+  <!-- Stool -->
+  <rect x="25" y="200" width="90" height="16" rx="4" fill="#451a03" stroke="#1c1917" stroke-width="4"/>
+  <line x1="40" y1="216" x2="30" y2="280" stroke="#291002" stroke-width="8" stroke-linecap="round"/>
+  <line x1="100" y1="216" x2="110" y2="280" stroke="#291002" stroke-width="8" stroke-linecap="round"/>
+  <!-- Legs -->
+  <path d="M47,200 L43,265 M91,200 L97,265" stroke="#1e293b" stroke-width="18" stroke-linecap="round"/>
+  <rect x="25" y="260" width="30" height="16" rx="6" fill="#0f172a" stroke="#000" stroke-width="3"/>
+  <rect x="83" y="260" width="30" height="16" rx="6" fill="#0f172a" stroke="#000" stroke-width="3"/>
+  <!-- Bima Security Torso -->
+  <path d="M27,110 C27,90 113,90 113,110 L121,203 L19,203 Z" fill="#1e3a8a" stroke="#1c1917" stroke-width="4"/>
+  <text x="70" y="162" text-anchor="middle" fill="#fef08a" font-family="Impact, sans-serif" font-size="22">SEC</text>
+  <path d="M27,113 L10,173 L40,183" fill="none" stroke="#172554" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M113,113 L130,173 L100,183" fill="none" stroke="#172554" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Head & Security Beret -->
+  <circle cx="70" cy="53" r="42" fill="#fde68a" stroke="#1c1917" stroke-width="4"/>
+  <path d="M25,35 C27,9 63,5 113,21 L117,33 Q70,25 25,35 Z" fill="#1e3a8a" stroke="#0f172a" stroke-width="3.5"/>
+  <circle cx="83" cy="23" r="5" fill="#facc15" stroke="#0f172a" stroke-width="1.5"/>
+  <line x1="89" y1="63" x2="99" y2="73" stroke="#991b1b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="53" cy="53" r="7" fill="#ffffff" stroke="#1c1917" stroke-width="2.5"/>
+  <circle cx="87" cy="53" r="7" fill="#ffffff" stroke="#1c1917" stroke-width="2.5"/>
+  <circle cx="53" cy="53" r="3" fill="#1c1917"/>
+  <circle cx="87" cy="53" r="3" fill="#1c1917"/>
+  <path d="M57,74 Q70,81 83,74" fill="none" stroke="#1c1917" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
+

@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6b93a8"/>
+      <stop offset="55%" stop-color="#9ec2cf"/>
+      <stop offset="100%" stop-color="#cbe0d8"/>
+    </linearGradient>
+    <linearGradient id="lawnGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#849b3e"/>
+      <stop offset="100%" stop-color="#647829"/>
+    </linearGradient>
+    <linearGradient id="roadGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#333942"/>
+      <stop offset="100%" stop-color="#1e2229"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SKY -->
+  <rect width="1280" height="400" fill="url(#skyGrad)"/>
+
+  <!-- SOFT CLOUDS -->
+  <g fill="#e2efe9" opacity="0.65">
+    <ellipse cx="260" cy="110" rx="120" ry="26"/>
+    <ellipse cx="320" cy="100" rx="85" ry="22"/>
+    <ellipse cx="620" cy="85" rx="140" ry="24"/>
+    <ellipse cx="980" cy="120" rx="110" ry="20"/>
+  </g>
+
+  <!-- DISTANT WATER TOWER / SIREN TOWER (60s Vibe) -->
+  <g stroke="#2c302e" stroke-width="3" fill="none">
+    <line x1="490" y1="260" x2="504" y2="120"/>
+    <line x1="526" y1="260" x2="512" y2="120"/>
+    <line x1="495" y1="190" x2="521" y2="190"/>
+    <path d="M488 100 L528 100 L520 122 L496 122 Z" fill="#d4b13e"/>
+    <circle cx="508" cy="94" r="10" fill="#e0be42"/>
+  </g>
+
+  <!-- BACKGROUND HOUSES (LEFT & CENTER) -->
+  <g stroke="#23201d" stroke-width="2.5">
+    <!-- Far Left House -->
+    <rect x="0" y="230" width="160" height="110" fill="#b8bca6"/>
+    <polygon points="-10,230 85,175 175,230" fill="#a84a2b"/>
+    <rect x="25" y="255" width="42" height="36" fill="#7d9599"/>
+    <rect x="95" y="255" width="42" height="36" fill="#7d9599"/>
+
+    <!-- Mid Left House -->
+    <rect x="255" y="235" width="165" height="105" fill="#cfd6be"/>
+    <polygon points="245,235 280,185 430,235" fill="#c75c35"/>
+    <polygon points="245,235 280,185 315,235" fill="#9fb09e"/>
+    <rect x="330" y="265" width="38" height="34" fill="#89a1a6"/>
+    <rect x="280" y="275" width="24" height="55" fill="#d9dfc8"/>
+
+    <!-- Distant Center Diner / Store -->
+    <rect x="440" y="255" width="105" height="75" fill="#d8e0dc"/>
+    <rect x="435" y="242" width="115" height="16" fill="#8ca3ad"/>
+    <rect x="455" y="272" width="65" height="35" fill="#6b8a99"/>
+
+    <!-- Far Center House -->
+    <rect x="575" y="255" width="130" height="80" fill="#c8cfb4"/>
+    <polygon points="565,255 640,215 715,255" fill="#c75c35"/>
+  </g>
+
+  <!-- BACKGROUND ROAD -->
+  <polygon points="0,350 720,330 720,390 0,435" fill="#3a404a" stroke="#222" stroke-width="2"/>
+
+  <!-- MAIN GREEN LAWN / YARD -->
+  <polygon points="0,425 710,365 1280,385 1280,650 0,580" fill="url(#lawnGrad)" stroke="#2b3315" stroke-width="3"/>
+
+  <!-- APARTMENT 404 / MAIN BUILDING ON THE RIGHT -->
+  <g stroke="#24201c" stroke-width="3">
+    <!-- Main Wall -->
+    <rect x="690" y="95" width="520" height="365" fill="#c2cfc2"/>
+    <!-- Horizontal Siding Lines -->
+    <g stroke="#9eb09e" stroke-width="1.5">
+      <line x1="692" y1="130" x2="1208" y2="130"/>
+      <line x1="692" y1="165" x2="1208" y2="165"/>
+      <line x1="692" y1="200" x2="1208" y2="200"/>
+      <line x1="692" y1="235" x2="1208" y2="235"/>
+      <line x1="692" y1="270" x2="1208" y2="270"/>
+      <line x1="692" y1="305" x2="1208" y2="305"/>
+      <line x1="692" y1="340" x2="1208" y2="340"/>
+      <line x1="692" y1="375" x2="1208" y2="375"/>
+      <line x1="692" y1="410" x2="1208" y2="410"/>
+    </g>
+    <!-- Roof -->
+    <polygon points="670,100 740,0 1260,0 1230,100" fill="#c95b32"/>
+    <!-- Left Window with Shutters -->
+    <rect x="735" y="190" width="90" height="125" fill="#6b848c"/>
+    <rect x="742" y="255" width="76" height="54" fill="#b36a3e"/>
+    <line x1="780" y1="190" x2="780" y2="315" stroke="#dce6dc" stroke-width="4"/>
+    <line x1="735" y1="252" x2="825" y2="252" stroke="#dce6dc" stroke-width="4"/>
+    <rect x="705" y="190" width="26" height="125" fill="#b5c4b5"/>
+    <rect x="829" y="190" width="26" height="125" fill="#b5c4b5"/>
+
+    <!-- Front Door ("404" Badge) -->
+    <rect x="875" y="185" width="96" height="235" fill="#dce6c8"/>
+    <rect x="890" y="205" width="28" height="75" fill="#c5d1ad"/>
+    <rect x="928" y="205" width="28" height="75" fill="#c5d1ad"/>
+    <rect x="890" y="295" width="28" height="90" fill="#c5d1ad"/>
+    <rect x="928" y="295" width="28" height="90" fill="#c5d1ad"/>
+    <circle cx="886" cy="308" r="5" fill="#d4af37"/>
+    <!-- Room/Building Number 404 -->
+    <rect x="902" y="150" width="44" height="24" rx="4" fill="#1c1917"/>
+    <text x="924" y="168" fill="#facc15" font-family="Impact, sans-serif" font-size="16" text-anchor="middle">404</text>
+
+    <!-- Concrete Porch Step -->
+    <polygon points="845,420 995,420 1010,455 830,455" fill="#9ca89c"/>
+
+    <!-- Right Windows with Shutters -->
+    <rect x="1030" y="190" width="85" height="125" fill="#6b848c"/>
+    <rect x="1036" y="255" width="73" height="54" fill="#b36a3e"/>
+    <line x1="1072" y1="190" x2="1072" y2="315" stroke="#dce6dc" stroke-width="4"/>
+    <line x1="1030" y1="252" x2="1115" y2="252" stroke="#dce6dc" stroke-width="4"/>
+    <rect x="1002" y="190" width="24" height="125" fill="#b5c4b5"/>
+    <rect x="1119" y="190" width="24" height="125" fill="#b5c4b5"/>
+  </g>
+
+  <!-- STEPPING STONES & MAILBOX -->
+  <g stroke="#24201c" stroke-width="2.5">
+    <polygon points="790,465 845,465 855,480 780,480" fill="#d9d7b8"/>
+    <polygon points="710,485 770,485 780,502 700,502" fill="#d9d7b8"/>
+    <polygon points="620,508 685,508 695,526 610,526" fill="#d9d7b8"/>
+    <polygon points="525,532 595,532 605,552 515,552" fill="#d9d7b8"/>
+    <polygon points="425,556 500,556 510,578 415,578" fill="#d9d7b8"/>
+
+    <!-- Mailbox -->
+    <rect x="442" y="425" width="12" height="95" fill="#c79c5e"/>
+    <path d="M415 395 Q415 370 440 370 L485 375 Q500 378 500 400 L500 425 L415 425 Z" fill="#d6e8e0"/>
+    <polygon points="435,368 442,368 442,348 428,348 428,356 435,356" fill="#d93829"/>
+  </g>
+
+  <!-- RETRO BLUE CAR IN DRIVEWAY (Right Foreground) -->
+  <g stroke="#1f2426" stroke-width="3">
+    <!-- Shadow -->
+    <ellipse cx="950" cy="605" rx="220" ry="38" fill="#000000" opacity="0.35" stroke="none"/>
+    <!-- Car Body Lower -->
+    <path d="M720 480 L760 555 L1170 595 L1195 510 L1080 485 L720 480 Z" fill="#46a8c4"/>
+    <!-- Tail Fins -->
+    <path d="M710 450 L795 495 L1145 525 L1175 490 L860 465 Z" fill="#5bc0de"/>
+    <!-- Car Cabin / Roof (Cream) -->
+    <path d="M845 468 L890 405 L1085 412 L1135 488 Z" fill="#e8e2b5"/>
+    <!-- Windows -->
+    <polygon points="862,465 898,418 995,422 985,474" fill="#6b8f9e"/>
+    <polygon points="1008,423 1078,425 1118,482 1002,476" fill="#6b8f9e"/>
+    <!-- Rear Bumper & License Plate -->
+    <rect x="708" y="535" width="235" height="32" rx="8" fill="#ced9de"/>
+    <rect x="795" y="540" width="60" height="24" fill="#e6be3a"/>
+    <text x="825" y="557" fill="#1c1917" font-family="monospace" font-weight="bold" font-size="14" text-anchor="middle">RM-404</text>
+    <!-- Wheels -->
+    <circle cx="965" cy="585" r="34" fill="#222"/>
+    <circle cx="965" cy="585" r="18" fill="#cfd9de"/>
+    <circle cx="1145" cy="575" r="30" fill="#222"/>
+    <circle cx="1145" cy="575" r="15" fill="#cfd9de"/>
+  </g>
+
+  <!-- FOREGROUND SIDEWALK & DRAIN -->
+  <polygon points="0,545 1280,645 1280,720 0,720" fill="#b5bba8" stroke="#24201c" stroke-width="3"/>
+  <polygon points="0,575 680,720 0,720" fill="url(#roadGrad)" stroke="#24201c" stroke-width="3"/>
+
+  <!-- RED BICYCLE ON SIDEWALK -->
+  <g stroke="#24201c" stroke-width="3" fill="none">
+    <ellipse cx="485" cy="672" rx="42" ry="14" fill="#222"/>
+    <ellipse cx="485" cy="672" rx="26" ry="8" fill="#9aa396"/>
+    <ellipse cx="625" cy="685" rx="42" ry="14" fill="#222"/>
+    <ellipse cx="625" cy="685" rx="26" ry="8" fill="#9aa396"/>
+    <path d="M485 672 L535 635 L625 685 M535 635 L515 590 L495 585 M555 660 L585 635" stroke="#b83b28" stroke-width="6"/>
+  </g>
+
+  <!-- RIGHT UTILITY POLE & ELECTRICAL HAZARD BOX -->
+  <rect x="1195" y="0" width="44" height="720" fill="#6b4c2b" stroke="#24201c" stroke-width="3"/>
+  <rect x="1165" y="455" width="95" height="145" rx="4" fill="#6a7368" stroke="#24201c" stroke-width="3"/>
+  <polygon points="1212,495 1188,545 1236,545" fill="#b91c1c" stroke="#24201c" stroke-width="2.5"/>
+  <text x="1212" y="538" fill="#facc15" font-family="sans-serif" font-weight="bold" font-size="24" text-anchor="middle">⚡</text>
+
+  <!-- WOODEN SIGNPOST METAL POLES (LEFT SIDE - FOR MENU BUTTONS) -->
+  <rect x="68" y="340" width="12" height="225" fill="#5a635a" stroke="#1c1917" stroke-width="3"/>
+  <rect x="208" y="340" width="12" height="215" fill="#5a635a" stroke="#1c1917" stroke-width="3"/>
+</svg>

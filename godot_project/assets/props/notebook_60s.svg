@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" width="820" height="620">
+  <defs>
+    <linearGradient id="pageGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9b082"/>
+      <stop offset="12%" stop-color="#e5d1a7"/>
+      <stop offset="88%" stop-color="#dec89c"/>
+      <stop offset="100%" stop-color="#ccb385"/>
+    </linearGradient>
+    <linearGradient id="rollGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#dfd0ad"/>
+      <stop offset="45%" stop-color="#cbb68c"/>
+      <stop offset="85%" stop-color="#9c865e"/>
+      <stop offset="100%" stop-color="#6e5b3b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- TOP RED RIBBON BOOKMARK -->
+  <path d="M210 52 C220 15, 275 18, 290 52 Z" fill="#a82020" stroke="#1e1510" stroke-width="3.5"/>
+  <path d="M585 48 C620 10, 725 18, 795 30 L782 46 L798 58 C720 50, 645 36, 615 52 Z" fill="#b92525" stroke="#1e1510" stroke-width="3.5"/>
+
+  <!-- BOTTOM RED RIBBON BOOKMARK -->
+  <path d="M335 555 C365 608, 465 608, 495 550 L465 550 C445 582, 385 582, 365 555 Z" fill="#a82020" stroke="#1e1510" stroke-width="3.5"/>
+
+  <!-- TOP FAN OF PAGES (BEHIND MAIN PAGE) -->
+  <path d="M95 65 Q190 12 460 8 L458 48 L185 56 Z" fill="#d4bf94" stroke="#1e1510" stroke-width="3"/>
+  <path d="M110 68 Q210 24 458 22" fill="none" stroke="#1e1510" stroke-width="2"/>
+  <path d="M125 72 Q225 35 458 34" fill="none" stroke="#1e1510" stroke-width="2"/>
+
+  <!-- RIGHT SIDE INDEX TABS (4 TABS LIKE GAMBAR 1) -->
+  <!-- Tab 1: Tally Marks -->
+  <g>
+    <path d="M685 55 L765 62 L760 148 L685 148 Z" fill="#cbb58a" stroke="#1e1510" stroke-width="3.5"/>
+    <g stroke="#3d2f22" stroke-width="2.5">
+      <line x1="708" y1="82" x2="706" y2="122"/>
+      <line x1="718" y1="80" x2="716" y2="122"/>
+      <line x1="728" y1="80" x2="726" y2="122"/>
+      <line x1="738" y1="82" x2="736" y2="122"/>
+      <line x1="700" y1="115" x2="746" y2="86"/>
+    </g>
+  </g>
+
+  <!-- Tab 2: Soup Can -->
+  <g>
+    <path d="M685 152 L762 156 L760 242 L685 242 Z" fill="#d4be92" stroke="#1e1510" stroke-width="3.5"/>
+    <ellipse cx="724" cy="178" rx="18" ry="6" fill="none" stroke="#3d2f22" stroke-width="2.2"/>
+    <path d="M706 178 L706 218 C706 224, 742 224, 742 218 L742 178" fill="none" stroke="#3d2f22" stroke-width="2.2"/>
+    <text x="724" y="205" font-family="monospace" font-weight="bold" font-size="11" fill="#3d2f22" text-anchor="middle">SOUP</text>
+  </g>
+
+  <!-- Tab 3: Scribble / Corridor Action -->
+  <g>
+    <path d="M685 246 L760 250 L758 334 L685 334 Z" fill="#c7b083" stroke="#1e1510" stroke-width="3.5"/>
+    <path d="M702 312 L712 275 L720 310 L728 272 L736 312 L746 280" fill="none" stroke="#2b1e16" stroke-width="2.5"/>
+  </g>
+
+  <!-- Tab 4: Question Mark (?) -->
+  <g>
+    <path d="M685 338 L774 342 L766 435 L685 435 Z" fill="#e5d1a7" stroke="#1e1510" stroke-width="3.5"/>
+    <text x="728" y="405" font-family="Georgia, serif" font-weight="bold" font-size="52" fill="#5c4732" text-anchor="middle">?</text>
+  </g>
+
+  <!-- MAIN SOLID PAGE BODY (NON-TRANSPARENT PARCHMENT) -->
+  <path d="M195 48 L692 42 L678 552 L212 568 Z" fill="url(#pageGrad)" stroke="#1e1510" stroke-width="4"/>
+
+  <!-- TOP PAGE EDGE LINES -->
+  <line x1="200" y1="55" x2="685" y2="49" stroke="#1e1510" stroke-width="2"/>
+  <line x1="205" y1="61" x2="675" y2="55" stroke="#1e1510" stroke-width="1.5"/>
+
+  <!-- LEFT CURLED / ROLLED SPINE (LIKE GAMBAR 1) -->
+  <path d="M82 68 C82 95, 198 95, 198 68 L215 568 C215 588, 102 588, 98 562 Z" fill="url(#rollGrad)" stroke="#1e1510" stroke-width="4"/>
+  <!-- Top Spiral Curl of Left Spine -->
+  <path d="M82 68 C82 42, 185 42, 198 68 C198 88, 105 88, 105 68 C105 55, 172 55, 175 68" fill="#cbb68c" stroke="#1e1510" stroke-width="3.5"/>
+
+  <!-- SUBTLE PAPER TEXTURE / AGE MARKS -->
+  <circle cx="290" cy="480" r="28" fill="#c2a878" opacity="0.25"/>
+  <circle cx="590" cy="140" r="18" fill="#c2a878" opacity="0.2"/>
+  <line x1="218" y1="120" x2="218" y2="510" stroke="#8c734b" stroke-width="1.5" stroke-dasharray="12,8" opacity="0.6"/>
+</svg>

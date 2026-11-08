@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 620" width="460" height="620">
+  <defs>
+    <linearGradient id="suitGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e3c742"/>
+      <stop offset="60%" stop-color="#c9ab2c"/>
+      <stop offset="100%" stop-color="#9e821b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- HAZMAT BODY / TORSO -->
+  <path d="M85 620 L110 245 Q125 190 175 180 L290 180 Q340 190 355 245 L395 620 Z" fill="url(#suitGrad)" stroke="#1c1917" stroke-width="4.5"/>
+
+  <!-- ZIPPER & SUIT FOLDS -->
+  <line x1="232" y1="195" x2="225" y2="620" stroke="#6b5710" stroke-width="3"/>
+  <path d="M155 270 Q180 330 165 440" fill="none" stroke="#8c7316" stroke-width="3"/>
+  <path d="M310 260 Q285 340 300 450" fill="none" stroke="#8c7316" stroke-width="3"/>
+
+  <!-- DIRT / BLOOD SPLATTERS ON HAZMAT SUIT (LIKE GAMBAR 3) -->
+  <g fill="#7f1d1d" opacity="0.55">
+    <circle cx="155" cy="310" r="4"/>
+    <circle cx="168" cy="322" r="2.5"/>
+    <circle cx="145" cy="335" r="6"/>
+    <circle cx="130" cy="460" r="8"/>
+    <circle cx="148" cy="475" r="4"/>
+    <circle cx="280" cy="380" r="5"/>
+  </g>
+
+  <!-- HAZMAT HOOD -->
+  <path d="M155 185 Q145 55 232 45 Q315 55 305 185 Q232 215 155 185 Z" fill="url(#suitGrad)" stroke="#1c1917" stroke-width="4.5"/>
+
+  <!-- GAS MASK FACEPLATE (DARK GRAY/BLACK) -->
+  <path d="M175 100 Q232 82 288 100 L282 178 Q232 202 182 178 Z" fill="#27272a" stroke="#09090b" stroke-width="4"/>
+
+  <!-- GAS MASK GOGGLES (2 LARGE ROUND EYEPIECES) -->
+  <circle cx="204" cy="128" r="22" fill="#52525b" stroke="#09090b" stroke-width="4"/>
+  <circle cx="204" cy="128" r="15" fill="#18181b"/>
+  <circle cx="199" cy="123" r="4" fill="#a1a1aa" opacity="0.6"/>
+
+  <circle cx="260" cy="128" r="22" fill="#52525b" stroke="#09090b" stroke-width="4"/>
+  <circle cx="260" cy="128" r="15" fill="#18181b"/>
+  <circle cx="255" cy="123" r="4" fill="#a1a1aa" opacity="0.6"/>
+
+  <!-- SNOUT RESPIRATOR & SIDE FILTER CANISTER -->
+  <polygon points="215,152 249,152 256,192 208,192" fill="#18181b" stroke="#09090b" stroke-width="3.5"/>
+  <!-- Side Filter Canister -->
+  <g transform="rotate(24 285 175)">
+    <rect x="268" y="155" width="48" height="36" rx="6" fill="#18181b" stroke="#09090b" stroke-width="3.5"/>
+    <line x1="282" y1="155" x2="282" y2="191" stroke="#3f3f46" stroke-width="3"/>
+  </g>
+
+  <!-- SHOULDER STRAP & PLASTIC GROCERY BAG ("YOTTE MART" LIKE GAMBAR 3) -->
+  <path d="M295 205 L258 370" fill="none" stroke="#5c4028" stroke-width="14"/>
+  <path d="M255 345 L215 495 Q255 535 345 505 L315 345 Z" fill="#e7e5e4" stroke="#1c1917" stroke-width="3.5"/>
+  <text x="285" y="435" font-family="Impact, sans-serif" font-size="24" fill="#991b1b" text-anchor="middle" transform="rotate(-8 285 435)">404 MART</text>
+  <!-- Gloved Hand Holding Bag -->
+  <path d="M250 285 Q285 275 295 315 L268 350 L242 330 Z" fill="#18181b" stroke="#09090b" stroke-width="3.5"/>
+</svg>

@@ -1,0 +1,8 @@
+# Godot 4+ temporary cache directory
+.godot/
+godot_project/.godot/
+*.translation
+*.tmp
+
+# Ignore duplicate/old root MP4 files (active video is in godot_project/assets/video/scene_opening.mp4)
+/*.mp4
